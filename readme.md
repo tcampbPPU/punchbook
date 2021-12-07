@@ -81,3 +81,20 @@ run `yarn api` (alias for ./artisan serve) in another terminal for our laravel A
 `localhost:8000` will be api
 
 `localhost:3000` will be frontend
+
+
+### Extras
+
+Can either setup OAuth token with Google or Github and set the ID and secret
+
+<!-- For Google -->
+```
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+```
+
+<!-- For GitHub -->
+```
+GITHUB_CLIENT_ID=
+GITHUB_CLIENT_SECRET=
+```
