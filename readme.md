@@ -88,7 +88,7 @@ API is tested with PHPUnit can run
 
 ```
 composer test
-``
+```
 
 
 ### Extras
