@@ -1,0 +1,26 @@
+name: Deploy
+on:
+  push:
+    branches: [ staging, production ]
+jobs:
+  vapor:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install Vapor
+        run: composer global require laravel/vapor-cli
+      - name: Install Dependencies
+        run: composer install --prefer-dist --no-progress --no-suggest --no-interaction
+      - name: Deploy With vapor
+        run: /home/runner/.composer/vendor/bin/vapor deploy ${GITHUB_REF##*/} --commit="${GITHUB_SHA}" --message="${GITHUB_MESSAGE}"
+        env:
+          VAPOR_API_TOKEN: ${{ secrets.VAPOR_TOKEN }}
+  fume:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: fumeapp/action@master
+        with:
+          token: ${{ secrets.FUME_TOKEN }}
+          environment: ${GITHUB_REF##*/}
