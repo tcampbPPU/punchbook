@@ -14,7 +14,6 @@
         placeholder="John Doe"
         type="text"
         @keydown.esc="off"
-        @keydown.enter="attempt"
       >
     </div>
     <label class="mt-6 block text-sm font-medium leading-5 text-gray-700 dark:text-gray-500" for="phone">Phone</label>
@@ -31,7 +30,6 @@
         placeholder="123-456-7890"
         type="phone"
         @keydown.esc="off"
-        @keydown.enter="attempt"
       >
     </div>
     <label class="mt-6 block text-sm font-medium leading-5 text-gray-700 dark:text-gray-500" for="email">Email address</label>
@@ -48,7 +46,6 @@
         placeholder="email@address.com"
         type="email"
         @keydown.esc="off"
-        @keydown.enter="attempt"
       >
     </div>
     <div class="mt-6">
@@ -99,7 +96,6 @@ const loading = reactive({
 
 onMounted(() => {
   if (props.edit) {
-    console.log(props.contact)
     name.value = props.contact.name
     phone.value = props.contact.phone
     email.value = props.contact.email
