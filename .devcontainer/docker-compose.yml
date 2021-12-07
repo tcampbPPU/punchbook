@@ -1,0 +1,31 @@
+version: "3"
+
+x-environment: &default-environment
+  MYSQL_ROOT_PASSWORD: "password"
+  MYSQL_DATABSE: "punchbook"
+services:
+  mysql:
+    container_name: mysql_container_punchbook
+    image: mysql
+    restart: unless-stopped
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "password"
+      MYSQL_DATABASE: "punchbook"
+    volumes:
+      - mysql-data:/var/lib/mysql
+  app:
+    container_name: app_container_punchbook
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    environment:
+      <<: *default-environment
+      PORT: 3000
+    volumes:
+      - ..:/workspace
+    user: vscode
+    command: sleep infinity
+volumes:
+  mysql-data:

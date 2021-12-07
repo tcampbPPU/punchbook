@@ -1,0 +1,32 @@
+name: Test Nuxt Build
+on:
+  push:
+    branches-ignore:
+      - staging
+      - production
+    paths:
+      - '**.vue'
+      - '**.js'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        uses: actions/checkout@v2
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - uses: actions/cache@v1
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      -
+        name: 🔨 Install our dependencies
+        run: yarn
+      -
+        name: 👨‍💻️ Run a build
+        run: yarn build

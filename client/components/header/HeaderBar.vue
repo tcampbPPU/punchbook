@@ -1,0 +1,26 @@
+
+<template>
+  <header class="bg-white dark:bg-gray-800">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Top">
+      <div class="w-full py-3 flex items-center justify-between border-b border-indigo-500 lg:border-none">
+        <div class="flex items-center">
+          <div class="flex w-16 h-8">
+            <nuxt-link to="/" class="flex-shrink-0">
+              <img src="/punchlist.svg" alt="PunchBook" class="h-8">
+            </nuxt-link>
+          </div>
+        </div>
+        <div class="flex items-center justify-center space-x-4">
+          <header-search />
+          <header-dark-mode />
+          <header-profile />
+        </div>
+      </div>
+    </nav>
+  </header>
+</template>
+<script lang="ts" setup>
+import HeaderProfile from '~/components/header/HeaderProfile.vue'
+import HeaderSearch from '~/components/header/HeaderSearch.vue'
+import HeaderDarkMode from '~/components/header/HeaderDarkMode.vue'
+</script>
