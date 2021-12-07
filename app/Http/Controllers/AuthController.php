@@ -15,7 +15,7 @@ class AuthController extends Controller
 {
 
     private array $owners = [
-        // 'acidjazz@gmail.com',
+        // 'tcamp022@gmail.com',
     ];
 
     /**
