@@ -83,6 +83,14 @@ run `yarn api` (alias for ./artisan serve) in another terminal for our laravel A
 `localhost:3000` will be frontend
 
 
+## TESTS
+API is tested with PHPUnit can run 
+
+```
+composer test
+``
+
+
 ### Extras
 
 Can either setup OAuth token with Google or Github and set the ID and secret
