@@ -61,7 +61,7 @@ git clone git@github.com:tcampbPPU/punchbook.git; cd punchbook; yarn; composer i
 2. Open Command Paletter (F1) and select *Remote-Containers: Open Folder in Container...*
 3. Wait for all containers to start
 
-## Once product is setup:
+## Once Setup:
 
 After you have ran install for dependencies (`composer install` && `yarn`)
 
