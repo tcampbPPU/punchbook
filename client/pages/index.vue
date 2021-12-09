@@ -49,31 +49,37 @@ const modal = ref(false)
 const edit = ref(false)
 const editContact = ref<models.Contact|undefined>(undefined)
 
-const {
-  data: contacts,
-  refresh: refresh,
-}: {
-  data: Ref<api.MetApiResults & { data: models.Contacts[] }>
-  refresh: (force?: boolean) => Promise<void>
-} = useAsyncData(
-  'contacts',
-  () => $api.index<models.Contacts[]>('/contact', { perpage: perPage.value, page: currPage.value, search: searchStr.value }),
-  { server: false },
-)
+
+const contacts = ref<api.MetApiResults & { data: models.Contacts[] }|undefined>(undefined)
+
+const get = async () => contacts.value = (await $api.index<models.Contacts[]>('/contact', { perpage: perPage.value, page: currPage.value, search: searchStr.value }))
+
+get()
+// const {
+//   data: contacts,
+//   refresh: refresh,
+// }: {
+//   data: Ref<api.MetApiResults & { data: models.Contacts[] }>
+//   refresh: (force?: boolean) => Promise<void>
+// } = useAsyncData(
+//   'contacts',
+//   () => $api.index<models.Contacts[]>('/contact', { perpage: perPage.value, page: currPage.value, search: searchStr.value }),
+//   { server: false },
+// )
 
 watch(() => searchStr.value, () => {
-  refresh()
+  get()
 })
 
 const hydrate = ({page}: {page: number}) => {
   const values = { ...contacts.value.paginate.pages}
   const pages = Object.values(values)
   currPage.value = page
-  if (pages.includes(page)) refresh()
+  if (pages.includes(page)) get()
 }
 
 const onChanged = async () => {
-  await refresh()
+  await get()
   off()
 }
 

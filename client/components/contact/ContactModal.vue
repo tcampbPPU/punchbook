@@ -115,7 +115,7 @@ async function save (): Promise<void> {
 
 async function update (): Promise<void> {
   loading.attempt = true
-  const result = await $api.put(`/contact/${props.contact.id}`, {
+  const result = await $api.update(`/contact/${props.contact.id}`, {
     name: name.value,
     phone: phone.value,
     email: email.value,
