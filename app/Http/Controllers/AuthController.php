@@ -98,8 +98,7 @@ class AuthController extends Controller
                 ])
             ])
         )
-        ->cookie('token', auth()->token(), strtotime('+30 days'), '/', '', true, false)
-        ->cookie('auth.token', auth()->token(), strtotime('+30 days'), '/', config('app.web'), true, false);
+        ->cookie('token', auth()->token(), strtotime('+30 days'), '/', '', true, false);
     }
 
     /**
@@ -178,8 +177,7 @@ class AuthController extends Controller
             'user' => auth()->user(),
             'action' => $login->action,
         ])
-        ->cookie('token', auth()->token(), strtotime('+30 days'), '/', '', true, false)
-        ->cookie('auth.token', auth()->token(), strtotime('+30 days'), '/', config('app.web'), true, false);
+        ->cookie('token', auth()->token(), strtotime('+30 days'), '/', '', true, false);
     }
 
     /**
@@ -223,7 +221,6 @@ class AuthController extends Controller
         auth()->logout();
 
         return $this->success('auth.logout')
-            ->cookie('token', false, 0)
-            ->cookie('auth.token', false, 0);
+            ->cookie('token', false, 0);
     }
 }

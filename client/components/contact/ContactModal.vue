@@ -1,4 +1,5 @@
 <template>
+  <modal-base :destroyed="props.destroyed">
   <div class="bg-white dark:bg-gray-800 py-4 px-4 sm:px-10">
     <label class="block text-sm font-medium leading-5 text-gray-700 dark:text-gray-500" for="name">Name</label>
     <div class="mt-1 relative rounded-md shadow-sm">
@@ -65,12 +66,13 @@
       </span>
     </div>
   </div>
+  </modal-base>
 </template>
 
 <script lang="ts" setup>
 import { useNuxtApp } from '#app'
-import { PropType } from '@vue/runtime-core'
-import { PushButton } from 'tailvue'
+import { getCurrentInstance, onMounted, PropType } from '@vue/runtime-core'
+import { PushButton, ModalBase } from 'tailvue'
 import IconClient from '~/components/IconClient.vue'
 
 const emit = defineEmits(['off', 'change'])
@@ -85,6 +87,10 @@ const props = defineProps({
     required: false,
     default: undefined,
   },
+  destroyed: {
+    type: Function,
+    required: true,
+  },
 })
 const { $api } = useNuxtApp()
 const name = ref('')
@@ -94,13 +100,16 @@ const loading = reactive({
   attempt: false,
 } as Record<string, boolean>)
 
-onMounted(() => {
-  if (props.edit) {
-    name.value = props.contact.name
-    phone.value = props.contact.phone
-    email.value = props.contact.email
-  }
-})
+
+if (getCurrentInstance() && window) {
+  onMounted(() => {
+    if (props.edit) {
+      name.value = props.contact.name
+      phone.value = props.contact.phone
+      email.value = props.contact.email
+    }
+  })
+}
 
 async function save (): Promise<void> {
   loading.attempt = true

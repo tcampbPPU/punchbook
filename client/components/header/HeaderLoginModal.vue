@@ -1,4 +1,5 @@
 <template>
+  <modal-base :destroyed="props.destroyed">
   <div class="bg-white dark:bg-gray-800 py-4 px-4 sm:px-10">
     <img class="mx-auto h-12 w-auto pb-4" src="/punchlist-logo-dark-1.svg" alt="PunchBook">
     <div class="grid grid-cols-2 gap-3">
@@ -69,16 +70,17 @@
       </span>
     </div>
   </div>
+  </modal-base>
 </template>
 
 <script lang="ts" setup>
 import { useNuxtApp, useRuntimeConfig } from '#app'
-import { UserLogin } from '~/lib/api'
-import { useRouter } from 'vue-router'
-import { PushButton } from 'tailvue'
-import IconClient from '~/components/IconClient.vue'
 import { getCurrentInstance, onBeforeUnmount, onMounted } from '@vue/runtime-core'
 import { reactive, ref } from '@vue/reactivity'
+import { useRouter } from 'vue-router'
+import { PushButton, ModalBase } from 'tailvue'
+import { UserLogin } from '~/lib/api'
+import IconClient from '~/components/IconClient.vue'
 
 const config = useRuntimeConfig()
 const router = useRouter()
@@ -89,6 +91,13 @@ const loading = reactive({
   attempt: false,
   google: false,
 } as Record<string, boolean>)
+
+const props = defineProps({
+  destroyed: {
+    type: Function,
+    required: true,
+  },
+})
 
 if (getCurrentInstance() && window) {
   onMounted(() => messageHandler(true))

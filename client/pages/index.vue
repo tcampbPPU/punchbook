@@ -22,19 +22,18 @@
         :hydrate="hydrate"
       />
     </div>
-    <modal-base v-if="modal" :destroyed="off">
       <contact-modal
+        v-if="modal"
+        :destroyed="off"
         :edit="edit"
         :contact="editContact"
         @off="off"
         @change="onChanged"
       />
-    </modal-base>
   </div>
 </template>
 <script setup lang="ts">
-import { useAsyncData, useNuxtApp } from '#app'
-import { Ref } from '@vue/reactivity'
+import { useNuxtApp } from '#app'
 import { PushButton } from 'tailvue'
 import ContactCardSkeleton from '~/components/contact/ContactCardSkeleton.vue'
 import ContactCard from '~/components/contact/ContactCard.vue'
@@ -48,24 +47,11 @@ const currPage = ref(1)
 const modal = ref(false)
 const edit = ref(false)
 const editContact = ref<models.Contact|undefined>(undefined)
-
-
 const contacts = ref<api.MetApiResults & { data: models.Contacts[] }|undefined>(undefined)
 
 const get = async () => contacts.value = (await $api.index<models.Contacts[]>('/contact', { perpage: perPage.value, page: currPage.value, search: searchStr.value }))
 
 get()
-// const {
-//   data: contacts,
-//   refresh: refresh,
-// }: {
-//   data: Ref<api.MetApiResults & { data: models.Contacts[] }>
-//   refresh: (force?: boolean) => Promise<void>
-// } = useAsyncData(
-//   'contacts',
-//   () => $api.index<models.Contacts[]>('/contact', { perpage: perPage.value, page: currPage.value, search: searchStr.value }),
-//   { server: false },
-// )
 
 watch(() => searchStr.value, () => {
   get()

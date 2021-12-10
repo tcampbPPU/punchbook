@@ -47,7 +47,6 @@ export default class Api {
 
   async checkUser() {
     this.token.value = this.getToken()
-    console.log(this.token.value);
     if (this.token.value)  {
       this.loggedIn.value = true
       await this.setUser()
@@ -62,7 +61,6 @@ export default class Api {
   }
 
   private getToken(): string {
-    console.log(this.config.req)
     if (this.config.req) return useCookie(this.config.req, 'auth.token')
     return `; ${document.cookie}`.split(`; auth.token=`).pop().split(';').shift()
   }
