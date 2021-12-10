@@ -32,10 +32,15 @@
       </transition-scale-in>
     </client-only>
   </div>
-  <header-login-modal v-if="modal" :destroyed="off" @off="off" />
+  <header-login-modal
+    v-if="modal"
+    :destroyed="off"
+    @off="off"
+  />
 </template>
 
 <script lang="ts" setup>
+import { useNuxtApp } from '#app'
 import { onClickOutside } from '@vueuse/core'
 import { ref } from '@vue/reactivity'
 import { PushButton } from 'tailvue'
@@ -43,6 +48,7 @@ import HeaderLoginModal from '~/components/header/HeaderLoginModal.vue'
 import TransitionScaleIn from '~/components/transition/TransitionScaleIn.vue'
 import HeaderProfileMenu from '~/components/header/HeaderProfileMenu.vue'
 
+const { $api } = useNuxtApp()
 const modal = ref(false)
 const profile = ref(false)
 const target = ref(null)
