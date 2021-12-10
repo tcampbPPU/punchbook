@@ -97,7 +97,9 @@ class AuthController extends Controller
                     'provider' => $provider,
                 ])
             ])
-        )->cookie('token', auth()->token(), strtotime('+30 days'), '/', '', true, false);
+        )
+        ->cookie('token', auth()->token(), strtotime('+30 days'), '/', '', true, false)
+        ->cookie('auth.token', auth()->token(), strtotime('+30 days'), '/', config('app.web'), true, false);
     }
 
     /**
@@ -175,7 +177,9 @@ class AuthController extends Controller
             'token' => auth()->token(),
             'user' => auth()->user(),
             'action' => $login->action,
-        ])->cookie('token', auth()->token(), strtotime('+30 days'), '/', '', true, false);
+        ])
+        ->cookie('token', auth()->token(), strtotime('+30 days'), '/', '', true, false)
+        ->cookie('auth.token', auth()->token(), strtotime('+30 days'), '/', config('app.web'), true, false);
     }
 
     /**
@@ -217,6 +221,9 @@ class AuthController extends Controller
     public function logout(): Response|JsonResponse
     {
         auth()->logout();
-        return $this->success('auth.logout')->cookie('token', false, 0);
+
+        return $this->success('auth.logout')
+            ->cookie('token', false, 0)
+            ->cookie('auth.token', false, 0);
     }
 }
