@@ -1,6 +1,6 @@
 import { FetchError, FetchOptions, SearchParams } from 'ohmyfetch'
 import { reactive, ref } from '@vue/reactivity'
-import { IncomingMessage, ServerResponse } from 'http'
+import { IncomingMessage } from 'http'
 import { useCookie } from 'h3'
 import { TailvueToast } from 'tailvue'
 import { Router } from 'vue-router'
@@ -16,7 +16,6 @@ export interface UserLogin {
 export interface AuthConfig {
   fetchOptions: FetchOptions
   req?: IncomingMessage
-  res?: ServerResponse
   redirect: {
     logout: string
     login: undefined|string
@@ -26,7 +25,6 @@ export interface AuthConfig {
 const authConfigDefaults:AuthConfig = {
   fetchOptions: {},
   req: undefined,
-  res: undefined,
   redirect: {
     logout: '/',
     login: undefined,
@@ -36,6 +34,7 @@ const authConfigDefaults:AuthConfig = {
 export default class Api {
 
   private token = ref<string|undefined>(undefined)
+  private cookies:Cookies = new Cookies();
   public config: AuthConfig
   public $user = reactive<models.User|Record<string, unknown>>({})
   public $toast:TailvueToast
@@ -60,14 +59,13 @@ export default class Api {
     this.loggedIn.value = true
     this.token.value = result.token
     Object.assign(this.$user, result.user)
-    const cookies = new Cookies()
-    cookies.set('token', this.token.value, { path: '/', maxAge: 60*60*24*30 })
+    this.cookies.set('token', this.token.value, { path: '/', maxAge: 60*60*24*30 })
     return this.config.redirect.login
   }
 
   private getToken(): string {
     if (this.config.req) return useCookie(this.config.req, 'token')
-    return `; ${document.cookie}`.split(`; token=`).pop().split(';').shift()
+    return this.cookies.get('token')
   }
 
   private fetchOptions(params?: SearchParams, method = 'GET'): FetchOptions {
@@ -137,13 +135,14 @@ export default class Api {
   }
 
   private async toastError (error: FetchError): Promise<void> {
-    if (error.response?.data && error.response.data.errors)
+    if (error.response.data && error.response.data.errors)
       for (const err of error.response.data.errors)
         this.$toast.show({
           type: 'danger',
           message: err.detail ?? err.message ?? '',
           timeout: 0,
         })
+
     if (error.response?.status === 401)
       return await this.invalidate()
 
@@ -154,14 +153,13 @@ export default class Api {
         timeout: 0,
       })
 
-    if (error.response?.data.exception)
+    if (error.response.data.exception)
       this.$toast.show({
         type: 'danger',
         message: `<b>[${error.response.data.exception}]</b> <br /> ${error.response.data.message} <br /> <a href="phpstorm://open?file=/${error.response.data.file}&line=${error.response.data.line}">${error.response.data.file}:${error.response.data.line}</a>`,
         timeout: 0,
       })
   }
-
 
   public async logout (router: Router): Promise<void> {
     const response = (await $fetch<api.MetApiResults>('/logout', this.fetchOptions()))
@@ -173,7 +171,7 @@ export default class Api {
     this.token.value = undefined
     this.loggedIn.value = false
     Object.assign(this.$user, {})
-    if (!this.config.req) document.cookie = 'token=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    this.cookies.remove('token')
     if (router) await router.push(this.config.redirect.logout)
     else if (!this.config.req) document.location = this.config.redirect.logout
   }

@@ -16,7 +16,7 @@
     "seed": "./artisan migrate:fresh --seed",
     "db": "./artisan db"
   },
-  "dependencies":{
+  "dependencies": {
 
   },
   "devDependencies": {
@@ -26,8 +26,7 @@
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
     "@vue/eslint-config-typescript": "^9.1.0",
-    "@vue/test-utils": "^2.0.0-rc.17",
-    "@vueuse/core": "^7.0.0",
+    "@vueuse/nuxt": "^7.2.2",
     "dayjs": "^1.10.7",
     "eslint": "^8.3.0",
     "eslint-plugin-vue": "^8.1.1",
