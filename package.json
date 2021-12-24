@@ -33,7 +33,7 @@
     "eslint-plugin-vue": "^8.1.1",
     "husky": "^7.0.1",
     "lottie-web": "^5.8.1",
-    "nuxt-windicss": "^2.0.12",
+    "nuxt-windicss": "^2.2.1",
     "nuxt3": "^3.0.0-27294839.7e5e50b",
     "ts-jest": "^27.0.7"
   }
