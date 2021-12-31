@@ -663,10 +663,10 @@
     estree-walker "^2.0.1"
     picomatch "^2.2.2"
 
-"@tailvue/nuxt@^0.1.33":
-  version "0.1.46"
-  resolved "https://registry.yarnpkg.com/@tailvue/nuxt/-/nuxt-0.1.46.tgz#3811e9d0bb97a94c694a406b6d46f4c44ded406d"
-  integrity sha512-1vsaJaIYUFGODuVBdqEp0IIdfNndcLtG4AGwOGukmpTlFfUNjkIEvEfJePoYy3ezyED9lYi664f8Wpi0vuJhIg==
+"@tailvue/nuxt@^0.1.53":
+  version "0.1.53"
+  resolved "https://registry.yarnpkg.com/@tailvue/nuxt/-/nuxt-0.1.53.tgz#5d873b7f1e110907cb742e312eb93393c20659cc"
+  integrity sha512-xU3PRCAOqsG3k/NbLuy7VL5GZc4dj2icwsUEhs1qEtVFnW8YUi14a1+EIjR7HQonLL+E1+KbfeXnY9VzoED3pQ==
   dependencies:
     "@nuxt/kit-edge" "^3.0.0-27283410.c53b6a5"
     pathe "^0.2.0"
