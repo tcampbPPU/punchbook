@@ -26,7 +26,7 @@
     "@vue/eslint-config-typescript": "^9.1.0",
     "@vue/test-utils": "^2.0.0-rc.17",
     "@vueuse/core": "^7.0.0",
-    "dayjs": "^1.10.7",
+    "dayjs": "^1.11.0",
     "eslint": "^8.13.0",
     "eslint-plugin-vue": "^8.1.1",
     "husky": "^7.0.1",
