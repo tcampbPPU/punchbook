@@ -6,7 +6,7 @@ Application to create simple contacts with name, phone, email.
 ## Technologies
 
 ### API
-* PHP 8
+* PHP 8.1
 * Laravel 9
 ### Frontend
 * Nuxtjs 3

@@ -30,15 +30,15 @@ RUN apt-get -y update && apt-get -y upgrade \
     && apt-get -y install software-properties-common \
     && add-apt-repository ppa:ondrej/php \
     && apt-get -y update \
-    && apt-get -y install php8.0-gd php8.0-xml php8.0-soap php8.0-mbstring php8.0-mysql php8.0-pgsql php8.0-dev php8.0-zip php8.0-curl php8.0-xdebug
+    && apt-get -y install php8.1-gd php8.1-xml php8.1-soap php8.1-mbstring php8.1-mysql php8.1-pgsql php8.1-dev php8.1-zip php8.1-curl php8.1-xdebug
 
 # XDEBUG SETUP
-RUN echo "xdebug.mode = develop,debug" >> /etc/php/8.0/cli/conf.d/20-xdebug.ini \
-    && echo "xdebug.start_with_request = yes" >> /etc/php/8.0/cli/conf.d/20-xdebug.ini \
-    && echo "xdebug.client_host = localhost" >> /etc/php/8.0/cli/conf.d/20-xdebug.ini \
-    && echo "xdebug.discover_client_host=1" >> /etc/php/8.0/cli/conf.d/20-xdebug.ini \
-    && echo "xdebug.client_port = 9003" >> /etc/php/8.0/cli/conf.d/20-xdebug.ini \
-    && echo "xdebug.log = /var/log/xdebug.log" >> /etc/php/8.0/cli/conf.d/20-xdebug.ini
+RUN echo "xdebug.mode = develop,debug" >> /etc/php/8.1/cli/conf.d/20-xdebug.ini \
+    && echo "xdebug.start_with_request = yes" >> /etc/php/8.1/cli/conf.d/20-xdebug.ini \
+    && echo "xdebug.client_host = localhost" >> /etc/php/8.1/cli/conf.d/20-xdebug.ini \
+    && echo "xdebug.discover_client_host=1" >> /etc/php/8.1/cli/conf.d/20-xdebug.ini \
+    && echo "xdebug.client_port = 9003" >> /etc/php/8.1/cli/conf.d/20-xdebug.ini \
+    && echo "xdebug.log = /var/log/xdebug.log" >> /etc/php/8.1/cli/conf.d/20-xdebug.ini
 
 RUN touch /var/log/xdebug.log
 
@@ -55,7 +55,7 @@ RUN curl -sS https://getcomposer.org/installer -o composer-setup.php \
     && php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 
 # NODE / NVM
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.1/install.sh | bash
 RUN /bin/bash -c "source $NVM_DIR/nvm.sh && nvm install $NODE_VERSION"
 ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
 ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
