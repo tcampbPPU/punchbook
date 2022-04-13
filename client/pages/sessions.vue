@@ -11,7 +11,6 @@
 import { useNuxtApp } from '#app'
 import { useAuthMiddleware } from '~/composables/useAuthMiddleware'
 import SessionList from '~/components/session/SessionList.vue'
-import { onMounted } from '@vue/runtime-core'
 import { ref } from '@vue/reactivity'
 const { $api } = useNuxtApp()
 

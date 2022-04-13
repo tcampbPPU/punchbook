@@ -40,7 +40,7 @@
 <script setup lang="ts">
 import { useAsyncData, useNuxtApp } from '#app'
 import { Ref } from '@vue/reactivity'
-import { PushButton } from 'tailvue'
+import { PushButton, ModalBase } from 'tailvue'
 import ContactCardSkeleton from '~/components/contact/ContactCardSkeleton.vue'
 import ContactCard from '~/components/contact/ContactCard.vue'
 import GlobalPaginate from '~/components/shared/GlobalPaginate.vue'

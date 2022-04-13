@@ -154,12 +154,15 @@ export default class Api {
         timeout: 0,
       })
 
-    if (error.response._data.exception)
-      this.$toast.show({
-        type: 'danger',
-        message: `<b>[${error.response._data.exception}]</b> <br /> ${error.response._data.message} <br /> <a href="phpstorm://open?file=/${error.response._data.file}&line=${error.response._data.line}">${error.response._data.file}:${error.response._data.line}</a>`,
-        timeout: 0,
-      })
+    if (error.response._data.exception) {
+      const config = useRuntimeConfig()
+      if (config.public.env !== 'production')
+        this.$toast.show({
+          type: 'danger',
+          message: `<b>[${error.response._data.exception}]</b> <br /> ${error.response._data.message} <br /> <a href="phpstorm://open?file=/${error.response._data.file}&line=${error.response._data.line}">${error.response._data.file}:${error.response._data.line}</a>`,
+          timeout: 0,
+        })
+    }
   }
 
   public async logout (): Promise<api.MetApiResponse> {

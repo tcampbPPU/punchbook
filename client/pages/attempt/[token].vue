@@ -5,7 +5,6 @@
 </template>
 <script lang="ts" setup>
 import { useRoute, useRouter } from 'vue-router'
-import { getCurrentInstance, onMounted } from '@vue/runtime-core'
 const { $api, $utils } = useNuxtApp()
 const route = useRoute()
 const router = useRouter()
