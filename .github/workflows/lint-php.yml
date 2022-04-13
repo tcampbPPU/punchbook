@@ -4,6 +4,8 @@ on:
     branches-ignore:
       - staging
       - production
+    paths:
+      - '**.php'
 jobs:
   phpcs:
     runs-on: ubuntu-latest

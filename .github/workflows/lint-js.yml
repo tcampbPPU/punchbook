@@ -4,6 +4,11 @@ on:
     branches-ignore:
       - staging
       - production
+    paths:
+      - '**.js'
+      - '**.ts'
+      - '**.vue'
+      - '**.css'
 jobs:
   eslint:
     runs-on: ubuntu-latest
