@@ -8,15 +8,15 @@
 </template>
 
 <script lang="ts" setup>
-import { useNuxtApp } from '#app'
 import { useAuthMiddleware } from '~/composables/useAuthMiddleware'
 import SessionList from '~/components/session/SessionList.vue'
 import { ref } from '@vue/reactivity'
 const { $api } = useNuxtApp()
 
 useAuthMiddleware()
-const sessions = ref(undefined)
-const get = async () => sessions.value = (await $api.index<api.Sessions>('/session'))?.data
-onMounted(() => get())
+
+const sessions = ref<api.Sessions>(undefined)
+const get = async () => sessions.value = (await $api.index('/session')).data
+get()
 
 </script>

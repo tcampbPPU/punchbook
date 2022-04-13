@@ -33,7 +33,7 @@
 
 <script lang="ts" setup>
 import IconClient from '~/components/IconClient.vue'
-import { useNuxtApp } from '#app'
+
 const { $api, $modal, $toast } = useNuxtApp()
 
 const props = defineProps({

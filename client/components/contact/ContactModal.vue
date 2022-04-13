@@ -78,7 +78,6 @@
 </template>
 
 <script lang="ts" setup>
-import { useNuxtApp } from '#app'
 import { PropType } from '@vue/runtime-core'
 import { PushButton } from 'tailvue'
 import IconClient from '~/components/IconClient.vue'

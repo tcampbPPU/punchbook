@@ -82,7 +82,6 @@
 import { PushButton } from 'tailvue'
 import IconClient from '~/components/IconClient.vue'
 import { PropType } from '@vue/runtime-core'
-import { useNuxtApp } from '#app'
 import { computed } from '@vue/reactivity'
 const { $toast, $modal, $api } = useNuxtApp()
 const props = defineProps({

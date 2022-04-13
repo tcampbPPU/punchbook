@@ -72,7 +72,6 @@
 </template>
 
 <script lang="ts" setup>
-import { useNuxtApp, useRuntimeConfig } from '#app'
 import { UserLogin } from '~/lib/api'
 import { useRouter } from 'vue-router'
 import { PushButton } from 'tailvue'

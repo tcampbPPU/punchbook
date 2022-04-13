@@ -1,4 +1,3 @@
-import { defineNuxtPlugin, useNuxtApp, useRuntimeConfig } from '#app'
 import Api from '~/lib/api'
 
 export default defineNuxtPlugin((nuxtApp) => {

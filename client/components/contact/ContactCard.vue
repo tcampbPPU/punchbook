@@ -55,7 +55,6 @@
 </template>
 
 <script lang="ts" setup>
-import { useNuxtApp } from '#app'
 import { PropType } from '@vue/runtime-core'
 import IconClient from '~/components/IconClient.vue'
 

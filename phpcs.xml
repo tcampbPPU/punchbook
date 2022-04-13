@@ -10,6 +10,12 @@
   <rule ref="PSR12.Classes.ClassInstantiation.MissingParentheses">
     <exclude name="PSR12.Classes.ClassInstantiation.MissingParentheses" />
   </rule>
+  <rule ref="Generic.Files.LineLength">
+    <properties>
+      <property name="lineLimit" value="160"/>
+      <property name="absoluteLineLimit" value="180"/>
+    </properties>
+  </rule>
 
   <arg name="colors"/>
 

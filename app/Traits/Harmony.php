@@ -175,7 +175,7 @@ trait Harmony
      * @param bool $abort
      * @return Response|JsonResponse
      */
-    public function render(mixed $data = false, int $code = 200, bool $abort = false): Response | JsonResponse
+    public function render(mixed $data = false, int $code = 200, bool $abort = false): Response|JsonResponse
     {
         if (in_array($code, [Response::HTTP_BAD_REQUEST, Response::HTTP_FORBIDDEN, Response::HTTP_INTERNAL_SERVER_ERROR]) || count($this->errors) > 0) {
             $response['status'] = 'error';
@@ -204,7 +204,7 @@ trait Harmony
      * @param mixed $data
      * @return Response|JsonResponse
      */
-    public function success(string $message = 'Successful', array $replace = [], mixed $data = []): Response | JsonResponse
+    public function success(string $message = 'Successful', array $replace = [], mixed $data = []): Response|JsonResponse
     {
         return $this->render([
             'success' => true,
@@ -222,7 +222,7 @@ trait Harmony
      * @param mixed $data
      * @return Response|JsonResponse
      */
-    public function warn(string $message = 'Warning', array $replace = [], mixed $data = []): Response | JsonResponse
+    public function warn(string $message = 'Warning', array $replace = [], mixed $data = []): Response|JsonResponse
     {
         return $this->render([
             'success' => false,
@@ -241,7 +241,7 @@ trait Harmony
      * @param bool $source
      * @return Response|JsonResponse
      */
-    public function error(string $key, string|array|null $replace = null, int $status = Response::HTTP_BAD_REQUEST, bool $source = false): Response | JsonResponse
+    public function error(string $key, string|array|null $replace = null, int $status = Response::HTTP_BAD_REQUEST, bool $source = false): Response|JsonResponse
     {
         $translation = __($key, is_array($replace) ? $replace : []) ?? '';
 

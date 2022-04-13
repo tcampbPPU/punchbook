@@ -1,4 +1,3 @@
-import { useNuxtApp } from '#app'
 import { useRouter } from 'vue-router'
 import { watchEffect } from '@vue/runtime-core'
 
