@@ -42,12 +42,11 @@ git clone git@github.com:tcampbPPU/punchbook.git; cd punchbook; yarn; composer i
 ### Option 1 (Local)
 
 #### Requirements
-* PHP 8
+* PHP 8.1
 * Composer - version 2
 * Nodejs - version 16.11.0
 * Yarn
 * MySQL
-
 
 ### Option 2 (VS Code)
 
