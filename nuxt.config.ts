@@ -21,14 +21,14 @@ export default defineNuxtConfig({
     '@/assets/css/device.css',
   ],
 
-  /*
-  ** Auto import components
-  ** See https://nuxtjs.org/api/configuration-components
+ /**
+  * Auto import components
+  * @see https://nuxtjs.org/api/configuration-components
   */
   components: true,
 
-  /*
-  ** https://v3.nuxtjs.org/docs/directory-structure/nuxt.config#buildmodules
+ /**
+  * @see https://v3.nuxtjs.org/docs/directory-structure/nuxt.config#buildmodules
   */
   buildModules: [
     '@vueuse/core/nuxt',
@@ -36,8 +36,19 @@ export default defineNuxtConfig({
     '@tailvue/nuxt',
   ],
 
+  /**
+   * @see https://v3.nuxtjs.org/guide/features/runtime-config#exposing-runtime-config
+   */
   publicRuntimeConfig: {
     apiURL: process.env.API_URL || 'http://localhost:8000',
+  },
+
+  /**
+   * WindiCSS configuration
+   * @see https://github.com/windicss/nuxt-windicss
+   */
+   windicss: {
+    analyze: false,
   },
 
 })

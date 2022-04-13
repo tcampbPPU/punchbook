@@ -11,7 +11,7 @@
     "lint:js": "eslint --ext .ts,.js,.vue --ignore-path .gitignore .",
     "lint:action": "yarn lint:js -f @jamesacarr/github-actions",
     "style": "composer cs; yarn lint",
-    "test": "jest --config tests/js/jest.config.js",
+    "test": "vitest",
     "api": "./artisan serve",
     "seed": "./artisan migrate:fresh --seed",
     "db": "./artisan db"
@@ -24,16 +24,17 @@
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
     "@vue/eslint-config-typescript": "^10.0.0",
-    "@vue/test-utils": "^2.0.0-rc.17",
+    "@vue/test-utils": "^2.0.0-rc.20",
     "@vueuse/nuxt": "^7.2.2",
     "dayjs": "^1.10.7",
     "eslint": "^8.13.0",
     "eslint-plugin-vue": "^8.1.1",
     "husky": "^7.0.1",
+    "jsdom": "^19.0.0",
     "lottie-web": "^5.8.1",
     "nuxt-windicss": "^2.0.12",
     "nuxt3": "^3.0.0-27294839.7e5e50b",
-    "ts-jest": "^27.0.7",
-    "typescript": "^4.5.2"
+    "typescript": "^4.5.2",
+    "vitest": "^0.9.3"
   }
 }

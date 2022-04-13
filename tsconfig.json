@@ -3,9 +3,17 @@
   "compilerOptions": {
     "types": [
       "nuxt-windicss"
-    ]
+    ],
+    "paths": {
+      "~/*": [
+        "client/*"
+      ]
+    }
   },
   "vueCompilerOptions": {
     "experimentalCompatMode": 2
- },
+  },
+  "exclude": [
+    "node_modules"
+  ],
 }
