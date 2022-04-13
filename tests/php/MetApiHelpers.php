@@ -4,7 +4,6 @@ namespace Tests;
 
 trait MetApiHelpers
 {
-
     /**
      * Helper function to assert results from a MetApi render()
      * @param array $result
