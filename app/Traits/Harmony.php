@@ -183,7 +183,7 @@ trait Harmony
         } else {
             $response['status'] = 'success';
             $response = array_merge($response, $this->getMeta());
-            $response['query'] = $this->query;
+            $response['query'] = $this->normalizeQuery($this->query);
             $response['data'] = $data;
         }
 
@@ -276,6 +276,28 @@ trait Harmony
             get_class($value),
             ['Illuminate\Http\UploadedFile', 'Illuminate\Http\Testing\File']
         );
+    }
+
+    /**
+     * Normalize query metadata
+     *
+     * @param array $query
+     * @return array
+     */
+    private function normalizeQuery(array $query): array
+    {
+        $output = [];
+        $params = $query['params'] ?? [];
+        $options = [];
+
+        foreach ($query['options'] as $key => $value) {
+            $options[$key] = is_array($value) ? $value : explode('|', $value);
+        }
+
+        $output['options'] = $options;
+        $output['params'] = $params;
+
+        return $output;
     }
 
     /**

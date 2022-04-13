@@ -44,6 +44,7 @@
         <push-button
           v-for="(page, index) in pages"
           :key="index"
+          class="hidden md:inline"
           :state="!Number.isInteger(page) ? 'disabled' : 'active'"
           group="middle"
           @click="hydrate({page})"
