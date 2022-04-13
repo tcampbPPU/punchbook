@@ -130,6 +130,14 @@ export default class Api {
     }
   }
 
+  public async attempt (token: string | string[]): Promise<UserLogin> {
+    try {
+      return (await $fetch<api.MetApiResponse & { data: UserLogin }>('/login', this.fetchOptions({ token }, 'POST'))).data
+    } catch (error) {
+      await this.toastError(error)
+    }
+  }
+
   private toastError (error: FetchError): void {
     if (error.response.data && error.response.data.errors)
       for (const err of error.response.data.errors)

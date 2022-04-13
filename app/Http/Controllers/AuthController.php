@@ -13,7 +13,6 @@ use Laravel\Socialite\Facades\Socialite;
 
 class AuthController extends Controller
 {
-
     private array $owners = [
         // 'tcamp022@gmail.com',
     ];
