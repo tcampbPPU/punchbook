@@ -16,7 +16,7 @@
           type="search"
           @focus="focused = true"
           @blur="focused = false"
-        />
+        >
       </div>
     </div>
   </div>

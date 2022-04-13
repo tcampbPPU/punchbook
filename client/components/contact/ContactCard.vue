@@ -42,7 +42,6 @@
           <div class="-ml-px w-0 flex-1 flex">
             <a
               class="relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm leading-5 text-gray-700 dark:text-gray-200 font-medium border border-transparent rounded-br-lg transition ease-in-out duration-150 hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10"
-              href="#"
               :href="`tel:+${props.contact.phone}`"
             >
               <icon-client icon="mdi:phone" class="w-5 h-5 text-gray-400" />

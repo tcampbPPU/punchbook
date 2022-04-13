@@ -14,7 +14,12 @@
         <contact-card-skeleton v-for="i in 9" :key="`user-${i}`" />
       </ul>
       <ul v-else class="grid grid-cols-1 gap-6 bg-gray-100 dark:bg-gray-900 rounded p-8 w-full sm:grid-cols-2 lg:grid-cols-3">
-        <contact-card v-for="(contact, index) in contacts.data" :key="index" :contact="contact" @edit="onEdit" />
+        <contact-card
+          v-for="(contact, index) in contacts.data"
+          :key="index"
+          :contact="contact"
+          @edit="onEdit"
+        />
       </ul>
       <global-paginate
         v-if="!contacts || (contacts.paginate && contacts.paginate.total > 0)"

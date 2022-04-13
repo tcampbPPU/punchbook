@@ -50,13 +50,23 @@
     </div>
     <div class="mt-6">
       <span class="block w-full rounded-md shadow-sm">
-        <push-button v-if="edit" theme="indigo" class="w-full justify-center" @click="update">
+        <push-button
+          v-if="edit"
+          theme="indigo"
+          class="w-full justify-center"
+          @click="update"
+        >
           Update
           <div v-if="loading.attempt" class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
             <icon-client icon="gg:spinner-two" class="w-5 h-5 text-indigo-200 animate-spin" />
           </div>
         </push-button>
-        <push-button v-else theme="indigo" class="w-full justify-center" @click="save">
+        <push-button
+          v-else
+          theme="indigo"
+          class="w-full justify-center"
+          @click="save"
+        >
           Create
           <div v-if="loading.attempt" class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
             <icon-client icon="gg:spinner-two" class="w-5 h-5 text-indigo-200 animate-spin" />
