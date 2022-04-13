@@ -7,6 +7,7 @@ services:
   mysql:
     container_name: mysql_container_punchbook
     image: mysql
+    platform: linux/x86_64
     restart: unless-stopped
     ports:
       - "3306:3306"
@@ -22,10 +23,15 @@ services:
       dockerfile: .devcontainer/Dockerfile
     environment:
       <<: *default-environment
-      PORT: 3000
+      PORTS:
+        3000
+        8000
+        9003
     volumes:
       - ..:/workspace
     user: vscode
     command: sleep infinity
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 volumes:
   mysql-data:
