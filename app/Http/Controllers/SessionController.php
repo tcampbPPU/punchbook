@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use acidjazz\Humble\Models\Session;
+use App\Models\User;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
@@ -14,9 +15,12 @@ class SessionController extends Controller
      *
      * @return JsonResponse|Response
      */
-    public function index(): JsonResponse|Response
+    public function index(): JsonResponse | Response
     {
-        return $this->render(Session::whereBelongsTo(auth()->user())->get());
+        /** @var User $user */
+        $user = auth()->user();
+
+        return $this->render(Session::whereBelongsTo($user)->get());
     }
 
     /**
@@ -26,7 +30,7 @@ class SessionController extends Controller
      * @return JsonResponse|Response
      * @throws AuthorizationException
      */
-    public function destroy(Session $session): JsonResponse|Response
+    public function destroy(Session $session): JsonResponse | Response
     {
         $this->authorize('delete', $session);
 

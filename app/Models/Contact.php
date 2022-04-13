@@ -47,7 +47,8 @@ class Contact extends Model
      * @param string $comparison
      * @return void
      */
-    public function scopeFilter(Builder $query, array $filters, string $comparison = 'like'): void
+    // @phpstan-ignore-next-line
+    public function scopeFilter($query, array $filters, string $comparison = 'like'): void
     {
         $query->when($filters['search'] ?? null, fn($query, $search) =>
             $query->where('name', $comparison, "%{$search}%")

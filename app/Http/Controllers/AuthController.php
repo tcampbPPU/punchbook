@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Provider;
 use App\Models\User;
 use App\Notifications\LoginAttempt;
-use Google\Client;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -13,10 +12,6 @@ use Laravel\Socialite\Facades\Socialite;
 
 class AuthController extends Controller
 {
-    private array $owners = [
-        // 'tcamp022@gmail.com',
-    ];
-
     /**
      * Provider a redirect URL
      *
@@ -31,33 +26,14 @@ class AuthController extends Controller
         return Socialite::driver($provider)->stateless()->redirect();
     }
 
-    public function onetap(string $credential): Response|JsonResponse
-    {
-        $client = new Client(['client_id' => config('services.google.client_id')]);
-        $oaUser = (object)$client->verifyIdToken($credential);
-        if (!isset($oaUser->sub)) {
-            return $this->error('auth.provider-invalid');
-        }
-        $user = $this->oaHandle($oaUser, 'google');
-
-        /** @var User $user */
-        auth()->login($user, 'google');
-
-        return $this->render([
-            'token' => auth()->token(),
-            'user' => auth()->user(),
-        ]);
-    }
-
-
     /**
      * Callback hit by the provider to verify user
      *
      * @param string $provider
      * @param Request $request
-     * @return Response
+     * @return Response|JsonResponse
      */
-    public function callback(string $provider, Request $request): Response
+    public function callback(string $provider, Request $request): Response|JsonResponse
     {
         if (!in_array($provider, Provider::$allowed)) {
             return $this->error('auth.generic');
@@ -67,6 +43,7 @@ class AuthController extends Controller
 
         $user = $this->oaHandle($oaUser, $provider);
 
+        /** @var User $user */
         auth()->login($user, $provider);
 
         return $this->response($provider);
@@ -74,7 +51,7 @@ class AuthController extends Controller
 
     /**
      * Handle the login/creation process of a user
-     * @param $oaUser
+     * @param mixed $oaUser
      * @param string $provider
      * @return User
      */
@@ -119,7 +96,7 @@ class AuthController extends Controller
                     'provider' => $provider,
                 ])
             ])
-        );
+        )->cookie('token', auth()->token(), 60 * 24 * 30, '/', '', true, false);
     }
 
     /**
@@ -131,7 +108,7 @@ class AuthController extends Controller
      * @param array $payload
      * @return User
      */
-    private function createUser(string $provider, string $name, string $email, string $avatar, array $payload)
+    private function createUser(string $provider, string $name, string $email, string $avatar, array $payload): User
     {
         $user = User::create([
             'name' => $name,
@@ -145,13 +122,6 @@ class AuthController extends Controller
             'payload' => $payload,
         ]);
 
-        if (in_array($email, $this->owners)) {
-            $user->is_sub = true;
-            $user->save();
-        }
-
-        // app(StripeService::class, ['user' => $user])->user();
-
         return $user;
     }
 
@@ -159,9 +129,9 @@ class AuthController extends Controller
      * Login attempt via e-mail
      *
      * @param Request $request
-     * @return mixed
+     * @return Response|JsonResponse
      */
-    public function attempt(Request $request)
+    public function attempt(Request $request): Response|JsonResponse
     {
         $this
             ->option('email', 'required|email')
@@ -171,16 +141,16 @@ class AuthController extends Controller
         if (!$user = User::where('email', $request->email)->first()) {
             $user = $this->createUser(
                 'email',
-                explode('@', $request->email)[ 0 ],
+                explode('@', $request->email)[0],
                 $request->email,
                 'https://www.gravatar.com/avatar/' . md5($request->email),
                 []
             );
         }
 
-
         $attempt = auth()->attempt($user, json_decode($request->action));
         $user->notify(new LoginAttempt($attempt));
+
         return $this->success('auth.attempt');
     }
 
@@ -188,7 +158,7 @@ class AuthController extends Controller
      * Verify the link clicked in the e-mail
      *
      * @param Request $request
-     * @return mixed
+     * @return Response|JsonResponse
      */
     public function login(Request $request): Response|JsonResponse
     {
@@ -203,8 +173,8 @@ class AuthController extends Controller
         return $this->render([
             'token' => auth()->token(),
             'user' => auth()->user(),
-            'action' => $login->action,
-        ]);
+            'action' => $login->action, // @phpstan-ignore-line
+        ])->cookie('token', auth()->token(), 60 * 24 * 30, '/', '', true, false);
     }
 
     /**
@@ -219,21 +189,31 @@ class AuthController extends Controller
             ->option('providers', 'boolean')
             ->verify();
         if ($request->providers) {
-            return $this->render(User::whereId(auth()->user()->id)->with(['providers'])->first());
+            return $this->render(User::whereId(auth()->user()?->id)->with(['providers'])->first());
         }
-        auth()->user()->session->touch();
+        auth()->user()?->session->touch();
         return $this->render(auth()->user());
     }
 
+    /**
+     * Update user info
+     *
+     * @param Request $request
+     * @return Response|JsonResponse
+     */
     public function update(Request $request)
     {
         $this
             ->option('name', 'required|string')
             ->option('avatar', 'required|url')
             ->verify();
-        auth()->user()->name = $request->name;
-        auth()->user()->avatar = $request->avatar;
-        auth()->user()->save();
+
+        /** @var User $user */
+        $user = auth()->user();
+
+        $user->name ??= $request->name;
+        $user->avatar ??= $request->avatar;
+        $user->save();
 
         return $this->success('user.updated');
     }
@@ -241,11 +221,12 @@ class AuthController extends Controller
     /**
      * Log a user out
      *
-     * @return mixed
+     * @return Response|JsonResponse
      */
-    public function logout()
+    public function logout(): Response|JsonResponse
     {
         auth()->logout();
-        return $this->success('auth.logout');
+
+        return $this->success('auth.logout')->cookie('token', false, 0, '/', '', true, false);
     }
 }

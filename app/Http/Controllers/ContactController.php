@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -29,8 +30,8 @@ class ContactController extends Controller
             ->verify();
 
         return $this->render($this->paginate(
-            Contact
-                ::when($request->search, fn($q) => $q->filter($request->only('search')))
+            Contact::query()
+                ->when($request->search, fn($q) => $q->filter($request->only('search')))
                 ->when(
                     $request->order && $request->direction,
                     fn($q) => $q->orderBy($request->order, $request->direction)

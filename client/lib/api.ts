@@ -139,8 +139,8 @@ export default class Api {
   }
 
   private toastError (error: FetchError): void {
-    if (error.response.data && error.response.data.errors)
-      for (const err of error.response.data.errors)
+    if (error.response._data && error.response._data.errors)
+      for (const err of error.response._data.errors)
         this.$toast.show({
           type: 'danger',
           message: err.detail ?? err.message ?? '',
@@ -150,14 +150,14 @@ export default class Api {
     if (error.response?.status === 403)
       return this.$toast.show({
         type: 'denied',
-        message: error.response.data.message,
+        message: error.response._data.message,
         timeout: 0,
       })
 
-    if (error.response.data.exception)
+    if (error.response._data.exception)
       this.$toast.show({
         type: 'danger',
-        message: `<b>[${error.response.data.exception}]</b> <br /> ${error.response.data.message} <br /> <a href="phpstorm://open?file=/${error.response.data.file}&line=${error.response.data.line}">${error.response.data.file}:${error.response.data.line}</a>`,
+        message: `<b>[${error.response._data.exception}]</b> <br /> ${error.response._data.message} <br /> <a href="phpstorm://open?file=/${error.response._data.file}&line=${error.response._data.line}">${error.response._data.file}:${error.response._data.line}</a>`,
         timeout: 0,
       })
   }

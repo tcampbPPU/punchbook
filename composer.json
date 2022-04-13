@@ -26,6 +26,7 @@
     "fumeapp/modeltyper": "^1.0",
     "mockery/mockery": "^1.4.4",
     "nunomaduro/collision": "^6.1",
+    "nunomaduro/larastan": "^2.0",
     "phpunit/phpunit": "^9.5.10",
     "spatie/laravel-ignition": "^1.0",
     "spatie/laravel-ray": "^1.26",
@@ -77,6 +78,9 @@
     ],
     "cs-v": [
       "@php vendor/bin/phpcs -s"
+    ],
+    "stan": [
+      "vendor/bin/phpstan analyse"
     ]
   }
 }
