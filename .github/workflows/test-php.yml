@@ -31,6 +31,8 @@ jobs:
             ${{ runner.os }}-composer-
       - name: 🔨 Install Dependencies
         run: composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
+      - name: 🗃️ Migrate tables
+        run: php artisan migrate:fresh --env=testing
       - name: 🧪 Run phpunit
         run: vendor/bin/phpunit --color=always --testdox --coverage-text --coverage-html coverage/ -c tests/php/phpunit.xml
 
