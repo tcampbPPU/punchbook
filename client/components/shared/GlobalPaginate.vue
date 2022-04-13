@@ -38,10 +38,11 @@
           @click="hydrate({page: props.paginate.current_page - 1})"
         >
           <span class="sr-only">Paginate Table Left</span>
-          <icon-client icon="mdi:chevron-left" class="w-5 h-5 text-gray-400" />
+          <span v-html="previous" />
+          <!-- <icon-client icon="mdi:chevron-left" class="w-5 h-5 text-gray-400" /> -->
         </push-button>
         <push-button
-          v-for="(page, index) in props.paginate.pages"
+          v-for="(page, index) in pages"
           :key="index"
           :state="!Number.isInteger(page) ? 'disabled' : 'active'"
           group="middle"
@@ -57,7 +58,8 @@
           @click="hydrate({page: props.paginate.current_page + 1})"
         >
           <span class="sr-only">Paginate Table Right</span>
-          <icon-client icon="mdi:chevron-right" class="w-5 h-5 text-gray-400" />
+          <span v-html="next" />
+          <!-- <icon-client icon="mdi:chevron-right" class="w-5 h-5 text-gray-400" /> -->
         </push-button>
       </div>
     </div>
@@ -73,4 +75,17 @@ const props = defineProps({
       required: true,
     },
 })
+
+const previous = computed((): string => {
+  if (props.paginate && props.paginate.pages) return props.paginate.pages[0].toString()
+})
+
+const next = computed((): string => {
+  if (props.paginate && props.paginate.pages) return props.paginate.pages[props.paginate.pages.length - 1].toString()
+})
+
+const pages = computed((): string|number[] => {
+  if (props.paginate && props.paginate.pages) return props.paginate.pages.slice(1, -1)
+})
+
 </script>

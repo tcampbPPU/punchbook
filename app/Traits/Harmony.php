@@ -303,11 +303,12 @@ trait Harmony
 
         $pages = [];
 
+        $paginator->onEachSide(2);
+
         // @see https://github.com/jasongrimes/php-paginator/blob/master/src/JasonGrimes/Paginator.php#L197
         $paginator->linkCollection()
-            ->filter(fn ($page) => is_numeric($page['label']))
             ->each(function ($page) use (&$pages) {
-                array_push($pages, (int) $page['label']);
+                array_push($pages, is_numeric($page['label']) ? (int) $page['label'] : $page['label']);
             });
 
         $this->addMeta('paginate', [
