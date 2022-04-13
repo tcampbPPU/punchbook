@@ -303,6 +303,7 @@ trait Harmony
 
         $pages = [];
 
+        // @see https://github.com/jasongrimes/php-paginator/blob/master/src/JasonGrimes/Paginator.php#L197
         $paginator->linkCollection()
             ->filter(fn ($page) => is_numeric($page['label']))
             ->each(function ($page) use (&$pages) {
