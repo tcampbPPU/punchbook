@@ -7,12 +7,12 @@ use App\Models\User;
 use Database\Seeders\ContactSeeder;
 use Illuminate\Support\Str;
 use Illuminate\Testing\Fluent\AssertableJson;
-use Tests\MetApiHelpers;
+use Tests\HarmonyApiHelpers;
 use Tests\TestCase;
 
 class ContactControllerTest extends TestCase
 {
-    use MetApiHelpers;
+    use HarmonyApiHelpers;
 
     private static bool $populated = false;
     private static User $admin;

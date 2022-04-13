@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5ff8f4a1eca3f92f5b49d3c6ec1e47c2",
+    "content-hash": "fd2f3277f534bea353f562ead45024ca",
     "packages": [
         {
             "name": "acidjazz/humble",
@@ -65,68 +65,6 @@
                 "source": "https://github.com/acidjazz/humble/tree/v2.1.4"
             },
             "time": "2022-02-09T13:06:06+00:00"
-        },
-        {
-            "name": "acidjazz/metapi",
-            "version": "v2.1.7",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/acidjazz/metapi.git",
-                "reference": "b6bc14bc2db914ed4182e8d7dfd448f051469995"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/acidjazz/metapi/zipball/b6bc14bc2db914ed4182e8d7dfd448f051469995",
-                "reference": "b6bc14bc2db914ed4182e8d7dfd448f051469995",
-                "shasum": ""
-            },
-            "require": {
-                "ext-json": "*",
-                "illuminate/support": "7.* || 8.* || 9.*",
-                "jasongrimes/paginator": "^1.0",
-                "php": "^8.0|^8.1"
-            },
-            "require-dev": {
-                "mockery/mockery": "^1.3",
-                "orchestra/testbench": "^5.2",
-                "phpunit/phpunit": "^9.5.10"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "acidjazz\\metapi\\ServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "acidjazz\\metapi\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Kevin Olson",
-                    "email": "acidjazz@gmail.com"
-                }
-            ],
-            "description": "Laravel API helpers",
-            "homepage": "https://github.com/acidjazz/metapi",
-            "keywords": [
-                "api",
-                "laravel",
-                "pagination",
-                "php"
-            ],
-            "support": {
-                "issues": "https://github.com/acidjazz/metapi/issues",
-                "source": "https://github.com/acidjazz/metapi/tree/v2.1.7"
-            },
-            "time": "2022-02-09T13:01:17+00:00"
         },
         {
             "name": "asm89/stack-cors",
@@ -2113,66 +2051,17 @@
             "time": "2021-12-07T10:10:20+00:00"
         },
         {
-            "name": "jasongrimes/paginator",
-            "version": "1.0.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/jasongrimes/php-paginator.git",
-                "reference": "3411e3cd0c6479a0b514f26e4358f0273552f221"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/jasongrimes/php-paginator/zipball/3411e3cd0c6479a0b514f26e4358f0273552f221",
-                "reference": "3411e3cd0c6479a0b514f26e4358f0273552f221",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.2"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "JasonGrimes": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jason Grimes",
-                    "email": "jason@grimesit.com"
-                }
-            ],
-            "description": "A lightweight PHP paginator, for generating pagination controls in the style of Stack Overflow and Flickr. The 'first' and 'last' page links are shown inline as page numbers, and excess page numbers are replaced by ellipses.",
-            "homepage": "http://github.com/jasongrimes/php-paginator",
-            "keywords": [
-                "pager",
-                "pagination",
-                "paginator"
-            ],
-            "support": {
-                "issues": "https://github.com/jasongrimes/php-paginator/issues",
-                "source": "https://github.com/jasongrimes/php-paginator/tree/master"
-            },
-            "time": "2018-07-11T18:11:49+00:00"
-        },
-        {
             "name": "justinrainbow/json-schema",
-            "version": "5.2.11",
+            "version": "5.2.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/justinrainbow/json-schema.git",
-                "reference": "2ab6744b7296ded80f8cc4f9509abbff393399aa"
+                "reference": "ad87d5a5ca981228e0e205c2bc7dfb8e24559b60"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/2ab6744b7296ded80f8cc4f9509abbff393399aa",
-                "reference": "2ab6744b7296ded80f8cc4f9509abbff393399aa",
+                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/ad87d5a5ca981228e0e205c2bc7dfb8e24559b60",
+                "reference": "ad87d5a5ca981228e0e205c2bc7dfb8e24559b60",
                 "shasum": ""
             },
             "require": {
@@ -2227,9 +2116,9 @@
             ],
             "support": {
                 "issues": "https://github.com/justinrainbow/json-schema/issues",
-                "source": "https://github.com/justinrainbow/json-schema/tree/5.2.11"
+                "source": "https://github.com/justinrainbow/json-schema/tree/5.2.12"
             },
-            "time": "2021-07-22T09:24:00+00:00"
+            "time": "2022-04-13T08:02:27+00:00"
         },
         {
             "name": "laravel/framework",
@@ -10775,16 +10664,16 @@
         },
         {
             "name": "spatie/laravel-ignition",
-            "version": "1.2.0",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-ignition.git",
-                "reference": "2b54c8c66f2d280f25e15064ebe3d5e3eda19820"
+                "reference": "9ad1d32acf8c855d711964bc19092b0bc9792273"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-ignition/zipball/2b54c8c66f2d280f25e15064ebe3d5e3eda19820",
-                "reference": "2b54c8c66f2d280f25e15064ebe3d5e3eda19820",
+                "url": "https://api.github.com/repos/spatie/laravel-ignition/zipball/9ad1d32acf8c855d711964bc19092b0bc9792273",
+                "reference": "9ad1d32acf8c855d711964bc19092b0bc9792273",
                 "shasum": ""
             },
             "require": {
@@ -10861,7 +10750,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-04-01T21:01:58+00:00"
+            "time": "2022-04-13T08:06:05+00:00"
         },
         {
             "name": "spatie/laravel-ray",

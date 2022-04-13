@@ -2,7 +2,7 @@
 
 namespace Tests;
 
-trait MetApiHelpers
+trait HarmonyApiHelpers
 {
     /**
      * Helper function to assert results from a MetApi render()
