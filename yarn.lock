@@ -912,7 +912,7 @@
   resolved "https://registry.yarnpkg.com/@vue/test-utils/-/test-utils-2.0.0-rc.20.tgz#1fff871d6ad1b6154e02e3e9f2462ec258cb5459"
   integrity sha512-aSkOAzM/ZlIyYgN7yj661FTjhFZZy5i9+FUbbDNoMGYA4F1WKwDdcDCPj9B/qzt3wGFkuCP5PO6SBtdSTMEhIA==
 
-"@vueuse/core@^7.0.0":
+"@vueuse/core@7.7.1":
   version "7.7.1"
   resolved "https://registry.yarnpkg.com/@vueuse/core/-/core-7.7.1.tgz#fc284f4103de73c7fb79bc06579d8066790db511"
   integrity sha512-PRRgbATMpoeUmkCEBtUeJgOwtew8s+4UsEd+Pm7MhkjL2ihCNrSqxNVtM6NFE4uP2sWnkGcZpCjPuNSxowJ1Ow==
@@ -924,6 +924,16 @@
   version "0.7.5"
   resolved "https://registry.yarnpkg.com/@vueuse/head/-/head-0.7.5.tgz#0284e3dc53ea6709196956bf25115eea863a847a"
   integrity sha512-L+XQ5Act0nT/ZyO8Qo10J4FyM1qPOyQb6MT4MMn6+AITzrStpmKs/nUDDLJKD/rCcNWl/65XbdQm4T2vKp3VOQ==
+
+"@vueuse/nuxt@^7.2.2":
+  version "7.7.1"
+  resolved "https://registry.yarnpkg.com/@vueuse/nuxt/-/nuxt-7.7.1.tgz#bc186b89710aad4f98431fba51510747b6d885f3"
+  integrity sha512-seecM+ntL2Hqq/o6ttBmzzayXE0OqDgIKmhd9mbY56AJiFnavh4NsJxkRwv3m+0whWG8rZVt3k1xlyiRLZ3WUA==
+  dependencies:
+    "@nuxt/kit" "npm:@nuxt/kit-edge@latest"
+    "@vueuse/core" "7.7.1"
+    local-pkg "^0.4.1"
+    vue-demi "*"
 
 "@vueuse/shared@7.7.1":
   version "7.7.1"
