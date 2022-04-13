@@ -54,10 +54,10 @@ class ContactController extends Controller
      *
      * @param  Request  $request
      * @return JsonResponse|Response
+     * @throws AuthorizationException
      */
     public function store(Request $request): JsonResponse | Response
     {
-        // ray($request);
         $this->authorize('create', Contact::class);
 
         $this
@@ -99,6 +99,7 @@ class ContactController extends Controller
      * @param  Request  $request
      * @param  Contact $contact
      * @return JsonResponse|Response
+     * @throws AuthorizationException
      */
     public function update(Request $request, Contact $contact): JsonResponse | Response
     {
@@ -133,6 +134,7 @@ class ContactController extends Controller
      *
      * @param  Contact $contact
      * @return JsonResponse|Response
+     * @throws AuthorizationException
      */
     public function destroy(Contact $contact): JsonResponse | Response
     {

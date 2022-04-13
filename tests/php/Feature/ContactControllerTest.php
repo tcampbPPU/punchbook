@@ -225,10 +225,10 @@ class ContactControllerTest extends TestCase
     public function testCannotStoreContactWithoutAuth()
     {
         $this->json('post', '/contact')
-            ->assertStatus(403)
+            ->assertStatus(401)
             ->assertJsonFragment(
                 [
-                    'message' => 'This action is unauthorized.',
+                    'message' => 'Unauthenticated.',
                 ]
             );
     }
@@ -241,10 +241,10 @@ class ContactControllerTest extends TestCase
         $contact = Contact::inRandomOrder()->first();
 
         $this->json('put', "/contact/{$contact->id}")
-            ->assertStatus(403)
+            ->assertStatus(401)
             ->assertJsonFragment(
                 [
-                    'message' => 'This action is unauthorized.',
+                    'message' => 'Unauthenticated.',
                 ]
             );
     }
@@ -257,10 +257,10 @@ class ContactControllerTest extends TestCase
         $contact = Contact::inRandomOrder()->first();
 
         $this->json('delete', "/contact/{$contact->id}")
-            ->assertStatus(403)
+            ->assertStatus(401)
             ->assertJsonFragment(
                 [
-                    'message' => 'This action is unauthorized.',
+                    'message' => 'Unauthenticated.',
                 ]
             );
     }
