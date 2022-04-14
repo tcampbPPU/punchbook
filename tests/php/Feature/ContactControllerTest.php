@@ -2,8 +2,7 @@
 
 namespace Tests\Feature;
 
-use App\Models\Contact;
-use App\Models\User;
+use App\Models\{Contact, User};
 use Database\Seeders\ContactSeeder;
 use Illuminate\Support\Str;
 use Illuminate\Testing\Fluent\AssertableJson;

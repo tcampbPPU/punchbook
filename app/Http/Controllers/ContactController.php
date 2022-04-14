@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Contact;
 use Illuminate\Auth\Access\AuthorizationException;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
+use Illuminate\Http\{JsonResponse, Request, Response};
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 

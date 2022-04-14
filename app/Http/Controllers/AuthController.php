@@ -5,9 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Provider;
 use App\Models\User;
 use App\Notifications\LoginAttempt;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
+use Illuminate\Http\{JsonResponse, Request, Response};
 use Laravel\Socialite\Facades\Socialite;
 
 class AuthController extends Controller

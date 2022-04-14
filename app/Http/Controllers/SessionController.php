@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use acidjazz\Humble\Models\Session;
 use App\Models\User;
 use Illuminate\Auth\Access\AuthorizationException;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Response;
+use Illuminate\Http\{JsonResponse, Response};
 
 class SessionController extends Controller
 {
