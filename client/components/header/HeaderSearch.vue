@@ -9,11 +9,11 @@
         <input
           id="search"
           ref="searchInput"
-          v-model="searchStr"
           name="search"
           class="placeholder-opacity-0 md:placeholder-opacity-100 block w-full pl-10 pr-3 py-2 border border-transparent rounded-md leading-5 bg-brand-navy-200 bg-opacity-50 shadow-inner dark:bg-gray-600 text-gray-300 dark:text-white placeholder-gray-300 focus:placeholder-gray-400 focus:outline-none focus:bg-white focus:border-white focus:ring-white focus:text-gray-900 dark:focus:bg-gray-600 dark:focus:bg-gray-600 dark:focus:ring-gray-600 dark:focus:text-gray-100 sm:text-sm"
           placeholder="Search Contact"
           type="search"
+          @input="onInputChange"
           @focus="focused = true"
           @blur="focused = false"
         >
@@ -23,6 +23,10 @@
 </template>
 <script lang="ts" setup>
 import { useSearch } from '~/composables/useSearch'
+const { $utils } = useNuxtApp()
 const searchStr = useSearch()
 const focused = ref(false)
+const onInputChange = $utils.debounce((e: { target: { value: string } }): void => {
+  searchStr.value = e.target.value
+}, 300)
 </script>
