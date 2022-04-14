@@ -45,6 +45,7 @@ import HeaderLoginModal from '~/components/header/HeaderLoginModal.vue'
 import TransitionScaleIn from '~/components/transition/TransitionScaleIn.vue'
 import HeaderProfileMenu from '~/components/header/HeaderProfileMenu.vue'
 
+const { $api } = useNuxtApp()
 const modal = ref(false)
 const profile = ref(false)
 const target = ref(null)
