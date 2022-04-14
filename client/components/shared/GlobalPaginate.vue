@@ -4,18 +4,18 @@
       v-if="!props.paginate"
       class="flex items-center justify-around lg:justify-between"
     >
-      <p class="skeleton w-24"> &nbsp; </p>
-      <div class="inline-flex shadow-sm rounded">
-        <push-button><span class="skeleton w-4"> &nbsp; </span></push-button>
-        <push-button><span class="skeleton w-4"> &nbsp; </span></push-button>
-        <push-button><span class="skeleton w-4"> &nbsp; </span></push-button>
+      <p class="w-24 skeleton"> &nbsp; </p>
+      <div class="inline-flex rounded shadow-sm">
+        <push-button><span class="w-4 skeleton"> &nbsp; </span></push-button>
+        <push-button><span class="w-4 skeleton"> &nbsp; </span></push-button>
+        <push-button><span class="w-4 skeleton"> &nbsp; </span></push-button>
       </div>
     </div>
     <div
       v-else
       class="flex items-center justify-around lg:justify-between"
     >
-      <p class="text-sm leading-5 text-gray-700 hidden lg:block py-2 pl-1">
+      <p class="hidden py-2 pl-1 text-sm leading-5 text-gray-700 lg:block">
         Showing
         <span class="font-medium">
           {{ props.paginate.first_item }}

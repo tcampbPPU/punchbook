@@ -1,8 +1,8 @@
 <template>
   <div class="mt-12">
-    <h1 class="text-center mb-4"> This page is behind auth middleware </h1>
+    <h1 class="mb-4 text-center"> This page is behind auth middleware </h1>
     <span>$auth.user</span>
-    <pre class="text-xs border p-4 bg-gray-900 text-gray-100 rounded-lg mb-4"> {{ $auth.user }} </pre>
+    <pre class="p-4 mb-4 text-xs text-gray-100 bg-gray-900 border rounded-lg"> {{ $auth.user }} </pre>
     <div class="flex justify-center">
       <router-link to="/">
         <push-button> Go to Index </push-button>

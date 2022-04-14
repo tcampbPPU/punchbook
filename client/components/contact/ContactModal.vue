@@ -1,47 +1,47 @@
 <template>
-  <div class="bg-white dark:bg-gray-800 py-4 px-4 sm:px-10">
+  <div class="px-4 py-4 bg-white dark:bg-gray-800 sm:px-10">
     <label class="block text-sm font-medium leading-5 text-gray-700 dark:text-gray-500" for="name">Name</label>
-    <div class="mt-1 relative rounded-md shadow-sm">
-      <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+    <div class="relative mt-1 rounded-md shadow-sm">
+      <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
         <icon-client icon="mdi:user" class="w-5 h-5 text-gray-400" />
       </div>
       <input
         id="name"
         ref="input"
         v-model="name"
-        class="form-input appearance-none block dark:bg-gray-600 dark:text-gray-200 w-full px-3 py-2 pl-10 border border-gray-300 dark:border-gray-500 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+        class="block w-full px-3 py-2 pl-10 placeholder-gray-400 transition duration-150 ease-in-out border border-gray-300 rounded-md appearance-none form-input dark:bg-gray-600 dark:text-gray-200 dark:border-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
         :readonly="loading.attempt"
         placeholder="John Doe"
         type="text"
         @keydown.esc="off"
       >
     </div>
-    <label class="mt-6 block text-sm font-medium leading-5 text-gray-700 dark:text-gray-500" for="phone">Phone</label>
-    <div class="mt-1 relative rounded-md shadow-sm">
-      <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+    <label class="block mt-6 text-sm font-medium leading-5 text-gray-700 dark:text-gray-500" for="phone">Phone</label>
+    <div class="relative mt-1 rounded-md shadow-sm">
+      <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
         <icon-client icon="mdi:phone" class="w-5 h-5 text-gray-400" />
       </div>
       <input
         id="phone"
         ref="input"
         v-model="phone"
-        class="form-input appearance-none block dark:bg-gray-600 dark:text-gray-200 w-full px-3 py-2 pl-10 border border-gray-300 dark:border-gray-500 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+        class="block w-full px-3 py-2 pl-10 placeholder-gray-400 transition duration-150 ease-in-out border border-gray-300 rounded-md appearance-none form-input dark:bg-gray-600 dark:text-gray-200 dark:border-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
         :readonly="loading.attempt"
         placeholder="123-456-7890"
         type="phone"
         @keydown.esc="off"
       >
     </div>
-    <label class="mt-6 block text-sm font-medium leading-5 text-gray-700 dark:text-gray-500" for="email">Email address</label>
-    <div class="mt-1 relative rounded-md shadow-sm">
-      <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+    <label class="block mt-6 text-sm font-medium leading-5 text-gray-700 dark:text-gray-500" for="email">Email address</label>
+    <div class="relative mt-1 rounded-md shadow-sm">
+      <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
         <icon-client icon="mdi:envelope" class="w-5 h-5 text-gray-400" />
       </div>
       <input
         id="email"
         ref="input"
         v-model="email"
-        class="form-input appearance-none block dark:bg-gray-600 dark:text-gray-200 w-full px-3 py-2 pl-10 border border-gray-300 dark:border-gray-500 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+        class="block w-full px-3 py-2 pl-10 placeholder-gray-400 transition duration-150 ease-in-out border border-gray-300 rounded-md appearance-none form-input dark:bg-gray-600 dark:text-gray-200 dark:border-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
         :readonly="loading.attempt"
         placeholder="email@address.com"
         type="email"
@@ -53,22 +53,22 @@
         <push-button
           v-if="edit"
           theme="indigo"
-          class="w-full justify-center"
+          class="justify-center w-full"
           @click="update"
         >
           Update
-          <div v-if="loading.attempt" class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+          <div v-if="loading.attempt" class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
             <icon-client icon="gg:spinner-two" class="w-5 h-5 text-indigo-200 animate-spin" />
           </div>
         </push-button>
         <push-button
           v-else
           theme="indigo"
-          class="w-full justify-center"
+          class="justify-center w-full"
           @click="save"
         >
           Create
-          <div v-if="loading.attempt" class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+          <div v-if="loading.attempt" class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
             <icon-client icon="gg:spinner-two" class="w-5 h-5 text-indigo-200 animate-spin" />
           </div>
         </push-button>

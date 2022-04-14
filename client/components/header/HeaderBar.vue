@@ -1,8 +1,8 @@
 
 <template>
   <header class="bg-white dark:bg-gray-800">
-    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Top">
-      <div class="w-full py-3 flex items-center justify-between border-b border-indigo-500 lg:border-none">
+    <nav class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8" aria-label="Top">
+      <div class="flex items-center justify-between w-full py-3 border-b border-indigo-500 lg:border-none">
         <div class="flex items-center">
           <div class="flex w-16 h-8">
             <nuxt-link to="/" class="flex-shrink-0">

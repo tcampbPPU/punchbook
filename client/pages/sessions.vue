@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-5xl mx-auto py-6 sm:px-6 lg:px-8">
+  <div class="max-w-5xl py-6 mx-auto sm:px-6 lg:px-8">
     <session-list
       :sessions="sessions"
       @refresh="get"

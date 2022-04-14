@@ -1,19 +1,19 @@
 <template>
   <div>
-    <div class="mx-auto container p-2 lg:p-8 flex flex-col">
-      <div v-if="$api.loggedIn.value" class="flex flex-row-reverse text-center justify-between pl-6 pr-6">
+    <div class="container flex flex-col p-2 mx-auto lg:p-8">
+      <div v-if="$api.loggedIn.value" class="flex flex-row-reverse justify-between pl-6 pr-6 text-center">
         <push-button
           theme="indigo"
-          class="w-full lg:w-1/12 flex justify-center py-2 px-4 border border-transparent"
+          class="flex justify-center w-full px-4 py-2 border border-transparent lg:w-1/12"
           @click="on"
         >
           Create
         </push-button>
       </div>
-      <ul v-if="!contacts" class="grid grid-cols-1 gap-6 bg-gray-100 dark:bg-gray-900 rounded p-8 w-full sm:grid-cols-2 lg:grid-cols-3">
+      <ul v-if="!contacts" class="grid w-full grid-cols-1 gap-6 p-8 bg-gray-100 rounded dark:bg-gray-900 sm:grid-cols-2 lg:grid-cols-3">
         <contact-card-skeleton v-for="i in 9" :key="`user-${i}`" />
       </ul>
-      <ul v-else class="grid grid-cols-1 gap-6 bg-gray-100 dark:bg-gray-900 rounded p-8 w-full sm:grid-cols-2 lg:grid-cols-3">
+      <ul v-else class="grid w-full grid-cols-1 gap-6 p-8 bg-gray-100 rounded dark:bg-gray-900 sm:grid-cols-2 lg:grid-cols-3">
         <contact-card
           v-for="(contact, index) in contacts.data"
           :key="index"

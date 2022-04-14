@@ -1,5 +1,5 @@
 <template>
-  <div class="w-screen h-screen flex items-center justify-center">
+  <div class="flex items-center justify-center w-screen h-screen">
     <icon-client icon="eos-icons:loading" class="w-12 h-12" />
   </div>
 </template>

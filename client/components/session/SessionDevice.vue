@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-white dark:bg-gray-800 rounded-lg shadow relative">
-    <div class="absolute right-0 top-0 m-2">
+  <div class="relative bg-white rounded-lg shadow dark:bg-gray-800">
+    <div class="absolute top-0 right-0 m-2">
       <push-button size="xs" @click="confirm(session)">
         <icon-client
           icon="mdi-trash"
@@ -8,12 +8,12 @@
         />
       </push-button>
     </div>
-    <div class="flex items-center justify-center py-4 border-gray-200 border-b dark:border-gray-600">
+    <div class="flex items-center justify-center py-4 border-b border-gray-200 dark:border-gray-600">
       <div :class="`device device-${type}`" />
     </div>
     <div class="p-4">
       <div>
-        <div class="flex items-center justify-between text-gray-900 dark:text-gray-300 mb-2">
+        <div class="flex items-center justify-between mb-2 text-gray-900 dark:text-gray-300">
           {{ name }}
           <icon-client
             v-if="session.current"
@@ -21,14 +21,14 @@
             class="w-4 h-4 mr-1.5 text-green-400"
           />
         </div>
-        <div class="flex items-center text-gray-500 text-sm mb-1">
+        <div class="flex items-center mb-1 text-sm text-gray-500">
           <icon-client
             icon="mdi-application-outline"
             class="w-4 h-4 mr-1.5 text-gray-400"
           />
           {{ session.device.browser ? session.device.browser : source }}
         </div>
-        <div class="flex items-center text-gray-500 text-sm mb-1">
+        <div class="flex items-center mb-1 text-sm text-gray-500">
           <icon-client
             icon="mdi-map"
             class="w-4 h-4 mr-1.5 text-gray-400"
@@ -37,7 +37,7 @@
         </div>
         <div
           v-if="session.source === 'google'"
-          class="flex items-center text-gray-500 text-sm mb-1"
+          class="flex items-center mb-1 text-sm text-gray-500"
         >
           <icon-client
             icon="flat-color-icons:google"
@@ -47,26 +47,26 @@
         </div>
         <div
           v-if="session.source === 'github'"
-          class="flex items-center text-gray-500 text-sm mb-1"
+          class="flex items-center mb-1 text-sm text-gray-500"
         >
           <icon-client icon="fa-brands:github" class="w-4 h-4 mr-1.5" />
           Verified through Github
         </div>
         <div
           v-if="session.source === 'email'"
-          class="flex items-center text-gray-500 text-sm mb-1"
+          class="flex items-center mb-1 text-sm text-gray-500"
         >
           <icon-client icon="mdi-email" class="w-4 h-4 mr-1.5" />
           Verified through E-mail
         </div>
-        <div class="flex items-center text-gray-500 text-sm mb-1">
+        <div class="flex items-center mb-1 text-sm text-gray-500">
           <icon-client
             icon="mdi-clock"
             class="w-4 h-4 mr-1.5 text-gray-400"
           />
           Created {{ $dayjs(session.created_at).fromNow() }}
         </div>
-        <div class="flex items-center text-gray-500 text-sm mb-1">
+        <div class="flex items-center mb-1 text-sm text-gray-500">
           <icon-client
             icon="mdi-clock"
             class="w-4 h-4 mr-1.5 text-gray-400"

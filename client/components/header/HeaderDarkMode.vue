@@ -1,6 +1,6 @@
 <template>
   <button
-    class="text-white flex items-center justify-center rounded-full"
+    class="flex items-center justify-center text-white rounded-full"
     @click="toggle"
   >
     <span id="darkModeIcon" class="w-8 h-8" />
