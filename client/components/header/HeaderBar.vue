@@ -8,9 +8,7 @@
             <nuxt-link to="/" class="flex-shrink-0">
               <img src="/punchlist.svg" alt="PunchBook" class="h-8">
             </nuxt-link>
-            <div class="relative flex items-center ml-6">
-              <header-apps />
-            </div>
+            <header-apps />
           </div>
         </div>
         <div class="flex items-center justify-center space-x-4">
@@ -24,7 +22,7 @@
 </template>
 <script lang="ts" setup>
 import HeaderApps from '~/components/header/HeaderApps.vue'
-import HeaderProfile from '~/components/header/HeaderProfile.vue'
 import HeaderSearch from '~/components/header/HeaderSearch.vue'
 import HeaderDarkMode from '~/components/header/HeaderDarkMode.vue'
+import HeaderProfile from '~/components/header/HeaderProfile.vue'
 </script>
