@@ -26,7 +26,6 @@
         icon="mdi-close"
         class="w-2 h-2"
       />
-
     </button>
   </span>
 </template>
