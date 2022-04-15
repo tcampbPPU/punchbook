@@ -53,4 +53,37 @@ export default class Utils {
     const y = el.getBoundingClientRect().top + window.pageYOffset + offset
     window.scrollTo(0, y)
   }
+
+  /**
+   * @desc Determines if the text color should be black or white based on the given color
+   * @param {String} color
+   * @returns boolean
+   */
+  textContrast (color: string): boolean {
+    color = (color.charAt(0) === '#') ? color.substring(1, 7) : color
+
+    const r = parseInt(color.substring(0, 2), 16)
+    const g = parseInt(color.substring(2, 4), 16)
+    const b = parseInt(color.substring(4, 6), 16)
+
+    return (((r * 0.299) + (g * 0.587) + (b * 0.114)) > 186)
+  }
+
+  /**
+   * Obtains a string and reduces it's length and concat '...' to the end
+   * @param {String} str - String being shortened
+   * @param {Number} len - n number of characters to show
+   * @param {Boolean} regex - Optional for replacing content of string
+   * @returns string
+   */
+  shortStr (str: string, len: number, regex = true): string {
+    const currentStr = str
+    if (!str) return ''
+    str = regex ? currentStr.replace(/<[^>]+>/g, '') : currentStr
+    str = str.replace(/&nbsp;/gi, ' ')
+    if (str.length > len) str = str.substring(0, len) + '...'
+
+    return str
+  }
+
 }
