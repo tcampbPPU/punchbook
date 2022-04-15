@@ -27,11 +27,11 @@ export default defineNuxtConfig({
   */
   components: true,
 
- /**
-  * @see https://v3.nuxtjs.org/docs/directory-structure/nuxt.config#buildmodules
-  */
-  buildModules: [
-    '@vueuse/core/nuxt',
+  /**
+   * @see https://v3.nuxtjs.org/api/configuration/nuxt.config#modules
+   */
+  modules: [
+    '@vueuse/nuxt',
     'nuxt-windicss',
     '@tailvue/nuxt',
   ],
