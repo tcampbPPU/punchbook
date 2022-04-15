@@ -15,7 +15,7 @@ const { $api } = useNuxtApp()
 
 useAuthMiddleware()
 
-const sessions = ref<api.Sessions>(undefined)
+const sessions = ref<models.Sessions>(undefined)
 const get = async () => sessions.value = (await $api.index('/session')).data
 get()
 

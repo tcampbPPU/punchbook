@@ -70,7 +70,7 @@
 import { PropType } from '@vue/runtime-core'
 import { PushButton } from 'tailvue'
 const props = defineProps({
-    paginate: Object as PropType<api.MetApiPaginate|undefined>,
+    paginate: Object as PropType<api.HarmonyPaginate|undefined>,
     hydrate: {
       type: Function,
       required: true,

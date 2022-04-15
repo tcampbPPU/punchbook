@@ -84,13 +84,13 @@ export default class Api {
   }
 
   private async setUser(): Promise<void> {
-    const result = await $fetch<api.MetApiResponse & { data: models.User }>('/me', this.fetchOptions())
+    const result = await $fetch<api.HarmonyResponse & { data: models.User }>('/me', this.fetchOptions())
     this.$user = reactive(result.data)
   }
 
-  public async index <Results>(endpoint: string, params?: SearchParams): Promise<api.MetApiResults & { data: Results }> {
+  public async index <Results>(endpoint: string, params?: SearchParams): Promise<api.HarmonyResults & { data: Results }> {
     try {
-      return await $fetch<api.MetApiResults & { data: Results }>(endpoint, this.fetchOptions(params))
+      return await $fetch<api.HarmonyResults & { data: Results }>(endpoint, this.fetchOptions(params))
     } catch (error) {
       console.log(error)
 
@@ -98,33 +98,33 @@ export default class Api {
     }
   }
 
-  public async get <Result>(endpoint: string, params?: SearchParams): Promise<api.MetApiResponse & { data: Result }> {
+  public async get <Result>(endpoint: string, params?: SearchParams): Promise<api.HarmonyResponse & { data: Result }> {
     try {
-      return await $fetch<api.MetApiResponse & { data: Result }>(endpoint, this.fetchOptions(params))
+      return await $fetch<api.HarmonyResponse & { data: Result }>(endpoint, this.fetchOptions(params))
     } catch (error) {
       this.toastError(error)
     }
   }
 
-  public async put (endpoint: string, params?: SearchParams): Promise<api.MetApiResponse> {
+  public async put (endpoint: string, params?: SearchParams): Promise<api.HarmonyResponse> {
     try {
-      return await $fetch<api.MetApiResponse>(endpoint, this.fetchOptions(params, 'PUT'))
+      return await $fetch<api.HarmonyResponse>(endpoint, this.fetchOptions(params, 'PUT'))
     } catch (error) {
       this.toastError(error)
     }
   }
 
-  public async store (endpoint: string, params?: SearchParams): Promise<api.MetApiResponse> {
+  public async store (endpoint: string, params?: SearchParams): Promise<api.HarmonyResponse> {
     try {
-      return await $fetch<api.MetApiResponse>(endpoint, this.fetchOptions(params, 'POST'))
+      return await $fetch<api.HarmonyResponse>(endpoint, this.fetchOptions(params, 'POST'))
     } catch (error) {
       this.toastError(error)
     }
   }
 
-  public async delete (endpoint: string, params?: SearchParams): Promise<api.MetApiResponse> {
+  public async delete (endpoint: string, params?: SearchParams): Promise<api.HarmonyResponse> {
     try {
-      return await $fetch<api.MetApiResponse>(endpoint, this.fetchOptions(params, 'DELETE'))
+      return await $fetch<api.HarmonyResponse>(endpoint, this.fetchOptions(params, 'DELETE'))
     } catch (error) {
       this.toastError(error)
     }
@@ -132,7 +132,7 @@ export default class Api {
 
   public async attempt (token: string | string[]): Promise<UserLogin> {
     try {
-      return (await $fetch<api.MetApiResponse & { data: UserLogin }>('/login', this.fetchOptions({ token }, 'POST'))).data
+      return (await $fetch<api.HarmonyResponse & { data: UserLogin }>('/login', this.fetchOptions({ token }, 'POST'))).data
     } catch (error) {
       await this.toastError(error)
     }
@@ -165,8 +165,8 @@ export default class Api {
     }
   }
 
-  public async logout (): Promise<api.MetApiResponse> {
-    const response = (await $fetch<api.MetApiResponse>('/logout', this.fetchOptions())).data as api.MetApiResponse
+  public async logout (): Promise<api.HarmonyResponse> {
+    const response = (await $fetch<api.HarmonyResponse>('/logout', this.fetchOptions())).data as api.HarmonyResponse
     this.invalidate()
     return response
   }

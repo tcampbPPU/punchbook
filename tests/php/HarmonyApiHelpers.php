@@ -5,7 +5,7 @@ namespace Tests;
 trait HarmonyApiHelpers
 {
     /**
-     * Helper function to assert results from a MetApi render()
+     * Helper function to assert results from a Harmony render()
      * @param array $result
      * @return array
      */
@@ -18,7 +18,7 @@ trait HarmonyApiHelpers
     }
 
     /**
-     * Helper to assert results from MetApi status helpers like success() and error()
+     * Helper to assert results from Harmony status helpers like success() and error()
      * @param string $key
      * @param array $replace
      * @param string|null $status

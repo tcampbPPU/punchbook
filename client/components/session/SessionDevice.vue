@@ -86,7 +86,7 @@ import { computed } from '@vue/reactivity'
 const { $toast, $modal, $api } = useNuxtApp()
 const props = defineProps({
   session: {
-    type: Object as PropType<api.Session>,
+    type: Object as PropType<models.Session>,
     required: true,
   },
 })
@@ -119,7 +119,7 @@ const name = computed((): string => {
   return props.session.agent
 })
 
-function confirm (session: api.Session) {
+function confirm (session: models.Session) {
   $modal.show({
     type: 'danger',
     title: 'Delete Session',
@@ -137,7 +137,7 @@ function confirm (session: api.Session) {
   })
 }
 
-async function revoke (session: api.Session) {
+async function revoke (session: models.Session) {
   if (session.current) return $api.logout()
   $toast.show((await $api.delete(`/session/${session.token}`)).data)
   emit('refresh')

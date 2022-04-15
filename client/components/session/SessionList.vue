@@ -24,7 +24,7 @@ import { PropType } from '@vue/runtime-core'
 import SessionDeviceSkeleton from '@/components/session/SessionDeviceSkeleton.vue'
 import SessionDevice from '~/components/session/SessionDevice.vue'
 defineProps({
-  sessions: Array as PropType<api.Sessions>,
+  sessions: Array as PropType<models.Sessions>,
 })
 const emit = defineEmits(['refresh'])
 </script>
