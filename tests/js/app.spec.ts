@@ -1,7 +1,7 @@
 import {
   describe,
-  test,
   expect,
+  test,
 } from 'vitest'
 
 describe('Test App', () => {

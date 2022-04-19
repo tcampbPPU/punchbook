@@ -39,7 +39,7 @@
 
 <script lang="ts" setup>
 import { onClickOutside } from '@vueuse/core'
-import { PushButton, ModalBase } from 'tailvue'
+import { ModalBase, PushButton } from 'tailvue'
 import { ref } from '@vue/reactivity'
 import HeaderLoginModal from '~/components/header/HeaderLoginModal.vue'
 import TransitionScaleIn from '~/components/transition/TransitionScaleIn.vue'
