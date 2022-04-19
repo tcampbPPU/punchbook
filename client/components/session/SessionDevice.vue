@@ -83,7 +83,7 @@ import { PushButton } from 'tailvue'
 import IconClient from '~/components/IconClient.vue'
 import { PropType } from '@vue/runtime-core'
 import { computed } from '@vue/reactivity'
-const { $toast, $modal, $api } = useNuxtApp()
+const { $toast, $modal, $api, $dayjs } = useNuxtApp()
 const props = defineProps({
   session: {
     type: Object as PropType<models.Session>,
