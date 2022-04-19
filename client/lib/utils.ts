@@ -45,11 +45,16 @@ export default class Utils {
     }
   }
 
-  properScroll (id: string, offset: number) {
+  /**
+   * @desc Smooth scroll to an element
+   * @param {String} id
+   * @returns void
+   */
+  properScroll (id: string): void {
     const el = document.getElementById(id)
-    if (!el) return true
-    const y = el.getBoundingClientRect().top + window.pageYOffset + offset
-    window.scrollTo(0, y)
+    if (!el) return
+    const { top, left } = el.getBoundingClientRect()
+    window.scrollTo({top, left, behavior: 'smooth'})
   }
 
   /**

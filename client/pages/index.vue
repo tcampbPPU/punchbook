@@ -38,7 +38,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { PushButton, ModalBase } from 'tailvue'
+import { ModalBase, PushButton } from 'tailvue'
 import ContactCardSkeleton from '~/components/contact/ContactCardSkeleton.vue'
 import ContactCard from '~/components/contact/ContactCard.vue'
 import GlobalPaginate from '~/components/shared/GlobalPaginate.vue'

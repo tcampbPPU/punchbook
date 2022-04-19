@@ -31,5 +31,13 @@ module.exports = {
       },
     }],
     'vue/multi-word-component-names': 'off',
+    'sort-imports':
+    [
+      'error',
+      {
+        'ignoreCase': true,
+        'ignoreDeclarationSort': true,
+      },
+    ],
   },
 }

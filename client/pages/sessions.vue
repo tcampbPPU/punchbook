@@ -1,19 +1,32 @@
 <template>
-  <div class="max-w-5xl py-6 mx-auto sm:px-6 lg:px-8">
-    <session-list
-      :sessions="sessions"
-      @refresh="get"
-    />
-  </div>
+  <page-container>
+    <bread-crumbs :crumbs="crumbs" />
+    <div class="max-w-5xl py-6 mx-auto sm:px-6 lg:px-8">
+      <session-list :sessions="sessions" @refresh="get" />
+    </div>
+  </page-container>
 </template>
 
 <script lang="ts" setup>
+import { ref } from '@vue/reactivity'
 import { useAuthMiddleware } from '~/composables/useAuthMiddleware'
 import SessionList from '~/components/session/SessionList.vue'
-import { ref } from '@vue/reactivity'
+import PageContainer from '~/components/page/PageContainer.vue'
+import BreadCrumbs from '~/components/page/BreadCrumbs.vue'
+
+// Route Guard
+useAuthMiddleware()
+
 const { $api } = useNuxtApp()
 
-useAuthMiddleware()
+const crumbs = computed((): components.PageBreadCrumbs => {
+  return [
+    {
+      label: 'Sessions',
+      route: '/sessions',
+    },
+  ]
+})
 
 const sessions = ref<models.Sessions>(undefined)
 const get = async () => sessions.value = (await $api.index('/session')).data
