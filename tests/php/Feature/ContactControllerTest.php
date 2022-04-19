@@ -53,13 +53,13 @@ class ContactControllerTest extends TestCase
         $this->actingAs(self::$admin)
             ->json('get', '/contact')
             ->assertOk()
-            ->assertJson(fn(AssertableJson $json) =>
+            ->assertJson(fn (AssertableJson $json) =>
                 $json->where('status', 'success')
                     ->has('paginate')
                     ->has('benchmark')
                     ->has('query')
                     ->has('data')
-                    ->has('data.0', fn($json) =>
+                    ->has('data.0', fn ($json) =>
                         $json->has('id')
                             ->has('name')
                             ->has('phone')
@@ -84,13 +84,13 @@ class ContactControllerTest extends TestCase
         $this->actingAs(self::$admin)
             ->json('get', $url)
             ->assertOk()
-            ->assertJson(fn(AssertableJson $json) =>
+            ->assertJson(fn (AssertableJson $json) =>
                 $json->where('status', 'success')
                     ->has('paginate')
                     ->has('benchmark')
                     ->has('query')
                     ->has('data')
-                    ->has('data.0', fn($json) =>
+                    ->has('data.0', fn ($json) =>
                         $json->has('id')
                             ->where('name', $contact->name)
                             ->has('phone')
@@ -115,13 +115,13 @@ class ContactControllerTest extends TestCase
         $this->actingAs(self::$admin)
             ->json('get', $url)
             ->assertOk()
-            ->assertJson(fn(AssertableJson $json) =>
+            ->assertJson(fn (AssertableJson $json) =>
                 $json->where('status', 'success')
                     ->has('paginate')
                     ->has('benchmark')
                     ->has('query')
                     ->has('data')
-                    ->has('data.0', fn($json) =>
+                    ->has('data.0', fn ($json) =>
                         $json->has('id')
                             ->has('name')
                             ->where('phone', $contact->phone)
@@ -166,11 +166,11 @@ class ContactControllerTest extends TestCase
         $this->actingAs(self::$admin)
             ->json('get', "/contact/{$contact->id}")
             ->assertOk()
-            ->assertJson(fn(AssertableJson $json) =>
+            ->assertJson(fn (AssertableJson $json) =>
                 $json->where('status', 'success')
                     ->has('benchmark')
                     ->has('query')
-                    ->has('data', fn($json) =>
+                    ->has('data', fn ($json) =>
                         $json->where('id', $contact->id)
                             ->where('name', $contact->name)
                             ->where('phone', $contact->phone)
@@ -286,10 +286,10 @@ class ContactControllerTest extends TestCase
                 'email' => $contact->email,
             ])
             ->assertStatus(400)
-            ->assertJson(fn(AssertableJson $json) =>
+            ->assertJson(fn (AssertableJson $json) =>
                 $json->where('status', 'error')
                     ->has('errors')
-                    ->has('errors.0', fn($json) =>
+                    ->has('errors.0', fn ($json) =>
                         $json->where('status', 400)
                             ->where('message', 'email')
                             ->where('detail', 'The email has already been taken.')));
@@ -309,10 +309,10 @@ class ContactControllerTest extends TestCase
                 'email' => 'foo@bar.com',
             ])
             ->assertStatus(400)
-            ->assertJson(fn(AssertableJson $json) =>
+            ->assertJson(fn (AssertableJson $json) =>
                 $json->where('status', 'error')
                     ->has('errors')
-                    ->has('errors.0', fn($json) =>
+                    ->has('errors.0', fn ($json) =>
                         $json->where('status', 400)
                             ->where('message', 'email')
                             ->where('detail', 'The email has already been taken.')));

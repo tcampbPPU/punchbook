@@ -29,16 +29,16 @@ class ContactController extends Controller
 
         return $this->render($this->paginate(
             Contact::query()
-                ->when($request->search, fn($q) => $q->filter($request->only('search')))
+                ->when($request->search, fn ($q) => $q->filter($request->only('search')))
                 ->when(
                     $request->order && $request->direction,
-                    fn($q) => $q->orderBy($request->order, $request->direction)
+                    fn ($q) => $q->orderBy($request->order, $request->direction)
                 )
                 ->when(
                     $request->filterInputs,
-                    fn($q) => $q->where(
+                    fn ($q) => $q->where(
                         array_map(
-                            fn($a, $b) => [$a, 'LIKE', "%$b%"],
+                            fn ($a, $b) => [$a, 'LIKE', "%$b%"],
                             $request->filterFields,
                             $request->filterInputs
                         )
