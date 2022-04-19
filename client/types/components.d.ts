@@ -32,7 +32,7 @@ declare global {
       /** query params to send along with API  */
       query?: object
 
-      /** Determines if a table has checkbox functionality for selection */
+      /** does table need checkbox ability */
       checkable?: Checkable
     }
 
