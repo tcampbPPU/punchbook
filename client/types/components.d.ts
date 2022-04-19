@@ -74,5 +74,20 @@ declare global {
       /** callback function */
       callback?: {(): void},
     }
+
+    interface SmartTableFetchParams {
+      /** current page */
+      page: number
+
+      /** order by key */
+      order?: string
+
+      /** order by direction */
+      direction?: 'asc' | 'desc'
+
+      /** search string */
+      search?: string
+    }
+
   }
 }

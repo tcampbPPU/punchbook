@@ -9,7 +9,7 @@
       }"
     >
       <table-cell v-for="c in props.columns" :key="c">
-        <span class="block w-20 rounded-sm skeleton">&nbsp;</span>
+        <span class="block w-12 rounded-sm sm:w-24 md:w-32 lg:w-60 skeleton">&nbsp;</span>
       </table-cell>
     </tr>
   </tbody>

@@ -5,9 +5,9 @@
       <div class="flex items-center justify-between w-full py-3 border-b border-indigo-500 lg:border-none">
         <div class="flex items-center">
           <div class="flex w-16 h-8">
-            <nuxt-link to="/" class="flex-shrink-0">
+            <router-link to="/" class="flex-shrink-0">
               <img src="/punchlist.svg" alt="PunchBook" class="h-8">
-            </nuxt-link>
+            </router-link>
             <header-apps />
           </div>
         </div>
