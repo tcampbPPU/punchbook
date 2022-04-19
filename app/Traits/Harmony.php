@@ -42,7 +42,7 @@ trait Harmony
 
     /**
      * Push option to validation stack
-     * @see https://laravel.com/docs/8.x/validation#available-validation-rules
+     * @see https://laravel.com/docs/9.x/validation#available-validation-rules
      *
      * @param string $name
      * @param array|string $rules
