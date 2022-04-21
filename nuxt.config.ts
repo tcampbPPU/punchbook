@@ -39,9 +39,12 @@ export default defineNuxtConfig({
   /**
    * @see https://v3.nuxtjs.org/guide/features/runtime-config#exposing-runtime-config
    */
-  publicRuntimeConfig: {
-    apiURL: process.env.API_URL || 'http://localhost:8000',
-    env: process.env.APP_ENV || 'local',
+  runtimeConfig: {
+    secretKey: '',
+    public: {
+      apiURL: process.env.API_URL || 'http://localhost:8000',
+      env: process.env.APP_ENV || 'local',
+    },
   },
 
   /**
