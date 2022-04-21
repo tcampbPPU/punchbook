@@ -1,12 +1,14 @@
 <template>
-  <div>
-    <bread-crumbs :crumbs="crumbs" />
-    <page-container>
+  <page-container>
+    <template #crumbs>
+      <bread-crumbs :crumbs="crumbs" />
+    </template>
+    <template #main>
       <div class="container flex flex-col p-2 mx-auto lg:p-8">
         <contact-list />
       </div>
-    </page-container>
-  </div>
+    </template>
+  </page-container>
 </template>
 <script lang="ts" setup>
 import PageContainer from '~/components/page/PageContainer.vue'

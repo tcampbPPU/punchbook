@@ -1,7 +1,9 @@
 <template>
-  <div>
-    <bread-crumbs :crumbs="crumbs" />
-    <page-container>
+  <page-container>
+    <template #crumbs>
+      <bread-crumbs :crumbs="crumbs" />
+    </template>
+    <template #main>
       <div class="flex flex-col items-center justify-center">
         <div class="py-12 text-center">
           this uses <i>useAuthMiddleware()</i> <b>pages/gated.vue</b>
@@ -13,8 +15,8 @@
         </pre>
         </client-only>
       </div>
-    </page-container>
-  </div>
+    </template>
+  </page-container>
 </template>
 <script lang="ts" setup>
 import PageContainer from '~/components/page/PageContainer.vue'

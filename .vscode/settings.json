@@ -7,8 +7,6 @@
         "editor.defaultFormatter": "dbaeumer.vscode-eslint",
         "editor.formatOnSave": true
     },
-    "vetur.validation.template": false,
-    "vetur.experimental.templateInterpolationService": true,
     "eslint.validate": [
         "javascript",
         "typescript",
