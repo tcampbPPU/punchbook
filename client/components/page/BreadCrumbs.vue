@@ -1,6 +1,6 @@
 <template>
-  <header class="bg-white shadow-sm dark:bg-gray-900">
-    <nav class="flex bg-white border-b border-gray-200 rounded dark:border-gray-900 dark:bg-gray-800" aria-label="Breadcrumb">
+  <header class="bg-white border-t border-gray-100 shadow-sm dark:bg-gray-900 dark:border-gray-700">
+    <nav class="flex bg-white border-b border-gray-200 dark:border-gray-900 dark:bg-gray-800" aria-label="Breadcrumb">
       <ol
         class="flex w-full pl-4 pr-2 ml-3 mr-2 space-x-4 sm:mr-4 lg:mr-12 lg:ml-14 3xl:mx-auto max-w-8xl sm:pl-6 lg:px-8 3xl:pl-10"
       >

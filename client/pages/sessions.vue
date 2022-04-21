@@ -1,10 +1,12 @@
 <template>
-  <page-container>
+  <div>
     <bread-crumbs :crumbs="crumbs" />
-    <div class="max-w-5xl py-6 mx-auto sm:px-6 lg:px-8">
-      <session-list :sessions="sessions" @refresh="get" />
-    </div>
-  </page-container>
+    <page-container>
+      <div class="max-w-5xl py-6 mx-auto sm:px-6 lg:px-8">
+        <session-list :sessions="sessions" @refresh="get" />
+      </div>
+    </page-container>
+  </div>
 </template>
 
 <script lang="ts" setup>
