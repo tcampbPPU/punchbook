@@ -12,6 +12,7 @@
     "lint:action": "yarn lint:js -f @jamesacarr/github-actions",
     "style": "composer cs; yarn lint",
     "test": "vitest",
+    "pest": "composer test",
     "api": "./artisan serve",
     "seed": "./artisan migrate:fresh --seed",
     "db": "./artisan db"
