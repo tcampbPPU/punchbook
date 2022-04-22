@@ -4070,12 +4070,12 @@ nuxi@^3.0.0-rc.1:
   optionalDependencies:
     fsevents "~2.3.2"
 
-nuxt-windicss@^2.0.12:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/nuxt-windicss/-/nuxt-windicss-2.3.0.tgz#7a9bb33a560b72563cabecb75c1ebcdc65ad29ab"
-  integrity sha512-7r+iCGyAGwbwlpumUgKxwxsmF4IMjwf+1gtSBvMLkdPssjW33nrhlkAYDBlRe3Uhv9J0UVLwXaRfeg0fKsPYHA==
+nuxt-windicss@^2.3.1:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/nuxt-windicss/-/nuxt-windicss-2.3.1.tgz#b666ade7140e70d782ed15de46e453d5a5efd96b"
+  integrity sha512-GQmy0U/FYzJ5l8aTt6JQtpQ2GWbhoQk1DRmjVYx9AHNyJKyy/MHhNpoJ/cPrMQdOAVQRzmGJOl+VFH8uBNkbaA==
   dependencies:
-    "@nuxt/kit" "npm:@nuxt/kit-edge@latest"
+    "@nuxt/kit" "^3.0.0-rc.1"
     "@windicss/plugin-utils" "^1.8.4"
     consola "^2.15.3"
     defu "^6.0.0"
