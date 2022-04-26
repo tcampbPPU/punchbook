@@ -16,6 +16,9 @@
       <property name="absoluteLineLimit" value="180"/>
     </properties>
   </rule>
+  <rule ref="PSR1.Files.SideEffects.FoundWithSymbols">
+    <exclude name="PSR1.Files.SideEffects.FoundWithSymbols" />
+  </rule>
 
   <arg name="colors"/>
 
