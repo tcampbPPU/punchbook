@@ -18,10 +18,12 @@ const props = defineProps({
   striped: {
     type: Boolean as PropType<boolean>,
     required: false,
+    default: false,
   },
   selectable: {
     type: Boolean as PropType<boolean>,
     required: false,
+    default: false,
   },
 })
 
