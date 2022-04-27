@@ -30,6 +30,9 @@
   </span>
 </template>
 <script lang="ts" setup>
+
+defineEmits(['remove'])
+
 const props = defineProps({
   text: {
     type: String,
@@ -52,11 +55,10 @@ const props = defineProps({
   },
 })
 
-defineEmits(['remove'])
-
 const { $utils } = useNuxtApp()
 
 const tag = computed(() => $utils.shortStr(props.text, 25))
 
 const textColor = $utils.textContrast(props.color)
+
 </script>
