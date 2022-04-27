@@ -18,6 +18,7 @@ const tableParams = computed((): components.SmartTableParams => {
         field: 'name',
         type: 'text',
         sortable: true,
+        filterable: true,
       },
       {
         label: 'Phone',
