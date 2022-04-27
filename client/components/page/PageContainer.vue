@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- Slot for bread crumbs -->
     <bread-crumbs v-if="props.crumbs.length" :crumbs="crumbs" />
     <main class="px-2 py-6 mx-2 sm:mx-5 lg:mx-12 3xl:mx-auto max-w-8xl lg:px-8">
       <slot />
