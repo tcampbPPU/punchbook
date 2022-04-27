@@ -20,6 +20,8 @@
       <!-- Dynamic Slot -->
       <slot v-else-if="column.type === 'slot'" :name="column.field" :entry="props.entry" />
     </table-cell>
+    <!-- maybe good place for actions -->
+    <table-cell class="dark:text-white dark:bg-gray-800">Actions</table-cell>
   </table-row>
 </template>
 

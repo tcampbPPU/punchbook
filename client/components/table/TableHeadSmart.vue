@@ -15,6 +15,12 @@
           @filter="$emit('filter', $event)"
         />
       </th>
+
+      <!-- maybe good place for actions -->
+      <th
+        class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase bg-gray-50 dark:bg-gray-700"
+        v-html="'Actions'"
+      />
     </tr>
   </thead>
 </template>
