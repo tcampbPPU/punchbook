@@ -15,11 +15,6 @@
           @filter="$emit('filter', $event)"
         />
       </th>
-      <th
-        v-for="i in props.columns.length"
-        :key="i"
-        class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase bg-gray-50 dark:bg-gray-700 dark:text-white"
-      />
     </tr>
   </thead>
 </template>

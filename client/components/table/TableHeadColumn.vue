@@ -7,7 +7,7 @@
             <div class="relative z-50 border border-gray-300 rounded shadow dark:bg-gray-800">
               <div
                 class="absolute top-0 w-3 h-3 transform rotate-45 border border-b-0 border-r-0 border-gray-300 dark:bg-gray-800 left-6"
-                style="margin-top: -7px;"
+                style="margin-top: -5px;"
               />
               <div class="flex items-center p-2">
                 <div class="relative flex items-stretch flex-grow focus-within:z-10">
