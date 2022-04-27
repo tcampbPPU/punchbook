@@ -15,6 +15,7 @@
         :order="props.params.defaults.order"
         :direction="props.params.defaults.direction"
         :checkable="props.params.checkable"
+        :actions="props.params.actions"
       />
       <tbody
         v-if="results && results.paginate && results.paginate.total > 0"
@@ -25,6 +26,7 @@
             :index="index"
             :entry="entry"
             :columns="props.params.columns"
+            :actions="props.params.actions"
           >
             <template
               v-for="(_, scopedSlotName) in $slots"

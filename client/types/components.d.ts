@@ -34,6 +34,9 @@ declare global {
 
       /** does table need checkbox ability */
       checkable?: Checkable
+
+      /** does table need actions column */
+      actions?: boolean
     }
 
     interface SmartTableColumn {

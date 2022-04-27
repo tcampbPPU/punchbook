@@ -21,7 +21,9 @@
       <slot v-else-if="column.type === 'slot'" :name="column.field" :entry="props.entry" />
     </table-cell>
     <!-- maybe good place for actions -->
-    <table-cell class="dark:text-white dark:bg-gray-800">Actions</table-cell>
+    <table-cell v-if="props.actions" class="dark:text-white dark:bg-gray-800">
+      <slot :name="'actions'" :data="'Actions'" />
+    </table-cell>
   </table-row>
 </template>
 
@@ -40,6 +42,11 @@ const props = defineProps({
   columns: {
     type: Array as PropType<components.SmartTableColumn[]>,
     required: true,
+  },
+  actions: {
+    type: Boolean as PropType<boolean>,
+    required: false,
+    default: false,
   },
 })
 

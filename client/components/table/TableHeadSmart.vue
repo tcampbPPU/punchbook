@@ -18,6 +18,7 @@
 
       <!-- maybe good place for actions -->
       <th
+        v-if="props.actions"
         class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase bg-gray-50 dark:bg-gray-700"
         v-html="'Actions'"
       />
@@ -46,6 +47,11 @@ const props = defineProps({
   checkable: {
     type: Object as PropType<components.Checkable>,
     required: false,
+  },
+  actions: {
+    type: Boolean as PropType<boolean>,
+    required: false,
+    default: false,
   },
 })
 

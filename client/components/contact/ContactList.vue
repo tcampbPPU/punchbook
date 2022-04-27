@@ -48,6 +48,7 @@ const tableParams = computed((): components.SmartTableParams => {
         'email',
       ],
     },
+    actions: true,
   }
 })
 </script>
