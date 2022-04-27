@@ -89,5 +89,14 @@ declare global {
       search?: string
     }
 
+    interface SmartTableFilter {
+      /** Column being fileted */
+      column: SmartTableColumn
+
+      /** filter input */
+      input: string
+    }
+    type SmartTableFilters = Array<SmartTableFilter>
+
   }
 }
