@@ -17,7 +17,7 @@
             @click="$emit('remove', filter)"
           >
             <span class="sr-only">Remove</span>
-            <icon-client
+            <icon
               icon="mdi-close"
               class="w-2 h-2"
             />
@@ -29,6 +29,7 @@
 </template>
 <script lang="ts" setup>
 import { PropType } from '@vue/runtime-core'
+import { Icon } from '@iconify/vue'
 
 defineEmits(['remove'])
 

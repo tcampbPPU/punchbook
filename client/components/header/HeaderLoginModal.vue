@@ -4,12 +4,12 @@
     <div class="grid grid-cols-2 gap-3">
       <div>
         <push-button class="justify-center w-full" @click="login('google')">
-          <Icon-client
+          <icon
             v-if="loading.google"
             icon="gg:spinner-two"
             class="w-6 h-6 text-indigo-600 animate-spin"
           />
-          <Icon-client
+          <icon
             v-else
             icon="flat-color-icons:google"
             class="w-6 h-6"
@@ -18,12 +18,12 @@
       </div>
       <div>
         <push-button class="justify-center w-full" @click="login('github')">
-          <icon-client
+          <icon
             v-if="loading.github"
             icon="gg:spinner-two"
             class="w-6 h-6 text-indigo-600 animate-spin"
           />
-          <icon-client
+          <icon
             v-else
             icon="mdi-github"
             class="w-6 h-6"
@@ -44,7 +44,7 @@
     <label class="block mt-6 text-sm font-medium leading-5 text-gray-700 dark:text-gray-500" for="login_email">Email address</label>
     <div class="relative mt-1 rounded-md shadow-sm">
       <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-        <icon-client icon="mdi:envelope" class="w-5 h-5 text-gray-400" />
+        <icon icon="mdi:envelope" class="w-5 h-5 text-gray-400" />
       </div>
       <input
         id="login_email"
@@ -63,7 +63,7 @@
         <push-button theme="indigo" class="justify-center w-full" @click="attempt">
           Sign in / Register
           <div v-if="loading.attempt" class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-            <icon-client icon="gg:spinner-two" class="w-5 h-5 text-indigo-200 animate-spin" />
+            <icon icon="gg:spinner-two" class="w-5 h-5 text-indigo-200 animate-spin" />
           </div>
         </push-button>
       </span>
@@ -75,7 +75,7 @@
 import { UserLogin } from '~/lib/api'
 import { useRouter } from 'vue-router'
 import { PushButton } from 'tailvue'
-import IconClient from '~/components/IconClient.vue'
+import { Icon } from '@iconify/vue'
 
 const config = useRuntimeConfig()
 const router = useRouter()

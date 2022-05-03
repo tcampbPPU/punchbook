@@ -10,7 +10,7 @@
   "require": {
     "php": "^8.0",
     "acidjazz/humble": "^2.1",
-    "composer/composer": "2.1.12",
+    "composer/composer": "^2.2.1",
     "fruitcake/laravel-cors": "^2.0",
     "google/apiclient": "^2.11",
     "guzzlehttp/guzzle": "^7.0.1",

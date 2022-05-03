@@ -1,10 +1,12 @@
 <template>
   <div class="flex items-center justify-center w-screen h-screen">
-    <icon-client icon="eos-icons:loading" class="w-12 h-12" />
+    <icon icon="eos-icons:loading" class="w-12 h-12" />
   </div>
 </template>
 <script lang="ts" setup>
 import { useRoute, useRouter } from 'vue-router'
+import { Icon } from '@iconify/vue'
+
 const { $api, $utils } = useNuxtApp()
 const route = useRoute()
 const router = useRouter()

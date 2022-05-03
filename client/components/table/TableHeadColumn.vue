@@ -21,7 +21,7 @@
                   class="relative inline-flex items-center px-4 py-2 -ml-px space-x-2 text-sm font-medium text-gray-700 border border-gray-300 rounded-r-md bg-gray-50 dark:bg-gray-600 hover:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-brand-light-blue-300 focus:border-brand-light-blue-300"
                   @click="filter"
                 >
-                  <icon-client class="w-3 h-3 text-gray-300 hover:text-gray-500" icon="ci:filter" />
+                  <icon class="w-3 h-3 text-gray-300 hover:text-gray-500" icon="ci:filter" />
                 </button>
               </div>
             </div>
@@ -34,7 +34,7 @@
         @click="$emit('sort', props.column)"
       >
         <span> {{ props.column.label ? props.column.label : props.column.field }} </span>
-        <icon-client class="w-4 h-4 text-gray-300 hover:text-gray-500" icon="bx:sort-alt-2" />
+        <icon class="w-4 h-4 text-gray-300 hover:text-gray-500" icon="bx:sort-alt-2" />
       </div>
       <div
         v-else
@@ -43,8 +43,8 @@
         <span> {{ props.column.label ? props.column.label : props.column.field }} </span>
       </div>
       <div v-if="props.column.filterable" class="ml-2 cursor-pointer" @click="toggle">
-        <icon-client v-if="isFiltered" class="w-4 h-4 text-gray-300 hover:text-gray-500" icon="ci:filter" />
-        <icon-client v-else class="w-4 h-4 text-gray-300 hover:text-gray-500" icon="ci:filter-off" />
+        <icon v-if="isFiltered" class="w-4 h-4 text-gray-300 hover:text-gray-500" icon="ci:filter" />
+        <icon v-else class="w-4 h-4 text-gray-300 hover:text-gray-500" icon="ci:filter-off" />
       </div>
     </div>
     <div v-else>
@@ -59,8 +59,8 @@
 <script lang="ts" setup>
 import { PropType } from '@vue/runtime-core'
 import { onClickOutside } from '@vueuse/core'
+import { Icon } from '@iconify/vue'
 import TransitionTopToBottom from '~/components/transition/TransitionTopToBottom.vue'
-
 const emit = defineEmits(['filter', 'sort'])
 
 const props = defineProps({

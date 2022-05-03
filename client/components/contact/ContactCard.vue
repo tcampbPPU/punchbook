@@ -7,7 +7,7 @@
           class="flex justify-center border border-transparent"
           @click="edit"
         >
-          <icon-client icon="mdi:edit" class="w-5 h-5 text-gray-400" />
+          <icon icon="mdi:edit" class="w-5 h-5 text-gray-400" />
         </push-button>
       </div>
       <div class="flex items-center justify-between w-full p-6 space-x-6">
@@ -18,11 +18,11 @@
             </h3>
           </div>
           <p class="flex mt-1 space-x-2 text-sm leading-5 text-gray-500 truncate dark:text-gray-400">
-            <icon-client icon="mdi:envelope" class="w-5 h-5 text-gray-400" />
+            <icon icon="mdi:envelope" class="w-5 h-5 text-gray-400" />
             <span>{{ props.contact.email }}</span>
           </p>
           <p class="flex mt-1 space-x-2 text-sm leading-5 text-gray-500 truncate dark:text-gray-400">
-            <icon-client icon="mdi:phone" class="w-5 h-5 text-gray-400" />
+            <icon icon="mdi:phone" class="w-5 h-5 text-gray-400" />
             <span>{{ props.contact.phone }}</span>
           </p>
         </div>
@@ -35,7 +35,7 @@
               class="relative inline-flex items-center justify-center flex-1 w-0 py-4 -mr-px text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out border border-transparent rounded-bl-lg dark:text-gray-200 hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10"
               :href="`mailto: ${props.contact.email}`"
             >
-              <icon-client icon="mdi:envelope" class="w-5 h-5 text-gray-400" />
+              <icon icon="mdi:envelope" class="w-5 h-5 text-gray-400" />
               <span class="ml-3">Email</span>
             </a>
           </div>
@@ -44,7 +44,7 @@
               class="relative inline-flex items-center justify-center flex-1 w-0 py-4 text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out border border-transparent rounded-br-lg dark:text-gray-200 hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10"
               :href="`tel:+${props.contact.phone}`"
             >
-              <icon-client icon="mdi:phone" class="w-5 h-5 text-gray-400" />
+              <icon icon="mdi:phone" class="w-5 h-5 text-gray-400" />
               <span class="ml-3">Call</span>
             </a>
           </div>
@@ -56,7 +56,7 @@
 
 <script lang="ts" setup>
 import { PropType } from '@vue/runtime-core'
-import IconClient from '~/components/IconClient.vue'
+import { Icon } from '@iconify/vue'
 
 const emit = defineEmits(['edit'])
 const props = defineProps({

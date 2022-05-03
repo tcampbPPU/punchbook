@@ -3,7 +3,7 @@
     <label class="block text-sm font-medium leading-5 text-gray-700 dark:text-gray-500" for="name">Name</label>
     <div class="relative mt-1 rounded-md shadow-sm">
       <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-        <icon-client icon="mdi:user" class="w-5 h-5 text-gray-400" />
+        <icon icon="mdi:user" class="w-5 h-5 text-gray-400" />
       </div>
       <input
         id="name"
@@ -19,7 +19,7 @@
     <label class="block mt-6 text-sm font-medium leading-5 text-gray-700 dark:text-gray-500" for="phone">Phone</label>
     <div class="relative mt-1 rounded-md shadow-sm">
       <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-        <icon-client icon="mdi:phone" class="w-5 h-5 text-gray-400" />
+        <icon icon="mdi:phone" class="w-5 h-5 text-gray-400" />
       </div>
       <input
         id="phone"
@@ -35,7 +35,7 @@
     <label class="block mt-6 text-sm font-medium leading-5 text-gray-700 dark:text-gray-500" for="email">Email address</label>
     <div class="relative mt-1 rounded-md shadow-sm">
       <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-        <icon-client icon="mdi:envelope" class="w-5 h-5 text-gray-400" />
+        <icon icon="mdi:envelope" class="w-5 h-5 text-gray-400" />
       </div>
       <input
         id="email"
@@ -58,7 +58,7 @@
         >
           Update
           <div v-if="loading.attempt" class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-            <icon-client icon="gg:spinner-two" class="w-5 h-5 text-indigo-200 animate-spin" />
+            <icon icon="gg:spinner-two" class="w-5 h-5 text-indigo-200 animate-spin" />
           </div>
         </push-button>
         <push-button
@@ -69,7 +69,7 @@
         >
           Create
           <div v-if="loading.attempt" class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-            <icon-client icon="gg:spinner-two" class="w-5 h-5 text-indigo-200 animate-spin" />
+            <icon icon="gg:spinner-two" class="w-5 h-5 text-indigo-200 animate-spin" />
           </div>
         </push-button>
       </span>
@@ -80,7 +80,7 @@
 <script lang="ts" setup>
 import { PropType } from '@vue/runtime-core'
 import { PushButton } from 'tailvue'
-import IconClient from '~/components/IconClient.vue'
+import { Icon } from '@iconify/vue'
 
 const emit = defineEmits(['off', 'change'])
 const props = defineProps({

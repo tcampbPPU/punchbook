@@ -16,6 +16,8 @@ declare global {
       label: string | undefined
       /* provide an optional route to redirect */
       route?: string
+      /** icon  */
+      icon?: string
     }
     type PageBreadCrumbs = Array<PageBreadCrumb>
 

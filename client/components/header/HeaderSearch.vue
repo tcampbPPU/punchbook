@@ -4,7 +4,7 @@
       <label for="search" class="sr-only">Search</label>
       <div class="relative">
         <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-          <icon-client icon="mdi:search" class="w-5 h-5 text-gray-400" />
+          <icon icon="mdi:search" class="w-5 h-5 text-gray-400" />
         </div>
         <input
           id="search"
@@ -22,6 +22,7 @@
   </div>
 </template>
 <script lang="ts" setup>
+import { Icon } from '@iconify/vue'
 import { useSearch } from '~/composables/useSearch'
 const { $utils } = useNuxtApp()
 const searchStr = useSearch()

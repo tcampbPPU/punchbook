@@ -22,7 +22,7 @@
       @click.stop="$emit('remove')"
     >
       <span class="sr-only">Remove</span>
-      <icon-client
+      <icon
         icon="mdi-close"
         class="w-2 h-2"
       />
@@ -30,6 +30,7 @@
   </span>
 </template>
 <script lang="ts" setup>
+import { Icon } from '@iconify/vue'
 
 defineEmits(['remove'])
 

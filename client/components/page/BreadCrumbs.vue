@@ -1,53 +1,54 @@
+
 <template>
-  <header class="bg-white border-t border-gray-100 shadow-sm dark:bg-gray-900 dark:border-gray-700">
-    <nav class="flex bg-white border-b border-gray-200 dark:border-gray-900 dark:bg-gray-800" aria-label="Breadcrumb">
-      <ol
-        class="flex w-full pl-4 pr-2 ml-3 mr-2 space-x-4 sm:mr-4 lg:mr-12 lg:ml-14 3xl:mx-auto max-w-8xl sm:pl-6 lg:px-8 3xl:pl-10"
-      >
-        <li class="flex">
-          <div class="flex items-center">
-            <router-link to="/" class="text-gray-400 dark:text-white hover:text-gray-500">
-              <icon-client icon="mdi:home" class="w-5 h-5" />
-              <span class="sr-only">Home</span>
-            </router-link>
-          </div>
-        </li>
-        <li class="flex">
-          <div v-for="(crumb, index) in props.crumbs" :key="index" class="flex items-center">
-            <svg
-              class="flex-shrink-0 w-6 h-full text-gray-200 dark:text-gray-700" viewBox="0 0 24 44"
-              preserveAspectRatio="none" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true"
-            >
-              <path d="M.293 0l22 22-22 22h1.414l22-22-22-22H.293z" />
-            </svg>
-            <div
-              v-if="crumb.label === undefined"
-              class="w-24 ml-4 text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-white skeleton"
-            >
-              &nbsp;
+  <div>
+    <nav class="flex justify-between px-4 sm:px-6 border-b border-gray-300 dark:border-gray-700 lg:border-0" aria-label="Breadcrumb">
+      <ol class="flex items-center space-x-4 py-3">
+        <transition-group
+          mode="out-in"
+          enter-active-class="transition ease-out duration-200 delay-200"
+          enter-from-class="transform -translate-x-2 opacity-0"
+          enter-to-class="transform translate-x-0 opacity-100"
+          leave-active-class="ease-in duration-200"
+          leave-from-class="transform translate-x-0 opacity-100"
+          leave-to-class="transform -translate-x-2 opacity-0"
+        >
+          <li key="home">
+            <div>
+              <router-link to="/" class="text-gray-400 hover:text-gray-500">
+                <icon icon="fa-solid:home" class="w-5 h-5" />
+                <span class="sr-only">Home</span>
+              </router-link>
             </div>
-            <router-link
-              v-else-if="crumb.route" :to="crumb.route"
-              class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-white"
-            >
-              {{ crumb.label }}
-            </router-link>
-            <div v-else class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-white">
-              {{ crumb.label }}
+          </li>
+
+          <li v-for="crumb in props.crumbs" :key="crumb.label">
+            <div v-if="crumb" class="flex items-center">
+              <icon icon="mdi-chevron-right" class="w-5 h-5" />
+              <router-link v-if="crumb && crumb.route" :to="crumb.route" class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">
+                <div class="flex items-center space-x-2">
+                  <icon v-if="crumb.icon" :icon="crumb.icon" class="w-5 h-5" />
+                  <span> {{ crumb.label }} </span>
+                </div>
+              </router-link>
+              <span v-else class="ml-4 text-sm font-medium text-gray-500">
+                <div class="flex items-center space-x-2">
+                  <icon v-if="crumb.icon" :icon="crumb.icon" class="w-5 h-5" />
+                  <span> {{ crumb.label }} </span>
+                </div>
+              </span>
             </div>
-          </div>
-        </li>
-        <li key="slot" class="flex items-center justify-end flex-1">
-          <slot />
-        </li>
+          </li>
+        </transition-group>
       </ol>
     </nav>
-  </header>
+    <div class="my-12 md:mx-12">
+      <slot />
+    </div>
+  </div>
 </template>
 <script lang="ts" setup>
 import { PropType } from '@vue/runtime-core'
-import IconClient from '~/components/IconClient.vue'
+import { Icon } from '@iconify/vue'
 
 const props = defineProps({
   crumbs: {

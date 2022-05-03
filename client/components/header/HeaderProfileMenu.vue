@@ -8,7 +8,7 @@
     role="menuitem"
     @click="off"
   >
-    <icon-client
+    <icon
       :icon="item.icon"
       :class="{'w-4 h-4 mr-1.5': !mobile, 'w-6 h-6 mr-3': mobile}"
       class="text-gray-400"
@@ -22,7 +22,7 @@
     role="menuitem"
     @click="logout"
   >
-    <icon-client
+    <icon
       icon="mdi-logout"
       :class="{'w-4 h-4 mr-1.5': !mobile, 'w-6 h-6 mr-3': mobile}"
       class="text-gray-400"
@@ -32,7 +32,7 @@
 </template>
 
 <script lang="ts" setup>
-import IconClient from '~/components/IconClient.vue'
+import { Icon } from '@iconify/vue'
 
 const { $api, $modal, $toast } = useNuxtApp()
 

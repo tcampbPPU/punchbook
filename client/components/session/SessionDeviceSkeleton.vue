@@ -2,7 +2,7 @@
   <div class="relative bg-white rounded-lg shadow dark:bg-gray-800">
     <div class="absolute top-0 right-0 m-2">
       <push-button theme="text" size="xs" class="shadow-none">
-        <icon-client
+        <icon
           icon="mdi-trash"
           class="w-4 h-4 text-gray-200"
         />
@@ -14,7 +14,7 @@
     <div class="p-4">
       <div>
         <div class="flex items-center mb-1 text-gray-900">
-          <icon-client
+          <icon
             icon="mdi-laptop"
             class="w-4 h-4 mr-1.5 text-gray-200"
           />
@@ -23,7 +23,7 @@
           </div>
         </div>
         <div class="flex items-center mb-1 text-sm text-gray-500">
-          <icon-client
+          <icon
             icon="mdi-application-outline"
             class="w-4 h-4 mr-1.5 text-gray-200"
           />
@@ -32,7 +32,7 @@
           </div>
         </div>
         <div class="flex items-center mb-1 text-sm text-gray-500">
-          <icon-client
+          <icon
             icon="mdi-map"
             class="w-4 h-4 mr-1.5 text-gray-200"
           />
@@ -41,7 +41,7 @@
           </div>
         </div>
         <div class="flex items-center mb-1 text-sm text-gray-500">
-          <icon-client
+          <icon
             icon="mdi-envelope"
             class="w-4 h-4 mr-1.5 text-gray-200"
           />
@@ -50,7 +50,7 @@
           </div>
         </div>
         <div class="flex items-center mb-1 text-sm text-gray-500">
-          <icon-client
+          <icon
             icon="mdi-clock"
             class="w-4 h-4 mr-1.5 text-gray-200"
           />
@@ -59,7 +59,7 @@
           </div>
         </div>
         <div class="flex items-center mb-1 text-sm text-gray-500">
-          <icon-client
+          <icon
             icon="mdi-clock"
             class="w-4 h-4 mr-1.5 text-gray-200"
           />
@@ -73,5 +73,5 @@
 </template>
 <script lang="ts" setup>
 import { PushButton } from 'tailvue'
-import IconClient from '~/components/IconClient.vue'
+import { Icon } from '@iconify/vue'
 </script>

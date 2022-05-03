@@ -2,7 +2,7 @@
   <div class="relative bg-white rounded-lg shadow dark:bg-gray-800">
     <div class="absolute top-0 right-0 m-2">
       <push-button size="xs" @click="confirm(session)">
-        <icon-client
+        <icon
           icon="mdi-trash"
           class="w-4 h-4 text-red-400"
         />
@@ -15,21 +15,21 @@
       <div>
         <div class="flex items-center justify-between mb-2 text-gray-900 dark:text-gray-300">
           {{ name }}
-          <icon-client
+          <icon
             v-if="session.current"
             icon="mdi-check-decagram"
             class="w-4 h-4 mr-1.5 text-green-400"
           />
         </div>
         <div class="flex items-center mb-1 text-sm text-gray-500">
-          <icon-client
+          <icon
             icon="mdi-application-outline"
             class="w-4 h-4 mr-1.5 text-gray-400"
           />
           {{ session.device.browser ? session.device.browser : source }}
         </div>
         <div class="flex items-center mb-1 text-sm text-gray-500">
-          <icon-client
+          <icon
             icon="mdi-map"
             class="w-4 h-4 mr-1.5 text-gray-400"
           />
@@ -39,7 +39,7 @@
           v-if="session.source === 'google'"
           class="flex items-center mb-1 text-sm text-gray-500"
         >
-          <icon-client
+          <icon
             icon="flat-color-icons:google"
             class="w-4 h-4 mr-1.5"
           />
@@ -49,25 +49,25 @@
           v-if="session.source === 'github'"
           class="flex items-center mb-1 text-sm text-gray-500"
         >
-          <icon-client icon="fa-brands:github" class="w-4 h-4 mr-1.5" />
+          <icon icon="fa-brands:github" class="w-4 h-4 mr-1.5" />
           Verified through Github
         </div>
         <div
           v-if="session.source === 'email'"
           class="flex items-center mb-1 text-sm text-gray-500"
         >
-          <icon-client icon="mdi-email" class="w-4 h-4 mr-1.5" />
+          <icon icon="mdi-email" class="w-4 h-4 mr-1.5" />
           Verified through E-mail
         </div>
         <div class="flex items-center mb-1 text-sm text-gray-500">
-          <icon-client
+          <icon
             icon="mdi-clock"
             class="w-4 h-4 mr-1.5 text-gray-400"
           />
           Created {{ $dayjs(session.created_at).fromNow() }}
         </div>
         <div class="flex items-center mb-1 text-sm text-gray-500">
-          <icon-client
+          <icon
             icon="mdi-clock"
             class="w-4 h-4 mr-1.5 text-gray-400"
           />
@@ -80,7 +80,7 @@
 
 <script lang="ts" setup>
 import { PushButton } from 'tailvue'
-import IconClient from '~/components/IconClient.vue'
+import { Icon } from '@iconify/vue'
 import { PropType } from '@vue/runtime-core'
 import { computed } from '@vue/reactivity'
 const { $toast, $modal, $api, $dayjs } = useNuxtApp()
