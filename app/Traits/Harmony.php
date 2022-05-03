@@ -46,11 +46,25 @@ trait Harmony
      *
      * @param string $name
      * @param array|string $rules
+     * @param array $messages<string, string>
      * @return Controller
      */
-    public function option(string $name, array|string $rules): self
+    public function option(string $name, array|string $rules, array $messages = []): self
     {
-        $this->query['options'][$name] = $rules;
+        $this->query['options']['rules'][$name] = $rules;
+
+        if (! empty($messages)) {
+            $colMessages = array_map(
+                fn ($message, $key) => [$name . '.' . $key => $message],
+                $messages,
+                array_keys($messages)
+            );
+
+            $this->query['options']['messages'] = array_merge(
+                $this->query['options']['messages'] ?? [],
+                ...$colMessages
+            );
+        }
 
         return $this;
     }
@@ -102,7 +116,7 @@ trait Harmony
      */
     public function verify(bool $abort = true): Response|array|bool|JsonResponse
     {
-        $validate = Validator::make($this->request->all(), $this->query['options']);
+        $validate = Validator::make($this->request->all(), $this->query['options']['rules'], $this->query['options']['messages'] ?? []);
 
         if ($validate->fails()) {
             // Push failures to errors stack
@@ -120,7 +134,7 @@ trait Harmony
         }
 
         foreach ($this->request->all() as $key => $value) {
-            if (isset($this->query['options'][$key])) {
+            if (isset($this->query['options']['rules'][$key])) {
                 if ($this->isFile($value)) {
                     $value = (array) $value;
                 }
