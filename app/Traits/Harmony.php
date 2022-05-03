@@ -304,7 +304,7 @@ trait Harmony
         $params = $query['params'] ?? [];
         $options = [];
 
-        foreach ($query['options'] as $key => $value) {
+        foreach ($query['options']['rules'] as $key => $value) {
             $options[$key] = is_array($value) ? $value : explode('|', $value);
         }
 
