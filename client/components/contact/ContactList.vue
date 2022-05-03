@@ -36,7 +36,7 @@ const tableParams = computed((): components.SmartTableParams => {
         label: 'Updated At',
         field: 'updated_at',
         type: 'date',
-        sortable: false,
+        sortable: true,
       },
     ],
     defaults: {

@@ -16,6 +16,7 @@
         :direction="props.params.defaults.direction"
         :checkable="props.params.checkable"
         :actions="props.params.actions"
+        @sort="sort"
       />
       <tbody
         v-if="results && results.paginate && results.paginate.total > 0"
@@ -57,14 +58,34 @@ const props = defineProps({
 
 const { $api } = useNuxtApp()
 const results = ref<api.HarmonyResults>(undefined)
+const order = ref(props.params.defaults.order)
+const direction = ref(props.params.defaults.direction)
 
 const get = async (args: components.SmartTableFetchParams): Promise<void> => {
+  const defaults: components.SmartTableFetchParams = {
+    page: 1,
+    order: order.value,
+    direction: direction.value,
+  }
+
   const payload = {
+    ...defaults,
     ...args,
   }
+
   results.value = (await $api.index(props.params.route, payload)) as api.HarmonyResults
 }
 
 onMounted(() => get({ page: 1 }))
+
+const sort = (column: components.SmartTableColumn) => {
+  if (column.field === order.value)
+    direction.value = direction.value === 'desc' ? 'asc' : 'desc'
+  else {
+    order.value = column.field
+    direction.value = props.params.defaults.direction
+  }
+  get({ page: 1 })
+}
 
 </script>
