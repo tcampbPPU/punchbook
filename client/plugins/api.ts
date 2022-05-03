@@ -1,19 +1,22 @@
 import Api from '~/lib/api'
 
-export default defineNuxtPlugin((nuxtApp) => {
+export default defineNuxtPlugin(() => {
   const config = useRuntimeConfig()
   const { $toast } = useNuxtApp()
-  nuxtApp.provide('api', new Api({
-    req: nuxtApp.ssrContext?.req,
-    res: nuxtApp.ssrContext?.res,
-    fetchOptions: {
-      baseURL: config.apiURL,
+  return {
+    provide: {
+      api: new Api({
+          fetchOptions: {
+            baseURL: config.public.apiURL,
+          },
+          webUrl: config.public.webURL,
+          redirect: {
+            logout: '/',
+            login: '/',
+          },
+        }, $toast),
     },
-    redirect: {
-      logout: '/',
-      login: '/',
-    },
-  }, $toast))
+  }
 })
 
 declare module '#app' {

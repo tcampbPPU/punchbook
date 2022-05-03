@@ -1,30 +1,34 @@
-import { FetchError, FetchOptions, SearchParams } from 'ohmyfetch'
+import { $fetch, FetchError, FetchOptions, SearchParams } from 'ohmyfetch'
 import { reactive, ref } from '@vue/reactivity'
-import { IncomingMessage, ServerResponse } from 'http'
-import { useCookie } from 'h3'
-import { TailvueToast } from 'tailvue'
+import { TailvueToast, ToastProps } from 'tailvue'
+import { Router } from 'vue-router'
 
 export interface UserLogin {
   token: string
   user: models.User
   provider: string
   error?: string
+  action?: LoginAction
 }
 
 export interface AuthConfig {
-  fetchOptions: FetchOptions
-  req?: IncomingMessage
-  res?: ServerResponse
+  fetchOptions: FetchOptions<'json'>
+  webUrl: string
   redirect: {
     logout: string
     login: undefined|string
   }
+  paymentToast?: ToastProps,
+}
+
+export interface LoginAction {
+  action: string
+  url: string
 }
 
 const authConfigDefaults:AuthConfig = {
   fetchOptions: {},
-  req: undefined,
-  res: undefined,
+  webUrl: 'https://localhost:3000',
   redirect: {
     logout: '/',
     login: undefined,
@@ -33,48 +37,61 @@ const authConfigDefaults:AuthConfig = {
 
 export default class Api {
 
-  private token = ref<string|undefined>(undefined)
+  public token = useCookie('token', { path: '/', maxAge: 60 * 60 * 24 * 30 })
   public config: AuthConfig
-  public $user = <models.User|undefined>undefined
+  public $user = reactive<models.User|Record<string, unknown>>({})
   public $toast:TailvueToast
-  public loggedIn = ref(false)
+  public loggedIn = ref<boolean>(false)
+  public modal = ref<boolean>(false)
+  public redirect = ref<boolean>(false)
+  public action = ref<null|LoginAction>(null)
+  public callback = undefined
+  public callbacked = ref<boolean>(false)
 
-  constructor(config: AuthConfig, toast: TailvueToast) {
+  constructor (config: AuthConfig, toast: TailvueToast) {
     this.$toast = toast
     this.config = { ...authConfigDefaults,...config }
-    this.token.value = this.getToken()
-    if (this.token.value)  {
+    this.checkUser()
+  }
+
+  on (redirect: boolean, action?: LoginAction|null) {
+    this.redirect.value = redirect
+    this.modal.value = true
+    this.action.value = action
+  }
+
+  off () {
+    this.modal.value = false
+  }
+
+  checkUser () {
+    if (this.token.value !== undefined)  {
       this.loggedIn.value = true
       this.setUser().then()
     }
+    else this.loggedIn.value = false
   }
 
   async login (result: UserLogin): Promise<undefined|string> {
     this.loggedIn.value = true
     this.token.value = result.token
-    this.$user = reactive(result.user)
-    await this.set()
+    Object.assign(this.$user, result.user)
+    this.$toast.show({ type: 'success', message: 'Login Successful', timeout: 1 })
+    if (result.action && result.action.action === 'redirect') return result.action.url
+    if (this.callback && !this.callbacked.value) this.callback()
+    this.callbacked.value = true
     return this.config.redirect.login
   }
-
-  private async set(): Promise<string> {
-    return await $fetch('/api/set', { params: { token: this.token.value } })
-  }
-
-  private getToken(): string {
-    if (this.config.req) return useCookie(this.config.req, 'token')
-    return `; ${document.cookie}`.split(`; token=`).pop().split(';').shift()
-  }
-
-  private fetchOptions(params?: SearchParams, method = 'GET'): FetchOptions {
+  private fetchOptions (params?: SearchParams, method = 'GET'): FetchOptions<'json'> {
     const fetchOptions = this.config.fetchOptions
     fetchOptions.headers = {
       Accept: 'application/json',
       Authorization: `Bearer ${this.token.value}`,
+      Referer: this.config.webUrl,
     }
     fetchOptions.method = method
-    delete  this.config.fetchOptions.body
-    delete  this.config.fetchOptions.params
+    delete this.config.fetchOptions.body
+    delete this.config.fetchOptions.params
     if (params)
       if (method === 'POST' || method === 'PUT')
         this.config.fetchOptions.body = params
@@ -83,18 +100,20 @@ export default class Api {
     return this.config.fetchOptions
   }
 
-  private async setUser(): Promise<void> {
-    const result = await $fetch<api.HarmonyResponse & { data: models.User }>('/me', this.fetchOptions())
-    this.$user = reactive(result.data)
+  private async setUser (): Promise<void> {
+    try {
+      const result = await $fetch<api.HarmonyResponse & { data: models.User }>('/me', this.fetchOptions())
+      Object.assign(this.$user, result.data)
+    } catch (e) {
+      await this.invalidate()
+    }
   }
 
-  public async index <Results>(endpoint: string, params?: SearchParams): Promise<api.HarmonyResults & { data: Results }> {
+  public async index <Results>(endpoint: string, params?: SearchParams): Promise<api.HarmonyResponse & { data: Results }> {
     try {
-      return await $fetch<api.HarmonyResults & { data: Results }>(endpoint, this.fetchOptions(params))
+      return await $fetch<api.HarmonyResponse & { data: Results }>(endpoint, this.fetchOptions(params))
     } catch (error) {
-      console.log(error)
-
-      this.toastError(error)
+      await this.toastError(error)
     }
   }
 
@@ -102,31 +121,32 @@ export default class Api {
     try {
       return await $fetch<api.HarmonyResponse & { data: Result }>(endpoint, this.fetchOptions(params))
     } catch (error) {
-      this.toastError(error)
+      await this.toastError(error)
     }
   }
 
-  public async put (endpoint: string, params?: SearchParams): Promise<api.HarmonyResponse> {
+  public async update (endpoint: string, params?: SearchParams): Promise<api.HarmonyResponse> {
     try {
-      return await $fetch<api.HarmonyResponse>(endpoint, this.fetchOptions(params, 'PUT'))
+      return (await $fetch<api.HarmonyResponse & { data: api.HarmonyResponse}>(endpoint, this.fetchOptions(params, 'PUT'))).data
     } catch (error) {
-      this.toastError(error)
+      await this.toastError(error)
     }
   }
 
-  public async store (endpoint: string, params?: SearchParams): Promise<api.HarmonyResponse> {
+  public async store <Result>(endpoint: string, params?: SearchParams, cb?: (e: FetchError) => unknown): Promise<api.HarmonyResponse & { data: Result }> {
     try {
-      return await $fetch<api.HarmonyResponse>(endpoint, this.fetchOptions(params, 'POST'))
+      return (await $fetch<api.HarmonyResponse & { data: api.HarmonyResponse & { data: Result } }>(endpoint, this.fetchOptions(params, 'POST'))).data
     } catch (error) {
-      this.toastError(error)
+      if (cb) cb(error)
+      else await this.toastError(error)
     }
   }
 
   public async delete (endpoint: string, params?: SearchParams): Promise<api.HarmonyResponse> {
     try {
-      return await $fetch<api.HarmonyResponse>(endpoint, this.fetchOptions(params, 'DELETE'))
+      return (await $fetch<api.HarmonyResponse & { data: api.HarmonyResponse}>(endpoint, this.fetchOptions(params, 'DELETE'))).data
     } catch (error) {
-      this.toastError(error)
+      await this.toastError(error)
     }
   }
 
@@ -138,13 +158,23 @@ export default class Api {
     }
   }
 
-  private toastError (error: FetchError): void {
+  private async toastError (error: FetchError): Promise<void> {
+
+    if (error.response?.status === 401)
+      return await this.invalidate()
+
+    if (error.response?.status === 402 && this.config.paymentToast)
+      return this.$toast.show(this.config.paymentToast)
+
+
+    if (!this.$toast) throw error
+
     if (error.response._data && error.response._data.errors)
       for (const err of error.response._data.errors)
         this.$toast.show({
           type: 'danger',
           message: err.detail ?? err.message ?? '',
-          timeout: 0,
+          timeout: 12,
         })
 
     if (error.response?.status === 403)
@@ -165,16 +195,19 @@ export default class Api {
     }
   }
 
-  public async logout (): Promise<api.HarmonyResponse> {
-    const response = (await $fetch<api.HarmonyResponse>('/logout', this.fetchOptions())).data as api.HarmonyResponse
-    this.invalidate()
-    return response
+  public async logout (router: Router): Promise<void> {
+    const response = (await $fetch<api.HarmonyResponse>('/logout', this.fetchOptions()))
+    this.$toast.show(Object.assign(response.data, { timeout: 1 }))
+    await this.invalidate(router)
   }
 
-  private invalidate (): void {
+  public async invalidate (router?: Router): Promise<void> {
     this.token.value = undefined
     this.loggedIn.value = false
-    this.$user = undefined
-    if (!this.config.req) document.cookie = 'token=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    Object.assign(this.$user, {})
+    if (router) await router.push(this.config.redirect.logout)
+    else if (process.client && document.location.pathname !== this.config.redirect.logout)
+      document.location.href = this.config.redirect.logout
   }
+
 }

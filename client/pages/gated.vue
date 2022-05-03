@@ -17,7 +17,9 @@
 import PageContainer from '~/components/page/PageContainer.vue'
 
 // Route Guard
-useAuthMiddleware()
+definePageMeta({
+  middleware: 'auth',
+})
 
 const { $api } = useNuxtApp()
 
