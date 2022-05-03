@@ -8,12 +8,13 @@
 
 <script lang="ts" setup>
 import { ref } from '@vue/reactivity'
-import { useAuthMiddleware } from '~/composables/useAuthMiddleware'
 import PageContainer from '~/components/page/PageContainer.vue'
 import SessionList from '~/components/session/SessionList.vue'
 
 // Route Guard
-useAuthMiddleware()
+definePageMeta({
+  middleware: 'auth',
+})
 
 const { $api } = useNuxtApp()
 
