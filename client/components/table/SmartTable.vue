@@ -16,7 +16,9 @@
         :direction="props.params.defaults.direction"
         :checkable="props.params.checkable"
         :actions="props.params.actions"
+        :filters="filters"
         @sort="sort"
+        @filter="filter"
       />
       <tbody
         v-if="results && results.paginate && results.paginate.total > 0"
@@ -60,12 +62,15 @@ const { $api } = useNuxtApp()
 const results = ref<api.HarmonyResults>(undefined)
 const order = ref(props.params.defaults.order)
 const direction = ref(props.params.defaults.direction)
+const filters = ref<components.SmartTableFilters>([])
 
 const get = async (args: components.SmartTableFetchParams): Promise<void> => {
   const defaults: components.SmartTableFetchParams = {
     page: 1,
     order: order.value,
     direction: direction.value,
+    filterFields: filters.value.map(f => f.column.field),
+    filterInputs: filters.value.map(f => f.input),
   }
 
   const payload = {
@@ -86,6 +91,18 @@ const sort = (column: components.SmartTableColumn) => {
     direction.value = props.params.defaults.direction
   }
   get({ page: 1 })
+}
+
+const filter = (filter: components.SmartTableFilter) => {
+  removeFilter(filter)
+  filters.value.push(filter)
+  get({ page: 1 })
+}
+
+const removeFilter = (filter: components.SmartTableFilter, refreshes = false) => {
+  const index = filters.value.findIndex(f => f.column.field === filter.column.field)
+  if (index !== -1) filters.value.splice(index, 1)
+  if (refreshes) get({ page: 1 })
 }
 
 </script>

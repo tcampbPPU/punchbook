@@ -50,7 +50,7 @@ export default class Api {
 
   constructor (config: AuthConfig, toast: TailvueToast) {
     this.$toast = toast
-    this.config = { ...authConfigDefaults,...config }
+    this.config = { ...authConfigDefaults, ...config }
     this.checkUser()
   }
 
@@ -82,7 +82,8 @@ export default class Api {
     this.callbacked.value = true
     return this.config.redirect.login
   }
-  private fetchOptions (params?: SearchParams, method = 'GET'): FetchOptions<'json'> {
+
+  private fetchOptions ({ params, method }: { params: SearchParams, method: 'GET'|'POST'|'PUT'|'DELETE' }): FetchOptions<'json'> {
     const fetchOptions = this.config.fetchOptions
     fetchOptions.headers = {
       Accept: 'application/json',
@@ -102,7 +103,7 @@ export default class Api {
 
   private async setUser (): Promise<void> {
     try {
-      const result = await $fetch<api.HarmonyResponse & { data: models.User }>('/me', this.fetchOptions())
+      const result = await $fetch<api.HarmonyResponse & { data: models.User }>('/me', this.fetchOptions({ params: undefined, method: 'GET' }))
       Object.assign(this.$user, result.data)
     } catch (e) {
       await this.invalidate()
@@ -111,7 +112,7 @@ export default class Api {
 
   public async index <Results>(endpoint: string, params?: SearchParams): Promise<api.HarmonyResponse & { data: Results }> {
     try {
-      return await $fetch<api.HarmonyResponse & { data: Results }>(endpoint, this.fetchOptions(params))
+      return await $fetch<api.HarmonyResponse & { data: Results }>(endpoint, this.fetchOptions({ params, method: 'GET' }))
     } catch (error) {
       await this.toastError(error)
     }
@@ -119,7 +120,7 @@ export default class Api {
 
   public async get <Result>(endpoint: string, params?: SearchParams): Promise<api.HarmonyResponse & { data: Result }> {
     try {
-      return await $fetch<api.HarmonyResponse & { data: Result }>(endpoint, this.fetchOptions(params))
+      return await $fetch<api.HarmonyResponse & { data: Result }>(endpoint, this.fetchOptions({ params, method: 'GET' }))
     } catch (error) {
       await this.toastError(error)
     }
@@ -127,7 +128,7 @@ export default class Api {
 
   public async update (endpoint: string, params?: SearchParams): Promise<api.HarmonyResponse> {
     try {
-      return (await $fetch<api.HarmonyResponse & { data: api.HarmonyResponse}>(endpoint, this.fetchOptions(params, 'PUT'))).data
+      return (await $fetch<api.HarmonyResponse & { data: api.HarmonyResponse}>(endpoint, this.fetchOptions({ params, method: 'PUT' }))).data
     } catch (error) {
       await this.toastError(error)
     }
@@ -135,7 +136,7 @@ export default class Api {
 
   public async store <Result>(endpoint: string, params?: SearchParams, cb?: (e: FetchError) => unknown): Promise<api.HarmonyResponse & { data: Result }> {
     try {
-      return (await $fetch<api.HarmonyResponse & { data: api.HarmonyResponse & { data: Result } }>(endpoint, this.fetchOptions(params, 'POST'))).data
+      return (await $fetch<api.HarmonyResponse & { data: api.HarmonyResponse & { data: Result } }>(endpoint, this.fetchOptions({ params, method: 'POST' }))).data
     } catch (error) {
       if (cb) cb(error)
       else await this.toastError(error)
@@ -144,7 +145,7 @@ export default class Api {
 
   public async delete (endpoint: string, params?: SearchParams): Promise<api.HarmonyResponse> {
     try {
-      return (await $fetch<api.HarmonyResponse & { data: api.HarmonyResponse}>(endpoint, this.fetchOptions(params, 'DELETE'))).data
+      return (await $fetch<api.HarmonyResponse & { data: api.HarmonyResponse}>(endpoint, this.fetchOptions({ params, method: 'DELETE' }))).data
     } catch (error) {
       await this.toastError(error)
     }
@@ -152,7 +153,7 @@ export default class Api {
 
   public async attempt (token: string | string[]): Promise<UserLogin> {
     try {
-      return (await $fetch<api.HarmonyResponse & { data: UserLogin }>('/login', this.fetchOptions({ token }, 'POST'))).data
+      return (await $fetch<api.HarmonyResponse & { data: UserLogin }>('/login', this.fetchOptions({ params: { token }, method: 'POST'} ))).data
     } catch (error) {
       await this.toastError(error)
     }
@@ -196,7 +197,7 @@ export default class Api {
   }
 
   public async logout (router: Router): Promise<void> {
-    const response = (await $fetch<api.HarmonyResponse>('/logout', this.fetchOptions()))
+    const response = (await $fetch<api.HarmonyResponse>('/logout', this.fetchOptions({ params: undefined, method: 'GET' })))
     this.$toast.show(Object.assign(response.data, { timeout: 1 }))
     await this.invalidate(router)
   }

@@ -10,7 +10,7 @@
           :column="column"
           :order="order"
           :direction="direction"
-          :is-filtered="isFiltered()"
+          :is-filtered="isFiltered(column)"
           @sort="$emit('sort', $event)"
           @filter="$emit('filter', $event)"
         />
@@ -53,8 +53,15 @@ const props = defineProps({
     required: false,
     default: false,
   },
+  filters: {
+    type: Array as PropType<components.SmartTableFilter[]>,
+    required: false,
+    default: () => [],
+  },
 })
 
-const isFiltered = () => true
+  const isFiltered = (column: components.SmartTableColumn): boolean => {
+    return props.filters.find(f => f.column.field === column.field) !== undefined
+  }
 
 </script>

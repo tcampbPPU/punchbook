@@ -92,6 +92,12 @@ declare global {
 
       /** search string */
       search?: string
+
+      /** filterable fields */
+      filterFields?: Array<string>
+
+      /** filterable input values */
+      filterInputs?: Array<string>
     }
 
     interface SmartTableFilter {

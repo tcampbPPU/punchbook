@@ -18,7 +18,7 @@
                   >
                 </div>
                 <button
-                  class="relative inline-flex items-center px-4 py-2 -ml-px space-x-2 text-sm font-medium text-gray-700 border border-gray-300 rounded-r-md bg-gray-50 dark:bg-gray-600 hover:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-brand-light-blue-300 focus:border-brand-light-blue-300"
+                  class="relative inline-flex items-center px-4 py-2 -ml-px space-x-2 text-sm font-medium text-gray-700 border border-gray-300 rounded-r-md bg-gray-50 dark:bg-gray-600 hover:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-blue-300 focus:border-blue-300"
                   @click="filter"
                 >
                   <icon class="w-3 h-3 text-gray-300 hover:text-gray-500" icon="ci:filter" />
@@ -43,8 +43,9 @@
         <span> {{ props.column.label ? props.column.label : props.column.field }} </span>
       </div>
       <div v-if="props.column.filterable" class="ml-2 cursor-pointer" @click="toggle">
-        <icon v-if="isFiltered" class="w-4 h-4 text-gray-300 hover:text-gray-500" icon="ci:filter" />
-        <icon v-else class="w-4 h-4 text-gray-300 hover:text-gray-500" icon="ci:filter-off" />
+        <icon class="w-4 h-4 text-gray-300 hover:text-gray-500" icon="ci:filter" />
+        <!-- <icon v-if="isFiltered" class="w-4 h-4 text-gray-300 hover:text-gray-500" icon="ci:filter" />
+        <icon v-else class="w-4 h-4 text-gray-300 hover:text-gray-500" icon="ci:filter-off" /> -->
       </div>
     </div>
     <div v-else>
@@ -94,8 +95,8 @@ const off = async () => {
 }
 
 const on = async () => {
-  await $utils.sleep(200)
   filtering.value = true
+  await $utils.sleep(200)
 }
 
 const toggle = () => filtering.value ? off() : on()
