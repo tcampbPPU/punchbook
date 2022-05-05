@@ -82,7 +82,7 @@ const off = () =>  {
   edit.value = false
 }
 
-const get = async () => contacts.value = (await $api.index('/contact', { perpage: perPage.value, page: currPage.value, search: searchStr.value }))
+const get = async () => contacts.value = (await $api.get('/contact', { perpage: perPage.value, page: currPage.value, search: searchStr.value }))
 
 get()
 

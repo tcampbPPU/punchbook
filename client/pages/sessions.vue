@@ -28,7 +28,7 @@ const crumbs = computed((): components.PageBreadCrumbs => {
 })
 
 const sessions = ref<models.Sessions>(undefined)
-const get = async () => sessions.value = (await $api.index('/session')).data
+const get = async () => sessions.value = (await $api.get('/session')).data
 get()
 
 </script>

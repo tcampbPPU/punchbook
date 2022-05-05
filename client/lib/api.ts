@@ -112,7 +112,17 @@ export default class Api {
 
   public async index <Results>(endpoint: string, params?: SearchParams): Promise<api.HarmonyResponse & { data: Results }> {
     try {
-      return await $fetch<api.HarmonyResponse & { data: Results }>(endpoint, this.fetchOptions({ params, method: 'GET' }))
+      if (params) {
+        endpoint += '?'
+        for (const key in params)
+          if (Array.isArray(params[key]))
+            for (const item of params[key])
+              endpoint += `${key}[]=${item}&`
+          else
+            endpoint += `${key}=${params[key]}&`
+      }
+
+      return await $fetch<api.HarmonyResponse & { data: Results }>(endpoint, this.fetchOptions({ params: undefined, method: 'GET' }))
     } catch (error) {
       await this.toastError(error)
     }
