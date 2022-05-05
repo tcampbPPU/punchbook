@@ -225,7 +225,7 @@ trait Harmony
             'type' => 'success',
             'message' => __($message, $replace),
             'data' => $data,
-        ], Response::HTTP_OK, true);
+        ], Response::HTTP_OK);
     }
 
     /**
@@ -243,7 +243,7 @@ trait Harmony
             'type' => 'warning',
             'message' => __($message, $replace),
             'data' => $data,
-        ], Response::HTTP_OK, true);
+        ], Response::HTTP_OK);
     }
 
     /**
