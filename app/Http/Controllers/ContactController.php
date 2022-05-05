@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use App\Rules\PhoneNumber;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\{JsonResponse, Request, Response};
 use Illuminate\Support\Str;
@@ -61,7 +62,7 @@ class ContactController extends Controller
 
         $this
             ->option('name', 'required|string|max:255')
-            ->option('phone', ['required', 'regex:/^([0-9\s\-\+\(\)]*)$/', 'min:10'])
+            ->option('phone', ['required', new PhoneNumber(), 'min:10'])
             ->option('email', [
                 'required',
                 'email',
@@ -106,7 +107,7 @@ class ContactController extends Controller
 
         $this
             ->option('name', 'required|string|max:255')
-            ->option('phone', ['required', 'regex:/^([0-9\s\-\+\(\)]*)$/', 'min:10'])
+            ->option('phone', ['required', new PhoneNumber(), 'min:10'])
             ->option('email', [
                 'required',
                 'email',
