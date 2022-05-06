@@ -678,10 +678,10 @@
     estree-walker "^2.0.1"
     picomatch "^2.2.2"
 
-"@tailvue/nuxt@^0.1.33":
-  version "0.1.60"
-  resolved "https://registry.yarnpkg.com/@tailvue/nuxt/-/nuxt-0.1.60.tgz#d8fa706fe5690292330b9af450997a9a278c5dc3"
-  integrity sha512-cjgMcqDcNr1tMv1fZEvhM8mDktwN3ch2sQLNhYtXx5CbR1YF+qswtAN4lCCKR1DIobp0sYV6NBRSEeOYaX2Uuw==
+"@tailvue/nuxt@^0.1.61":
+  version "0.1.61"
+  resolved "https://registry.yarnpkg.com/@tailvue/nuxt/-/nuxt-0.1.61.tgz#ea1a7ed1595d301188eaed1503215ab4ef376009"
+  integrity sha512-ZP3IjvfHQ19oQy2OCFAORb+jIBiUgJXvXda0b/Xqiez/eM2UzfNqfjPvOGqvbBSURy4Mzl6/EbMlT5boDlNktg==
   dependencies:
     "@nuxt/kit" "npm:@nuxt/kit-edge@latest"
     pathe "^0.2.0"
