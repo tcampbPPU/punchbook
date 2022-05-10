@@ -317,4 +317,5 @@ class ContactControllerTest extends TestCase
                             ->where('message', 'email')
                             ->where('detail', 'The email has already been taken.')));
     }
+    //
 }
