@@ -5,12 +5,13 @@
         "eamodio.gitlens",
         "ms-vscode.vscode-typescript-next",
         "bmewburn.vscode-intelephense-client",
-        "johnsoncodehk.volar",
         "henrynguyen5-vsc.vsc-nvm",
         "hbenl.vscode-test-explorer",
         "recca0120.vscode-phpunit",
         "dbaeumer.vscode-eslint",
         "valeryanm.vscode-phpsab",
         "bradlc.vscode-tailwindcss",
+        "Vue.volar",
+        "Vue.vscode-typescript-vue-plugin",
     ]
 }
