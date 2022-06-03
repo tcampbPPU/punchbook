@@ -3903,10 +3903,10 @@ nuxi@^3.0.0-rc.3:
   optionalDependencies:
     fsevents "~2.3.2"
 
-nuxt-windicss@^2.3.1:
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/nuxt-windicss/-/nuxt-windicss-2.4.1.tgz#28c9954e9487c78b72e2c888e3bbd01b3b7e55eb"
-  integrity sha512-I4DhTO+UBHArQBfZLEoKBlGKzX2p8JjWNSI6bdJ9UNY4AXGWx5G/8BOSxe3c3jmHgLMzNAwOJ3x8o5BeZvEDHQ==
+nuxt-windicss@^2.4.2:
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/nuxt-windicss/-/nuxt-windicss-2.4.2.tgz#c46a08b6d4c9ef0e24be31d73346bc76aea4d7a4"
+  integrity sha512-coHvXGw4CqkRqG47aJqNKbQKMO17ZGXFVyeOKGaRnvsS4FcdfKtYKukpDgJm0sCIG57z8CljfX3nBy71+vu3mg==
   dependencies:
     "@nuxt/kit" "3.0.0-rc.3"
     "@windicss/plugin-utils" "^1.8.4"
