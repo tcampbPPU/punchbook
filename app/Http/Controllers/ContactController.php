@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Contact;
 use App\Rules\PhoneNumber;
 use Illuminate\Auth\Access\AuthorizationException;
-use Illuminate\Http\{JsonResponse, Request, Response};
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 
@@ -20,9 +22,9 @@ class ContactController extends Controller
     public function index(Request $request): JsonResponse | Response
     {
         $this
-            ->option('order', 'nullable|in:' . join(',', Contact::$sortable))
+            ->option('order', 'nullable|in:' . implode(',', Contact::$sortable))
             ->option('direction', 'nullable|in:desc,asc')
-            ->option('filterFields', 'nullable|array|in:' . join(',', Contact::$filterable))
+            ->option('filterFields', 'nullable|array|in:' . implode(',', Contact::$filterable))
             ->option('filterInputs', 'nullable|array')
             ->option('search', 'nullable|string')
             ->option('perpage', 'nullable|numeric|in:6,9,12,16,18,21,24')

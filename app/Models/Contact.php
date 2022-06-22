@@ -3,15 +3,19 @@
 namespace App\Models;
 
 use App\Scopes\OrderScope;
-use Illuminate\Database\Eloquent\{Builder, Model, SoftDeletes};
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Contact extends Model
 {
     use HasFactory, SoftDeletes;
 
     protected $guarded = [];
+
     protected $appends = ['first_name', 'avatar'];
+
     public static array $sortable = [
         'name',
         'phone',
@@ -19,6 +23,7 @@ class Contact extends Model
         'created_at',
         'updated_at',
     ];
+
     public static array $filterable = ['name', 'phone', 'email'];
 
     public function getFirstNameAttribute(): string
@@ -47,8 +52,7 @@ class Contact extends Model
      */
     public function scopeFilter(Builder $query, array $filters, string $comparison = 'like'): void
     {
-        $query->when($filters['search'] ?? null, fn ($query, $search) =>
-            $query->where('name', $comparison, "%{$search}%")
+        $query->when($filters['search'] ?? null, fn ($query, $search) => $query->where('name', $comparison, "%{$search}%")
                 ->orWhere('phone', $comparison, "%{$search}%")
                 ->orWhere('email', $comparison, "%{$search}%"));
     }

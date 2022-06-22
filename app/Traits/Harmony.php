@@ -3,20 +3,27 @@
 namespace App\Traits;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\{JsonResponse, Request, Response};
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Validator;
 
 trait Harmony
 {
     public Request $request;
+
     public float $benchmark;
+
     public string $status;
+
     public array $query = [
         'options' => [],
         'params' => [],
     ];
+
     public array $errors = [];
+
     public array $meta = [];
 
     /**
@@ -111,7 +118,7 @@ trait Harmony
     /**
      * Verify options through the Laravel Validator
      *
-     * @param boolean $abort
+     * @param bool $abort
      * @return Response|array|bool|JsonResponse
      */
     public function verify(bool $abort = true): Response|array|bool|JsonResponse
@@ -128,9 +135,9 @@ trait Harmony
 
             if ($abort) {
                 return $this->abort();
-            } else {
-                return false;
             }
+
+            return false;
         }
 
         foreach ($this->request->all() as $key => $value) {
@@ -163,7 +170,7 @@ trait Harmony
      * @param string $message
      * @param string|array $detail
      * @param int $status
-     * @param boolean $source
+     * @param bool $source
      * @return Controller
      */
     public function addError(string $message, string|array $detail, int $status = 400, bool $source = false): self
@@ -251,7 +258,7 @@ trait Harmony
      *
      * @param string $key
      * @param string|array|null $replace
-     * @param integer $status
+     * @param int $status
      * @param bool $source
      * @return Response|JsonResponse
      */
@@ -282,7 +289,7 @@ trait Harmony
      * Detect if a validation item is an object and of type File
      *
      * @param mixed $value
-     * @return boolean
+     * @return bool
      */
     private function isFile(mixed $value): bool
     {

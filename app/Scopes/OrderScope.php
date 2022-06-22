@@ -2,7 +2,9 @@
 
 namespace App\Scopes;
 
-use Illuminate\Database\Eloquent\{Builder, Model, Scope};
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Scope;
 
 /**
  * @template TModelClass of Model
@@ -10,8 +12,11 @@ use Illuminate\Database\Eloquent\{Builder, Model, Scope};
 class OrderScope implements Scope
 {
     private string $column;
+
     private string $direction;
+
     private ?string $columnSecondary;
+
     private string $directionSecondary;
 
     /**

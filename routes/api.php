@@ -1,11 +1,9 @@
 <?php
 
-use App\Http\Controllers\{
-    AuthController,
-    ContactController,
-    Controller,
-    SessionController,
-};
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 
 /*

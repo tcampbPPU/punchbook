@@ -19,6 +19,9 @@
   <rule ref="PSR1.Files.SideEffects.FoundWithSymbols">
     <exclude name="PSR1.Files.SideEffects.FoundWithSymbols" />
   </rule>
+  <rule ref="PSR12.Files.FileHeader.SpacingAfterBlock">
+    <exclude name="PSR12.Files.FileHeader.SpacingAfterBlock" />
+  </rule>
 
   <arg name="colors"/>
 

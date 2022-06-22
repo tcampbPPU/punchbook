@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Provider;
 use App\Models\User;
 use App\Notifications\LoginAttempt;
-use Illuminate\Http\{JsonResponse, Request, Response};
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Laravel\Socialite\Facades\Socialite;
 
 class AuthController extends Controller
@@ -18,9 +20,10 @@ class AuthController extends Controller
      */
     public function redirect(string $provider): mixed
     {
-        if (!in_array($provider, Provider::$allowed)) {
+        if (! in_array($provider, Provider::$allowed)) {
             return $this->error('auth.provider-invalid');
         }
+
         return Socialite::driver($provider)->stateless()->redirect();
     }
 
@@ -33,7 +36,7 @@ class AuthController extends Controller
      */
     public function callback(string $provider, Request $request): Response|JsonResponse
     {
-        if (!in_array($provider, Provider::$allowed)) {
+        if (! in_array($provider, Provider::$allowed)) {
             return $this->error('auth.generic');
         }
 
@@ -55,13 +58,13 @@ class AuthController extends Controller
      */
     private function oaHandle($oaUser, string $provider): User
     {
-        if (!$user = User::where('email', $oaUser->email)->first()) {
+        if (! $user = User::where('email', $oaUser->email)->first()) {
             $user = $this->createUser(
                 $provider,
                 $oaUser->name,
                 $oaUser->email,
                 $oaUser->picture ?? $oaUser->avatar_original ?? $oaUser->avatar,
-                (array)$oaUser
+                (array) $oaUser
             );
         }
 
@@ -70,13 +73,13 @@ class AuthController extends Controller
             $user->save();
         }
 
-        if (!$user->providers->where('name', $provider)->first()) {
+        if (! $user->providers->where('name', $provider)->first()) {
             Provider::create(
                 [
                     'user_id' => $user->id,
                     'name' => $provider,
                     'avatar' => $oaUser->picture ?? $oaUser->avatar_original ?? $oaUser->avatar,
-                    'payload' => (array)$oaUser,
+                    'payload' => (array) $oaUser,
                 ]
             );
         }
@@ -92,7 +95,7 @@ class AuthController extends Controller
                     'token' => auth()->token(),
                     'user' => auth()->user(),
                     'provider' => $provider,
-                ])
+                ]),
             ])
         )->cookie('token', auth()->token(), 60 * 24 * 30, '/', '', true, false);
     }
@@ -136,7 +139,7 @@ class AuthController extends Controller
             ->option('action', 'nullable|string')
             ->verify();
 
-        if (!$user = User::where('email', $request->email)->first()) {
+        if (! $user = User::where('email', $request->email)->first()) {
             $user = $this->createUser(
                 'email',
                 explode('@', $request->email)[0],
@@ -164,7 +167,7 @@ class AuthController extends Controller
             ->option('token', 'required|alpha_num|size:64')
             ->verify();
 
-        if (!$login = auth()->verify($request->token)) {
+        if (! $login = auth()->verify($request->token)) {
             return $this->error('auth.failed');
         }
 
@@ -190,6 +193,7 @@ class AuthController extends Controller
             return $this->render(User::whereId(auth()->user()?->id)->with(['providers'])->first());
         }
         auth()->user()?->session->touch();
+
         return $this->render(auth()->user());
     }
 
