@@ -22,6 +22,9 @@
   <rule ref="PSR12.Files.FileHeader.SpacingAfterBlock">
     <exclude name="PSR12.Files.FileHeader.SpacingAfterBlock" />
   </rule>
+  <rule ref="PSR12.Files.FileHeader.IncorrectGrouping">
+    <exclude name="PSR12.Files.FileHeader.IncorrectGrouping" />
+  </rule>
 
   <arg name="colors"/>
 
