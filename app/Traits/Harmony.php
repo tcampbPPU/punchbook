@@ -29,7 +29,7 @@ trait Harmony
     /**
      * Harmony constructor.
      *
-     * @param Request $request
+     * @param  Request  $request
      */
     public function __construct(Request $request)
     {
@@ -38,7 +38,8 @@ trait Harmony
 
     /**
      * Initialize Harmony
-     * @param Request $request
+     *
+     * @param  Request  $request
      * @return void
      */
     public function harmonyInit(Request $request): void
@@ -49,11 +50,12 @@ trait Harmony
 
     /**
      * Push option to validation stack
+     *
      * @see https://laravel.com/docs/9.x/validation#available-validation-rules
      *
-     * @param string $name
-     * @param array|string $rules
-     * @param array $messages<string, string>
+     * @param  string  $name
+     * @param  array|string  $rules
+     * @param  array  $messages<string, string>
      * @return Controller
      */
     public function option(string $name, array|string $rules, array $messages = []): self
@@ -79,7 +81,7 @@ trait Harmony
     /**
      * Push multiple options to validation stack
      *
-     * @param array $options
+     * @param  array  $options
      * @return Controller
      */
     public function options(array $options): self
@@ -106,8 +108,8 @@ trait Harmony
     /**
      * Add metadata to stack
      *
-     * @param string $name
-     * @param mixed $value
+     * @param  string  $name
+     * @param  mixed  $value
      * @return void
      */
     public function addMeta(string $name, mixed $value): void
@@ -118,7 +120,7 @@ trait Harmony
     /**
      * Verify options through the Laravel Validator
      *
-     * @param bool $abort
+     * @param  bool  $abort
      * @return Response|array|bool|JsonResponse
      */
     public function verify(bool $abort = true): Response|array|bool|JsonResponse
@@ -167,10 +169,10 @@ trait Harmony
     /**
      * Add failed item to error output stack
      *
-     * @param string $message
-     * @param string|array $detail
-     * @param int $status
-     * @param bool $source
+     * @param  string  $message
+     * @param  string|array  $detail
+     * @param  int  $status
+     * @param  bool  $source
      * @return Controller
      */
     public function addError(string $message, string|array $detail, int $status = 400, bool $source = false): self
@@ -191,9 +193,9 @@ trait Harmony
     /**
      * Render finalized output
      *
-     * @param mixed $data - Data sent to output
-     * @param int $code
-     * @param bool $abort
+     * @param  mixed  $data - Data sent to output
+     * @param  int  $code
+     * @param  bool  $abort
      * @return Response|JsonResponse
      */
     public function render(mixed $data = false, int $code = 200, bool $abort = false): Response|JsonResponse
@@ -220,9 +222,9 @@ trait Harmony
     /**
      * Render finalized success output
      *
-     * @param string $message
-     * @param array $replace
-     * @param mixed $data
+     * @param  string  $message
+     * @param  array  $replace
+     * @param  mixed  $data
      * @return Response|JsonResponse
      */
     public function success(string $message = 'Successful', array $replace = [], mixed $data = []): Response|JsonResponse
@@ -238,9 +240,9 @@ trait Harmony
     /**
      * Render finalized warning output
      *
-     * @param string $message
-     * @param array $replace
-     * @param mixed $data
+     * @param  string  $message
+     * @param  array  $replace
+     * @param  mixed  $data
      * @return Response|JsonResponse
      */
     public function warn(string $message = 'Warning', array $replace = [], mixed $data = []): Response|JsonResponse
@@ -256,10 +258,10 @@ trait Harmony
     /**
      * Render finalized error output
      *
-     * @param string $key
-     * @param string|array|null $replace
-     * @param int $status
-     * @param bool $source
+     * @param  string  $key
+     * @param  string|array|null  $replace
+     * @param  int  $status
+     * @param  bool  $source
      * @return Response|JsonResponse
      */
     public function error(string $key, string|array|null $replace = null, int $status = Response::HTTP_BAD_REQUEST, bool $source = false): Response|JsonResponse
@@ -288,7 +290,7 @@ trait Harmony
     /**
      * Detect if a validation item is an object and of type File
      *
-     * @param mixed $value
+     * @param  mixed  $value
      * @return bool
      */
     private function isFile(mixed $value): bool
@@ -302,7 +304,7 @@ trait Harmony
     /**
      * Normalize query metadata
      *
-     * @param array $query
+     * @param  array  $query
      * @return array
      */
     private function normalizeQuery(array $query): array
@@ -325,8 +327,8 @@ trait Harmony
     /**
      * Add pagination metadata to the meta stack
      *
-     * @param mixed $collection
-     * @param int $perPage
+     * @param  mixed  $collection
+     * @param  int  $perPage
      * @return array
      */
     public function paginate(mixed $collection, int $perPage = 50): array

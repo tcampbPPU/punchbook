@@ -21,10 +21,11 @@ class OrderScope implements Scope
 
     /**
      * OrderScope constructor.
-     * @param string $column
-     * @param string $direction
-     * @param string|null $columnSecondary
-     * @param string $directionSecondary
+     *
+     * @param  string  $column
+     * @param  string  $direction
+     * @param  string|null  $columnSecondary
+     * @param  string  $directionSecondary
      */
     public function __construct(
         string $column = 'updated_at',
@@ -40,8 +41,9 @@ class OrderScope implements Scope
 
     /**
      * Apply or sorting to the builder
-     * @param Builder<TModelClass> $builder
-     * @param Model $model
+     *
+     * @param  Builder<TModelClass>  $builder
+     * @param  Model  $model
      */
     public function apply(Builder $builder, Model $model)
     {

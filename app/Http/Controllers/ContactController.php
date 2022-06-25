@@ -16,7 +16,7 @@ class ContactController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @param  Request $request
+     * @param  Request  $request
      * @return JsonResponse|Response
      */
     public function index(Request $request): JsonResponse | Response
@@ -56,6 +56,7 @@ class ContactController extends Controller
      *
      * @param  Request  $request
      * @return JsonResponse|Response
+     *
      * @throws AuthorizationException
      */
     public function store(Request $request): JsonResponse | Response
@@ -87,7 +88,7 @@ class ContactController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  Contact $contact
+     * @param  Contact  $contact
      * @return JsonResponse|Response
      */
     public function show(Contact $contact): JsonResponse | Response
@@ -99,8 +100,9 @@ class ContactController extends Controller
      * Update the specified resource in storage.
      *
      * @param  Request  $request
-     * @param  Contact $contact
+     * @param  Contact  $contact
      * @return JsonResponse|Response
+     *
      * @throws AuthorizationException
      */
     public function update(Request $request, Contact $contact): JsonResponse | Response
@@ -134,8 +136,9 @@ class ContactController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  Contact $contact
+     * @param  Contact  $contact
      * @return JsonResponse|Response
+     *
      * @throws AuthorizationException
      */
     public function destroy(Contact $contact): JsonResponse | Response
