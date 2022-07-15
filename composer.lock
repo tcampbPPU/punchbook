@@ -174,16 +174,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.231.1",
+            "version": "3.231.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "8dba16a1141be30f2a8090f5716454eccb4b6fd1"
+                "reference": "54c5fe6667c73010d954ce4c4d657d093f0bdcbf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/8dba16a1141be30f2a8090f5716454eccb4b6fd1",
-                "reference": "8dba16a1141be30f2a8090f5716454eccb4b6fd1",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/54c5fe6667c73010d954ce4c4d657d093f0bdcbf",
+                "reference": "54c5fe6667c73010d954ce4c4d657d093f0bdcbf",
                 "shasum": ""
             },
             "require": {
@@ -260,9 +260,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.231.1"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.231.6"
             },
-            "time": "2022-07-07T18:16:39+00:00"
+            "time": "2022-07-14T18:20:54+00:00"
         },
         {
             "name": "brick/math",
@@ -2514,16 +2514,16 @@
         },
         {
             "name": "laravel/vapor-core",
-            "version": "v2.22.3",
+            "version": "v2.22.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/vapor-core.git",
-                "reference": "4a9bae3c1909fcaf7e1de2c3d7bb7f7abe05e9f1"
+                "reference": "9632ea0ad1f59287df456e7fe67968f81bd5b5e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/vapor-core/zipball/4a9bae3c1909fcaf7e1de2c3d7bb7f7abe05e9f1",
-                "reference": "4a9bae3c1909fcaf7e1de2c3d7bb7f7abe05e9f1",
+                "url": "https://api.github.com/repos/laravel/vapor-core/zipball/9632ea0ad1f59287df456e7fe67968f81bd5b5e5",
+                "reference": "9632ea0ad1f59287df456e7fe67968f81bd5b5e5",
                 "shasum": ""
             },
             "require": {
@@ -2579,9 +2579,9 @@
                 "vapor"
             ],
             "support": {
-                "source": "https://github.com/laravel/vapor-core/tree/v2.22.3"
+                "source": "https://github.com/laravel/vapor-core/tree/v2.22.4"
             },
-            "time": "2022-07-07T13:13:47+00:00"
+            "time": "2022-07-07T18:10:55+00:00"
         },
         {
             "name": "league/commonmark",
