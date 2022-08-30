@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use acidjazz\Humble\Traits\Humble;
+use Fumeapp\Humble\Traits\Humble;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;

@@ -1,5 +1,5 @@
 {
-  "name": "Laranuxt VSCode Container",
+  "name": "Punchbook VSCode Container",
   "dockerComposeFile": "docker-compose.yml",
   "service": "app",
   "workspaceFolder": "/workspace",
