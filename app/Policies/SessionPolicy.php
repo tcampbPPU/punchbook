@@ -2,7 +2,7 @@
 
 namespace App\Policies;
 
-use acidjazz\Humble\Models\Session;
+use Fumeapp\Humble\Models\Session;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
