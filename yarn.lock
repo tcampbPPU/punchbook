@@ -865,10 +865,10 @@
     estree-walker "^2.0.1"
     picomatch "^2.2.2"
 
-"@tailvue/nuxt@^0.1.62":
-  version "0.1.62"
-  resolved "https://registry.yarnpkg.com/@tailvue/nuxt/-/nuxt-0.1.62.tgz#c36c7cc38319cc5bf2e9af5c3f5f6d27a3335a3c"
-  integrity sha512-2xQkuHzXRn/rdk4GnsktPe0V1ugPjVx6arkyy+ODXC2XpnLWwU3sFLe3Yf/qProFh586tyIOFWpQMc78PIMSag==
+"@tailvue/nuxt@^0.1.64":
+  version "0.1.64"
+  resolved "https://registry.yarnpkg.com/@tailvue/nuxt/-/nuxt-0.1.64.tgz#68e2aa4409b0b2562aa09fc330f3b9f36f11b4ba"
+  integrity sha512-SKpKaDQvhmFYhPwlR8lDYG8oE4sj5H3ApWam3lRJqD+B4YRSe93NC0XQ+KGQDfBzaD9NJwTZF4oqK3ukqy6R/Q==
   dependencies:
     "@nuxt/kit" "npm:@nuxt/kit-edge@latest"
     pathe "^0.2.0"
