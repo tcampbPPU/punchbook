@@ -28,7 +28,7 @@
     "@vue/test-utils": "^2.1.0",
     "@vueuse/nuxt": "^9.3.0",
     "dayjs": "^1.11.5",
-    "eslint": "^8.24.0",
+    "eslint": "^8.25.0",
     "eslint-plugin-vue": "^8.1.1",
     "husky": "^8.0.1",
     "jsdom": "^20.0.1",
