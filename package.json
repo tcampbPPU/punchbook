@@ -36,6 +36,6 @@
     "nuxt": "^3.0.0-rc.12",
     "nuxt-windicss": "^2.5.2",
     "typescript": "^4.8.4",
-    "vitest": "^0.24.1"
+    "vitest": "^0.24.3"
   }
 }
