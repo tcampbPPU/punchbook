@@ -30,7 +30,7 @@
     "dayjs": "^1.11.6",
     "eslint": "^8.26.0",
     "eslint-plugin-vue": "^8.1.1",
-    "husky": "^8.0.1",
+    "husky": "^8.0.2",
     "jsdom": "^20.0.2",
     "lottie-web": "^5.8.1",
     "nuxt": "^3.0.0-rc.12",
