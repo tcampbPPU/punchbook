@@ -3371,16 +3371,6 @@ gzip-size@^7.0.0:
   dependencies:
     duplexer "^0.1.2"
 
-h3@^0.8.6:
-  version "0.8.6"
-  resolved "https://registry.yarnpkg.com/h3/-/h3-0.8.6.tgz#8095ef998fe14769b87170b7c8b68ba9c54973d5"
-  integrity sha512-CSWNOKa3QGo67rFU2PhbFTp0uPJtilNji2Z0pMiSRQt3+OkIW0u3E1WMJqIycLqaTgb9JyFqH/S4mcTyyGtvyQ==
-  dependencies:
-    cookie-es "^0.5.0"
-    destr "^1.2.0"
-    radix3 "^0.2.1"
-    ufo "^0.8.6"
-
 h3@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/h3/-/h3-1.0.1.tgz#1fc56ecfaba97a437db4a48e9f3b4a4b0b151e24"
@@ -3871,20 +3861,6 @@ lilconfig@^2.0.3:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/lilconfig/-/lilconfig-2.0.6.tgz#32a384558bd58af3d4c6e077dd1ad1d397bc69d4"
   integrity sha512-9JROoBW7pobfsx+Sq2JsASvCo6Pfo6WWoUW79HuB1BCoBXD4PLWJPqDF6fNj67pqBYTbAHkE57M1kS/+L1neOg==
-
-listhen@^0.3.5:
-  version "0.3.5"
-  resolved "https://registry.yarnpkg.com/listhen/-/listhen-0.3.5.tgz#04a0f6dbdab5bbac711992004a37c8306fad3e4e"
-  integrity sha512-suyt79hNmCFeBIyftcLqLPfYiXeB795gSUWOJT7nspl2IvREY0Q9xvchLhekxvQ0KiOPvWoyALnc9Mxoelm0Pw==
-  dependencies:
-    clipboardy "^3.0.0"
-    colorette "^2.0.19"
-    defu "^6.1.0"
-    get-port-please "^2.6.1"
-    http-shutdown "^1.2.2"
-    ip-regex "^5.0.0"
-    node-forge "^1.3.1"
-    ufo "^0.8.6"
 
 listhen@^1.0.0:
   version "1.0.0"
@@ -4418,20 +4394,20 @@ nuxi@3.0.0:
   optionalDependencies:
     fsevents "~2.3.2"
 
-nuxt-windicss@^2.5.3:
-  version "2.5.3"
-  resolved "https://registry.yarnpkg.com/nuxt-windicss/-/nuxt-windicss-2.5.3.tgz#ce3f5a6739fd3f25c7767a2970ea2aa55f34d49f"
-  integrity sha512-fEP+TiuA6YYh3sWBMf86QYmYJQTLCCkvLQg4kZX/6wtHZcVqeMYSEWaDAd37aTpQUAdcKBytE0obzWdGiMyGdg==
+nuxt-windicss@^2.5.5:
+  version "2.5.5"
+  resolved "https://registry.yarnpkg.com/nuxt-windicss/-/nuxt-windicss-2.5.5.tgz#167cfeddcdaac5e93e8284fd0312b5914b68defd"
+  integrity sha512-QpjHo8E/NMBr8bpsLH/+eFpJ8CoN3NmItxJneu48LLjEDot4VwmVu8MMBMe2d5dXvtsvox30UIqiOy4xa7XIxw==
   dependencies:
     "@nuxt/kit" "3.0.0-rc.13"
     "@windicss/config" "^1.8.8"
     "@windicss/plugin-utils" "^1.8.8"
     consola "^2.15.3"
-    defu "^6.1.0"
+    defu "^6.1.1"
     fs-extra "^10.1.0"
-    h3 "^0.8.6"
-    listhen "^0.3.5"
-    pathe "^0.3.9"
+    h3 "^1.0.1"
+    listhen "^1.0.0"
+    pathe "^1.0.0"
     read-cache "^1.0.0"
     sirv "^2.0.2"
     vite-plugin-windicss "^1.8.8"
@@ -5080,11 +5056,6 @@ queue-microtask@^1.2.2:
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/queue-microtask/-/queue-microtask-1.2.3.tgz#4929228bbc724dfac43e0efb058caf7b6cfb6243"
   integrity sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==
-
-radix3@^0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/radix3/-/radix3-0.2.1.tgz#77e66a41c7ba5600a8bc137fd259ef661d314418"
-  integrity sha512-FnhArTl5Tq7dodiLeSPKrDUyCQuJqEncP8cKdyy399g8F/cz7GH6FmzA3Rkosu2IZMkpswFFwXfb2ERSiL06pg==
 
 radix3@^1.0.0:
   version "1.0.0"
