@@ -26,7 +26,7 @@
     "@typescript-eslint/parser": "^5.43.0",
     "@vue/eslint-config-typescript": "^10.0.0",
     "@vue/test-utils": "^2.2.3",
-    "@vueuse/nuxt": "^9.5.0",
+    "@vueuse/nuxt": "^9.6.0",
     "dayjs": "^1.11.6",
     "eslint": "^8.27.0",
     "eslint-plugin-vue": "^8.1.1",
