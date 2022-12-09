@@ -23,7 +23,7 @@
     "@jamesacarr/eslint-formatter-github-actions": "^0.1.0",
     "@tailvue/nuxt": "^0.1.64",
     "@typescript-eslint/eslint-plugin": "^5.46.0",
-    "@typescript-eslint/parser": "^5.45.0",
+    "@typescript-eslint/parser": "^5.46.0",
     "@vue/eslint-config-typescript": "^10.0.0",
     "@vue/test-utils": "^2.2.6",
     "@vueuse/nuxt": "^9.6.0",
