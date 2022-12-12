@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('sessions', function (Blueprint $table) {
             $table->string('token', 64)->unique();
             $table->bigInteger('user_id')->unsigned();
+            $table->json('abilities');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('source')->nullable();
             $table->string('ip', 300)->nullable();

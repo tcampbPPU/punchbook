@@ -85,13 +85,13 @@ const props = defineProps({
 
 const target = ref(null)
 const filtering = ref(false)
-const input = ref('')
+const input = ref<string|undefined>(undefined)
 const { $utils } = useNuxtApp()
 
 const off = async () => {
   await $utils.sleep(200)
   filtering.value = false
-  input.value = null
+  input.value = undefined
 }
 
 const on = async () => {

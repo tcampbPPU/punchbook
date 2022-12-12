@@ -1,5 +1,3 @@
-import { defineNuxtConfig } from 'nuxt'
-
 export default defineNuxtConfig({
   srcDir: 'client/',
   meta: {
@@ -21,10 +19,10 @@ export default defineNuxtConfig({
     '@/assets/css/device.css',
   ],
 
- /**
-  * Auto import components
-  * @see https://nuxtjs.org/api/configuration-components
-  */
+  /**
+   * Auto import components
+   * @see https://nuxtjs.org/api/configuration-components
+   */
   components: true,
 
   /**
@@ -52,7 +50,7 @@ export default defineNuxtConfig({
    * WindiCSS configuration
    * @see https://github.com/windicss/nuxt-windicss
    */
-   windicss: {
+  windicss: {
     analyze: false,
   },
 

@@ -14,6 +14,12 @@ const tableParams = computed((): components.SmartTableParams => {
     route: '/contact',
     columns: [
       {
+        label: 'C',
+        field: 'checkbox',
+          type: 'checkbox',
+          sortable: false,
+      },
+      {
         label: 'Name',
         field: 'name',
         type: 'text',
@@ -49,6 +55,9 @@ const tableParams = computed((): components.SmartTableParams => {
       ],
     },
     actions: true,
+    checkable: {
+      slot: false,
+    },
   }
 })
 </script>
