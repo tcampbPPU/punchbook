@@ -8,7 +8,9 @@ module.exports = {
     'plugin:vue/vue3-recommended',
     'plugin:@typescript-eslint/recommended',
     '@vue/typescript/recommended',
+    'prettier',
   ],
+  plugins: ['prettier'],
   rules: {
     'comma-dangle': ['error', 'always-multiline'],
     'curly': ['error', 'multi'],

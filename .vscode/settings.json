@@ -1,25 +1,43 @@
 {
+    "git.mergeEditor": false,
+    "editor.formatOnSave": true,
+    "prettier.semi": false,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "[vue]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
     "[php]": {
+        "editor.defaultFormatter": "open-southeners.laravel-pint",
+        "editor.formatOnSave": true
+    },
+    "[blade]": {
         "editor.defaultFormatter": "valeryanm.vscode-phpsab",
         "editor.formatOnSave": true
     },
-    "[vue]": {
-        "editor.defaultFormatter": "dbaeumer.vscode-eslint",
-        "editor.formatOnSave": true
+    "[dockerfile]": {
+        "editor.defaultFormatter": "ms-azuretools.vscode-docker"
     },
-    "eslint.validate": [
-        "javascript",
-        "typescript",
-        "javascriptreact",
-        "vue"
-    ],
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[yaml]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
     "phpsab.snifferEnable": true,
     "phpsab.executablePathCBF": "./vendor/bin/phpcbf",
     "phpsab.executablePathCS": "./vendor/bin/phpcs",
     "phpsab.snifferShowSources": true,
     "phpsab.snifferMode": "onType",
-    "phpunit.args": [
-        "-c",
-        "tests/php/phpunit.xml"
-    ]
+    "typescript.tsdk": "node_modules/typescript/lib",
 }
