@@ -45,7 +45,7 @@ class Controller extends BaseController
      *
      * @return Redirector|Application|RedirectResponse
      */
-    public function auth(): Redirector | Application | RedirectResponse
+    public function auth(): Redirector|Application|RedirectResponse
     {
         return redirect(config('app.web'));
     }

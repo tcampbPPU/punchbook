@@ -19,7 +19,7 @@ class ContactController extends Controller
      * @param  Request  $request
      * @return JsonResponse|Response
      */
-    public function index(Request $request): JsonResponse | Response
+    public function index(Request $request): JsonResponse|Response
     {
         $this
             ->option('order', 'nullable|in:' . implode(',', Contact::$sortable))
@@ -59,7 +59,7 @@ class ContactController extends Controller
      *
      * @throws AuthorizationException
      */
-    public function store(Request $request): JsonResponse | Response
+    public function store(Request $request): JsonResponse|Response
     {
         $this->authorize('create', Contact::class);
 
@@ -91,7 +91,7 @@ class ContactController extends Controller
      * @param  Contact  $contact
      * @return JsonResponse|Response
      */
-    public function show(Contact $contact): JsonResponse | Response
+    public function show(Contact $contact): JsonResponse|Response
     {
         return $this->render($contact);
     }
@@ -105,7 +105,7 @@ class ContactController extends Controller
      *
      * @throws AuthorizationException
      */
-    public function update(Request $request, Contact $contact): JsonResponse | Response
+    public function update(Request $request, Contact $contact): JsonResponse|Response
     {
         $this->authorize('update', $contact);
 
@@ -141,7 +141,7 @@ class ContactController extends Controller
      *
      * @throws AuthorizationException
      */
-    public function destroy(Contact $contact): JsonResponse | Response
+    public function destroy(Contact $contact): JsonResponse|Response
     {
         $this->authorize('delete', $contact);
 

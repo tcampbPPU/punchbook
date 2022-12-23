@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Fumeapp\Humble\Models\Session;
 use App\Models\User;
+use Fumeapp\Humble\Models\Session;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
@@ -15,7 +15,7 @@ class SessionController extends Controller
      *
      * @return JsonResponse|Response
      */
-    public function index(): JsonResponse | Response
+    public function index(): JsonResponse|Response
     {
         /** @var User $user */
         $user = auth()->user();
@@ -31,7 +31,7 @@ class SessionController extends Controller
      *
      * @throws AuthorizationException
      */
-    public function destroy(Session $session): JsonResponse | Response
+    public function destroy(Session $session): JsonResponse|Response
     {
         $this->authorize('delete', $session);
 

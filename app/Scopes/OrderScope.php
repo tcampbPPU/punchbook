@@ -47,11 +47,9 @@ class OrderScope implements Scope
      */
     public function apply(Builder $builder, Model $model)
     {
-        // @phpstan-ignore-next-line
         $builder->orderBy($this->column, $this->direction);
 
         if ($this->columnSecondary !== null) {
-            // @phpstan-ignore-next-line
             $builder->orderBy($this->columnSecondary, $this->directionSecondary);
         }
     }

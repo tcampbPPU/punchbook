@@ -280,7 +280,7 @@ trait Harmony
      *
      * @return Response|JsonResponse
      */
-    public function abort(): Response | JsonResponse
+    public function abort(): Response|JsonResponse
     {
         return $this->render([
             'errors' => $this->errors,
