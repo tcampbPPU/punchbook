@@ -178,16 +178,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.255.10",
+            "version": "3.257.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "5d598491cc62da506082aec8661475d40af24b16"
+                "reference": "26091e15fbc57e93f939ddfe0410161cd9fdbd54"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/5d598491cc62da506082aec8661475d40af24b16",
-                "reference": "5d598491cc62da506082aec8661475d40af24b16",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/26091e15fbc57e93f939ddfe0410161cd9fdbd54",
+                "reference": "26091e15fbc57e93f939ddfe0410161cd9fdbd54",
                 "shasum": ""
             },
             "require": {
@@ -266,9 +266,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.255.10"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.257.0"
             },
-            "time": "2023-01-05T19:20:51+00:00"
+            "time": "2023-01-12T19:23:11+00:00"
         },
         {
             "name": "brick/math",
@@ -2269,16 +2269,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v9.46.0",
+            "version": "v9.47.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "62b05b6de5733d89378a279e40230a71e5ab5d92"
+                "reference": "92810d88f9a4252095a56c05541b07940363367c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/62b05b6de5733d89378a279e40230a71e5ab5d92",
-                "reference": "62b05b6de5733d89378a279e40230a71e5ab5d92",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/92810d88f9a4252095a56c05541b07940363367c",
+                "reference": "92810d88f9a4252095a56c05541b07940363367c",
                 "shasum": ""
             },
             "require": {
@@ -2369,6 +2369,7 @@
                 "mockery/mockery": "^1.5.1",
                 "orchestra/testbench-core": "^7.16",
                 "pda/pheanstalk": "^4.0",
+                "phpstan/phpdoc-parser": "^1.15",
                 "phpstan/phpstan": "^1.4.7",
                 "phpunit/phpunit": "^9.5.8",
                 "predis/predis": "^1.1.9|^2.0.2",
@@ -2451,7 +2452,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2023-01-03T15:12:31+00:00"
+            "time": "2023-01-10T16:10:09+00:00"
         },
         {
             "name": "laravel/serializable-closure",
@@ -2652,27 +2653,27 @@
         },
         {
             "name": "laravel/vapor-core",
-            "version": "v2.26.1",
+            "version": "v2.27.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/vapor-core.git",
-                "reference": "323cd74b7c37132203d86303859a4cb46e3156d2"
+                "reference": "170a1f409b50c479ca9e36ece07bd7130d0ea634"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/vapor-core/zipball/323cd74b7c37132203d86303859a4cb46e3156d2",
-                "reference": "323cd74b7c37132203d86303859a4cb46e3156d2",
+                "url": "https://api.github.com/repos/laravel/vapor-core/zipball/170a1f409b50c479ca9e36ece07bd7130d0ea634",
+                "reference": "170a1f409b50c479ca9e36ece07bd7130d0ea634",
                 "shasum": ""
             },
             "require": {
                 "aws/aws-sdk-php": "^3.80",
                 "guzzlehttp/guzzle": "^6.3|^7.0",
                 "hollodotme/fast-cgi-client": "^3.0",
-                "illuminate/container": "^6.0|^7.0|^8.0|^9.0",
-                "illuminate/http": "^6.0|^7.0|^8.0|^9.0",
-                "illuminate/queue": "^6.0|^7.0|^8.0|^9.0",
-                "illuminate/support": "^6.0|^7.0|^8.0|^9.0",
-                "monolog/monolog": "^1.12|^2.0",
+                "illuminate/container": "^6.0|^7.0|^8.0|^9.0|^10.0",
+                "illuminate/http": "^6.0|^7.0|^8.0|^9.0|^10.0",
+                "illuminate/queue": "^6.0|^7.0|^8.0|^9.0|^10.0",
+                "illuminate/support": "^6.0|^7.0|^8.0|^9.0|^10.0",
+                "monolog/monolog": "^1.12|^2.0|^3.2",
                 "nyholm/psr7": "^1.0",
                 "php": "^7.2|^8.0",
                 "riverline/multipart-parser": "^2.0.9",
@@ -2681,7 +2682,7 @@
             },
             "require-dev": {
                 "mockery/mockery": "^1.2",
-                "orchestra/testbench": "^4.0|^5.0|^6.0|^7.0",
+                "orchestra/testbench": "^4.0|^5.0|^6.0|^7.0|^8.0",
                 "phpunit/phpunit": "^8.0|^9.0"
             },
             "type": "library",
@@ -2717,9 +2718,9 @@
                 "vapor"
             ],
             "support": {
-                "source": "https://github.com/laravel/vapor-core/tree/v2.26.1"
+                "source": "https://github.com/laravel/vapor-core/tree/v2.27.0"
             },
-            "time": "2023-01-04T20:04:33+00:00"
+            "time": "2023-01-10T16:09:39+00:00"
         },
         {
             "name": "league/commonmark",
@@ -2911,16 +2912,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "3.12.0",
+            "version": "3.12.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "2aef65a47e44f2d6f9938f720f6dd697e7ba7b76"
+                "reference": "b934123c1f11ada6363d057d691e3065fa6d6d49"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/2aef65a47e44f2d6f9938f720f6dd697e7ba7b76",
-                "reference": "2aef65a47e44f2d6f9938f720f6dd697e7ba7b76",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/b934123c1f11ada6363d057d691e3065fa6d6d49",
+                "reference": "b934123c1f11ada6363d057d691e3065fa6d6d49",
                 "shasum": ""
             },
             "require": {
@@ -2937,7 +2938,7 @@
             "require-dev": {
                 "async-aws/s3": "^1.5",
                 "async-aws/simple-s3": "^1.1",
-                "aws/aws-sdk-php": "^3.198.1",
+                "aws/aws-sdk-php": "^3.220.0",
                 "composer/semver": "^3.0",
                 "ext-fileinfo": "*",
                 "ext-ftp": "*",
@@ -2982,7 +2983,7 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/flysystem/issues",
-                "source": "https://github.com/thephpleague/flysystem/tree/3.12.0"
+                "source": "https://github.com/thephpleague/flysystem/tree/3.12.1"
             },
             "funding": [
                 {
@@ -2998,7 +2999,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-12-20T20:21:10+00:00"
+            "time": "2023-01-06T16:34:48+00:00"
         },
         {
             "name": "league/mime-type-detection",
@@ -3297,16 +3298,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.64.1",
+            "version": "2.65.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "f2e59963f4c4f4fdfb9fcfd752e8d2e2b79a4e2c"
+                "reference": "09acf64155c16dc6f580f36569ae89344e9734a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/f2e59963f4c4f4fdfb9fcfd752e8d2e2b79a4e2c",
-                "reference": "f2e59963f4c4f4fdfb9fcfd752e8d2e2b79a4e2c",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/09acf64155c16dc6f580f36569ae89344e9734a3",
+                "reference": "09acf64155c16dc6f580f36569ae89344e9734a3",
                 "shasum": ""
             },
             "require": {
@@ -3395,7 +3396,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-01-01T23:17:36+00:00"
+            "time": "2023-01-06T15:55:01+00:00"
         },
         {
             "name": "nette/schema",
@@ -4743,16 +4744,16 @@
         },
         {
             "name": "ramsey/uuid",
-            "version": "4.7.1",
+            "version": "4.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ramsey/uuid.git",
-                "reference": "a1acf96007170234a8399586a6e2ab8feba109d1"
+                "reference": "433b2014e3979047db08a17a205f410ba3869cf2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ramsey/uuid/zipball/a1acf96007170234a8399586a6e2ab8feba109d1",
-                "reference": "a1acf96007170234a8399586a6e2ab8feba109d1",
+                "url": "https://api.github.com/repos/ramsey/uuid/zipball/433b2014e3979047db08a17a205f410ba3869cf2",
+                "reference": "433b2014e3979047db08a17a205f410ba3869cf2",
                 "shasum": ""
             },
             "require": {
@@ -4819,7 +4820,7 @@
             ],
             "support": {
                 "issues": "https://github.com/ramsey/uuid/issues",
-                "source": "https://github.com/ramsey/uuid/tree/4.7.1"
+                "source": "https://github.com/ramsey/uuid/tree/4.7.3"
             },
             "funding": [
                 {
@@ -4831,7 +4832,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-12-31T22:20:34+00:00"
+            "time": "2023-01-12T18:13:24+00:00"
         },
         {
             "name": "react/promise",
