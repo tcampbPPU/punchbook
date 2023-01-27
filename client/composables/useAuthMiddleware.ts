@@ -5,10 +5,10 @@ export const useAuthMiddleware = async () => {
   const { $api } = useNuxtApp()
   const router = useRouter()
   if ($api.loggedIn.value === false)
-    await router.push({path: $api.config.redirect.logout})
+    await router.push({ path: $api.config.redirect.logout })
 
   watchEffect(async () => {
     if ($api.loggedIn.value === false)
-      await router.push({path: $api.config.redirect.logout})
+      await router.push({ path: $api.config.redirect.logout })
   })
 }

@@ -1,3 +1,19 @@
+<script lang="ts" setup>
+import { onClickOutside } from '@vueuse/core'
+import { ref } from 'vue'
+import HeaderAppsFlyout from '~/components/header/HeaderAppsFlyout.vue'
+import TransitionBottomToTop from '~/components/transition/TransitionBottomToTop.vue'
+
+const { $api } = useNuxtApp()
+const flyout = ref(false)
+const target = ref(null)
+
+const toggle = () => (flyout.value = !flyout.value)
+const off = () => (flyout.value = false)
+
+onClickOutside(target, () => off())
+</script>
+
 <template>
   <div class="relative flex items-center ml-6">
     <div v-if="$api.loggedIn.value">
@@ -12,29 +28,14 @@
             v-for="i in 9"
             :key="i"
             class="w-1 h-1 bg-gray-900 dark:bg-white"
-          />
+          ></span>
         </span>
       </button>
       <client-only>
-        <transition-bottom-to-top>
-          <header-apps-flyout v-if="flyout" @close="off" />
-        </transition-bottom-to-top>
+        <TransitionBottomToTop>
+          <HeaderAppsFlyout v-if="flyout" @close="off" />
+        </TransitionBottomToTop>
       </client-only>
     </div>
   </div>
 </template>
-<script lang="ts" setup>
-import { onClickOutside } from '@vueuse/core'
-import TransitionBottomToTop from '~/components/transition/TransitionBottomToTop.vue'
-import HeaderAppsFlyout from '~/components/header/HeaderAppsFlyout.vue'
-
-const { $api } = useNuxtApp()
-const flyout = ref(false)
-const target = ref(null)
-
-onClickOutside(target, () => off())
-
-const toggle = () => flyout.value = !flyout.value
-const off = () => flyout.value = false
-
-</script>

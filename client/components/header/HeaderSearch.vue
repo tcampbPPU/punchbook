@@ -1,10 +1,27 @@
+<script lang="ts" setup>
+import { Icon } from '@iconify/vue'
+import { useSearch } from '~/composables/useSearch'
+
+const { $utils } = useNuxtApp()
+const searchStr = useSearch()
+const focused = ref(false)
+const onInputChange = $utils.debounce(
+  (e: { target: { value: string } }): void => {
+    searchStr.value = e.target.value
+  },
+  300,
+)
+</script>
+
 <template>
   <div class="flex justify-center flex-1 px-2 lg:ml-6 lg:justify-end">
     <div class="w-full max-w-lg lg:max-w-xs">
       <label for="search" class="sr-only">Search</label>
       <div class="relative">
-        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-          <icon icon="mdi:search" class="w-5 h-5 text-gray-400" />
+        <div
+          class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
+        >
+          <Icon icon="mdi:search" class="w-5 h-5 text-gray-400" />
         </div>
         <input
           id="search"
@@ -16,18 +33,8 @@
           @input="onInputChange"
           @focus="focused = true"
           @blur="focused = false"
-        >
+        />
       </div>
     </div>
   </div>
 </template>
-<script lang="ts" setup>
-import { Icon } from '@iconify/vue'
-import { useSearch } from '~/composables/useSearch'
-const { $utils } = useNuxtApp()
-const searchStr = useSearch()
-const focused = ref(false)
-const onInputChange = $utils.debounce((e: { target: { value: string } }): void => {
-  searchStr.value = e.target.value
-}, 300)
-</script>

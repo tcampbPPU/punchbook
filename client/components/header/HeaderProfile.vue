@@ -1,7 +1,29 @@
+<script lang="ts" setup>
+import { ref } from '@vue/reactivity'
+import { onClickOutside } from '@vueuse/core'
+import { ModalBase, PushButton } from 'tailvue'
+import HeaderLoginModal from '~/components/header/HeaderLoginModal.vue'
+import HeaderProfileMenu from '~/components/header/HeaderProfileMenu.vue'
+import TransitionScaleIn from '~/components/transition/TransitionScaleIn.vue'
+
+const { $api } = useNuxtApp()
+const modal = ref(false)
+const profile = ref(false)
+const target = ref(null)
+
+onClickOutside(target, () => (profile.value = false))
+
+const toggle = () => (profile.value = !profile.value)
+const login = () => (modal.value = true)
+const off = () => (modal.value = false)
+</script>
+
 <template>
   <div class="relative flex-shrink-0 mr-5">
     <div class="flex items-center space-x-4 text-white">
-      <push-button v-if="!$api.loggedIn.value" theme="indigo" @click="login"> Sign In </push-button>
+      <PushButton v-if="!$api.loggedIn.value" theme="indigo" @click="login">
+        Sign In
+      </PushButton>
       <button
         v-else
         id="user-menu-button"
@@ -13,47 +35,30 @@
       >
         <span class="sr-only">Open user menu</span>
         <client-only>
-          <img class="w-8 h-8 bg-blue-400 rounded-full" :src="$api.$user?.avatar" alt="User Avatar">
+          <img
+            class="w-8 h-8 bg-blue-400 rounded-full"
+            :src="$api.$user?.avatar"
+            alt="User Avatar"
+          />
           <template #fallback>
-            <div class="w-8 h-8 bg-blue-400 rounded-full" />
+            <div class="w-8 h-8 bg-blue-400 rounded-full"></div>
           </template>
         </client-only>
       </button>
     </div>
     <client-only>
-      <transition-scale-in>
+      <TransitionScaleIn>
         <div
           v-if="profile"
           ref="target"
           class="absolute right-0 z-10 w-48 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg dark:bg-gray-800 ring-1 ring-black ring-opacity-5 focus:outline-none"
         >
-          <header-profile-menu @off="toggle" />
+          <HeaderProfileMenu @off="toggle" />
         </div>
-      </transition-scale-in>
+      </TransitionScaleIn>
     </client-only>
   </div>
-  <modal-base v-if="modal" :destroyed="off">
-    <header-login-modal @off="off" />
-  </modal-base>
+  <ModalBase v-if="modal" :destroyed="off">
+    <HeaderLoginModal @off="off" />
+  </ModalBase>
 </template>
-
-<script lang="ts" setup>
-import { onClickOutside } from '@vueuse/core'
-import { ModalBase, PushButton } from 'tailvue'
-import { ref } from '@vue/reactivity'
-import HeaderLoginModal from '~/components/header/HeaderLoginModal.vue'
-import TransitionScaleIn from '~/components/transition/TransitionScaleIn.vue'
-import HeaderProfileMenu from '~/components/header/HeaderProfileMenu.vue'
-
-const { $api } = useNuxtApp()
-const modal = ref(false)
-const profile = ref(false)
-const target = ref(null)
-
-onClickOutside(target, () => profile.value = false)
-
-const toggle = () => profile.value = !profile.value
-const login = () =>  modal.value = true
-const off = () => modal.value = false
-
-</script>

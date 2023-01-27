@@ -1,12 +1,5 @@
-<template>
-  <smart-table
-    ref="smartTable"
-    :params="tableParams"
-  >
-  <!-- Slots -->
-  </smart-table>
-</template>
 <script lang="ts" setup>
+import { computed } from 'vue'
 import SmartTable from '~/components/table/SmartTable.vue'
 
 const tableParams = computed((): components.SmartTableParams => {
@@ -16,8 +9,8 @@ const tableParams = computed((): components.SmartTableParams => {
       {
         label: 'C',
         field: 'checkbox',
-          type: 'checkbox',
-          sortable: false,
+        type: 'checkbox',
+        sortable: false,
       },
       {
         label: 'Name',
@@ -48,11 +41,7 @@ const tableParams = computed((): components.SmartTableParams => {
     defaults: {
       order: 'updated_at',
       direction: 'desc',
-      columns: [
-        'name',
-        'phone',
-        'email',
-      ],
+      columns: ['name', 'phone', 'email'],
     },
     actions: true,
     checkable: {
@@ -61,3 +50,9 @@ const tableParams = computed((): components.SmartTableParams => {
   }
 })
 </script>
+
+<template>
+  <SmartTable ref="smartTable" :params="tableParams">
+    <!-- Slots -->
+  </SmartTable>
+</template>

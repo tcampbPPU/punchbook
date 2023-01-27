@@ -1,3 +1,17 @@
+<script lang="ts" setup>
+import type { PropType } from '@vue/runtime-core'
+import { Icon } from '@iconify/vue'
+
+const props = defineProps({
+  filters: {
+    type: Array as PropType<components.SmartTableFilter[]>,
+    required: true,
+  },
+})
+
+defineEmits(['remove'])
+</script>
+
 <template>
   <div class="h-6 ml-2">
     <client-only>
@@ -8,7 +22,9 @@
           class="inline-flex rounded-full items-center py-0.5 text-xs font-medium"
         >
           <div class="flex items-center space-x-1">
-            <span class="text-xs uppercase">{{ filter.column.label ? filter.column.label : filter.column.field }}:</span>
+            <span class="text-xs uppercase">{{
+              filter.column.label ? filter.column.label : filter.column.field
+            }}:</span>
             <span class="font-semibold">{{ filter.input }}</span>
           </div>
           <button
@@ -17,27 +33,10 @@
             @click="$emit('remove', filter)"
           >
             <span class="sr-only">Remove</span>
-            <icon
-              icon="mdi-close"
-              class="w-2 h-2"
-            />
+            <Icon icon="mdi-close" class="w-2 h-2" />
           </button>
         </span>
       </transition-group-left-to-right>
     </client-only>
   </div>
 </template>
-<script lang="ts" setup>
-import { PropType } from '@vue/runtime-core'
-import { Icon } from '@iconify/vue'
-
-defineEmits(['remove'])
-
-const props = defineProps({
-  filters: {
-    type: Array as PropType<components.SmartTableFilter[]>,
-    required: true,
-  },
-})
-
-</script>

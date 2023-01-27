@@ -1,46 +1,13 @@
-<template>
-  <router-link
-    v-for="item in profileMenu"
-    :key="item.name"
-    :to="item.to"
-    class="flex items-center px-4 py-2 leading-5 text-gray-700 transition duration-150 ease-in-out dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:bg-gray-100"
-    :class="props.mobile ? 'text-base' : 'text-sm'"
-    role="menuitem"
-    @click="off"
-  >
-    <icon
-      :icon="item.icon"
-      :class="{'w-4 h-4 mr-1.5': !mobile, 'w-6 h-6 mr-3': mobile}"
-      class="text-gray-400"
-    />
-    {{ item.name }}
-  </router-link>
-  <a
-    href="#"
-    class="flex items-center px-4 py-2 leading-5 text-gray-700 transition duration-150 ease-in-out dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:bg-gray-100"
-    :class="mobile ? 'text-base' : 'text-sm'"
-    role="menuitem"
-    @click="logout"
-  >
-    <icon
-      icon="mdi-logout"
-      :class="{'w-4 h-4 mr-1.5': !mobile, 'w-6 h-6 mr-3': mobile}"
-      class="text-gray-400"
-    />
-    Logout
-  </a>
-</template>
-
 <script lang="ts" setup>
 import { Icon } from '@iconify/vue'
-
-const { $api, $modal, $toast } = useNuxtApp()
 
 const props = defineProps({
   mobile: Boolean,
 })
 
 const emit = defineEmits(['off'])
+
+const { $api, $modal, $toast } = useNuxtApp()
 
 const off = () => emit('off')
 
@@ -51,12 +18,14 @@ interface MenuItem {
   names: string[]
 }
 
-const profileMenu:MenuItem[] = [{
-  name: 'Sessions',
-  icon: 'mdi-devices',
-  to: '/sessions',
-  names: ['sessions'],
-}]
+const profileMenu: MenuItem[] = [
+  {
+    name: 'Sessions',
+    icon: 'mdi-devices',
+    to: '/sessions',
+    names: ['sessions'],
+  },
+]
 
 function logout() {
   emit('off')
@@ -75,5 +44,37 @@ function logout() {
     },
   })
 }
-
 </script>
+
+<template>
+  <router-link
+    v-for="item in profileMenu"
+    :key="item.name"
+    :to="item.to"
+    class="flex items-center px-4 py-2 leading-5 text-gray-700 transition duration-150 ease-in-out dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:bg-gray-100"
+    :class="props.mobile ? 'text-base' : 'text-sm'"
+    role="menuitem"
+    @click="off"
+  >
+    <Icon
+      :icon="item.icon"
+      :class="{ 'w-4 h-4 mr-1.5': !mobile, 'w-6 h-6 mr-3': mobile }"
+      class="text-gray-400"
+    />
+    {{ item.name }}
+  </router-link>
+  <a
+    href="#"
+    class="flex items-center px-4 py-2 leading-5 text-gray-700 transition duration-150 ease-in-out dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:bg-gray-100"
+    :class="mobile ? 'text-base' : 'text-sm'"
+    role="menuitem"
+    @click="logout"
+  >
+    <Icon
+      icon="mdi-logout"
+      :class="{ 'w-4 h-4 mr-1.5': !mobile, 'w-6 h-6 mr-3': mobile }"
+      class="text-gray-400"
+    />
+    Logout
+  </a>
+</template>

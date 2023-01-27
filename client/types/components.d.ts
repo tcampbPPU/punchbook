@@ -49,7 +49,7 @@ declare global {
       field: string
 
       /** column types */
-      type: 'text'|'date'|'link'|'checkbox'|'slot'
+      type: 'text' | 'date' | 'link' | 'checkbox' | 'slot'
 
       /** can this field be sorted */
       sortable?: boolean
@@ -63,21 +63,21 @@ declare global {
       order: string
 
       /** column order by direction */
-      direction: 'desc' | 'asc',
+      direction: 'desc' | 'asc'
 
       /** columns to always show by default */
       columns: Array<string>
 
       /** default query parameters */
-      query?: { perpage: 10, page: 1 },
+      query?: { perpage: 10; page: 1 }
     }
 
     interface Checkable {
       /** Give slot control */
-      slot?: boolean,
+      slot?: boolean
 
       /** callback function */
-      callback?: {(): void},
+      callback?: { (): void }
     }
 
     interface SmartTableFetchParams {
@@ -108,6 +108,5 @@ declare global {
       input: string
     }
     type SmartTableFilters = Array<SmartTableFilter>
-
   }
 }

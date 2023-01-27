@@ -1,3 +1,14 @@
+<script lang="ts" setup>
+import type { PropType } from '@vue/runtime-core'
+
+const props = defineProps({
+  appear: {
+    type: Boolean as PropType<boolean>,
+    required: true,
+  },
+})
+</script>
+
 <template>
   <transition
     :appear="props.appear"
@@ -9,15 +20,6 @@
     leave-class="transform opacity-100"
     leave-to-class="transform opacity-0"
   >
-    <slot />
+    <slot></slot>
   </transition>
 </template>
-<script lang="ts" setup>
-import { PropType } from '@vue/runtime-core'
-const props = defineProps({
-  appear: {
-    type: Boolean as PropType<boolean>,
-    required: true,
-  },
-})
-</script>

@@ -1,12 +1,3 @@
-<template>
-  <td
-    class="px-6 text-sm font-medium leading-5 whitespace-no-wrap"
-    :class="{'py-4': !props.button, 'py-2': props.button, 'flash-new': props.isNew }"
-    :colspan="span"
-  >
-    <slot />
-  </td>
-</template>
 <script lang="ts" setup>
 const props = defineProps({
   button: {
@@ -26,6 +17,20 @@ const props = defineProps({
   },
 })
 </script>
+
+<template>
+  <td
+    class="px-6 text-sm font-medium leading-5 whitespace-no-wrap"
+    :class="{
+      'py-4': !props.button,
+      'py-2': props.button,
+      'flash-new': props.isNew,
+    }"
+    :colspan="span"
+  >
+    <slot></slot>
+  </td>
+</template>
 
 <style scoped>
 .flash-new {

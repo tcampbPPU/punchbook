@@ -1,52 +1,6 @@
-<template>
-  <thead class="relative">
-    <tr>
-      <th
-        v-for="column in props.columns"
-        :key="column.field"
-        class="relative px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase bg-gray-50 dark:bg-gray-700 dark:text-white"
-      >
-        <table-head-column
-          :column="column"
-          :order="order"
-          :direction="direction"
-          :is-filtered="isFiltered(column)"
-          @sort="$emit('sort', $event)"
-          @filter="$emit('filter', $event)"
-        >
-          <template #[column.type]>
-            <span v-if="checkable && column.type == 'checkbox'">
-              <div class="relative flex items-start">
-                <div class="flex items-center h-5">
-                  <label :for="`checkbox-${component?.uid}`">
-                    <span class="sr-only">Checkbox For Table</span>
-                    <input
-                      :id="`checkbox-${component?.uid}`"
-                      type="checkbox"
-                      class="focus:ring-indigo-500 focus:shadow-inner cursor-pointer h-4 w-4 text-indigo-300 rounded border-2 hover:bg-indigo-50 hover:border-indigo-300"
-                    >
-                  </label>
-                </div>
-              </div>
-            </span>
-          </template>
-        </table-head-column>
-      </th>
-
-      <!-- maybe good place for actions -->
-      <th
-        v-if="props.actions"
-        class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase bg-gray-50 dark:bg-gray-700"
-        v-html="'Actions'"
-      />
-    </tr>
-  </thead>
-</template>
-
 <script lang="ts" setup>
-import { getCurrentInstance, PropType } from '@vue/runtime-core'
-
-defineEmits(['filter', 'sort'])
+import type { PropType } from '@vue/runtime-core'
+import { getCurrentInstance } from '@vue/runtime-core'
 
 const props = defineProps({
   columns: {
@@ -77,10 +31,58 @@ const props = defineProps({
   },
 })
 
+defineEmits(['filter', 'sort'])
+
 const component = getCurrentInstance()
 
 const isFiltered = (column: components.SmartTableColumn): boolean => {
-  return props.filters.find(f => f.column.field === column.field) !== undefined
+  return (
+    props.filters.find(f => f.column.field === column.field) !== undefined
+  )
 }
-
 </script>
+
+<template>
+  <thead class="relative">
+    <tr>
+      <th
+        v-for="column in props.columns"
+        :key="column.field"
+        class="relative px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase bg-gray-50 dark:bg-gray-700 dark:text-white"
+      >
+        <table-head-column
+          :column="column"
+          :order="order"
+          :direction="direction"
+          :is-filtered="isFiltered(column)"
+          @sort="$emit('sort', $event)"
+          @filter="$emit('filter', $event)"
+        >
+          <template #[column.type]>
+            <span v-if="checkable && column.type === 'checkbox'">
+              <div class="relative flex items-start">
+                <div class="flex items-center h-5">
+                  <label :for="`checkbox-${component?.uid}`">
+                    <span class="sr-only">Checkbox For Table</span>
+                    <input
+                      :id="`checkbox-${component?.uid}`"
+                      type="checkbox"
+                      class="focus:ring-indigo-500 focus:shadow-inner cursor-pointer h-4 w-4 text-indigo-300 rounded border-2 hover:bg-indigo-50 hover:border-indigo-300"
+                    />
+                  </label>
+                </div>
+              </div>
+            </span>
+          </template>
+        </table-head-column>
+      </th>
+
+      <!-- maybe good place for actions -->
+      <th
+        v-if="props.actions"
+        class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase bg-gray-50 dark:bg-gray-700"
+        v-html="'Actions'"
+      ></th>
+    </tr>
+  </thead>
+</template>

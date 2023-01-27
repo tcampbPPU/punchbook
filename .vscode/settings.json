@@ -6,13 +6,13 @@
         "source.fixAll.eslint": true
     },
     "[vue]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
     },
     "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
     },
     "[typescript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
     },
     "[php]": {
         "editor.defaultFormatter": "open-southeners.laravel-pint",
@@ -29,10 +29,10 @@
         "editor.defaultFormatter": "vscode.json-language-features"
     },
     "[html]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
     },
     "[yaml]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
     },
     "phpsab.snifferEnable": true,
     "phpsab.executablePathCBF": "./vendor/bin/phpcbf",
@@ -40,4 +40,12 @@
     "phpsab.snifferShowSources": true,
     "phpsab.snifferMode": "onType",
     "typescript.tsdk": "node_modules/typescript/lib",
+    "eslint.validate": [
+      "javascript",
+      "typescript",
+      "vue"
+  ],
+  "cSpell.words": [
+    "nuxt"
+  ]
 }

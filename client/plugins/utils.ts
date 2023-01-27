@@ -7,5 +7,5 @@ export default defineNuxtPlugin((nuxtApp) => {
 declare module '#app' {
   interface NuxtApp {
     $utils: typeof Utils
- }
+  }
 }

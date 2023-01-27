@@ -5,7 +5,8 @@ export default defineNuxtPlugin(() => {
   const { $toast } = useNuxtApp()
   return {
     provide: {
-      api: new Api({
+      api: new Api(
+        {
           fetchOptions: {
             baseURL: config.public.apiURL,
           },
@@ -14,7 +15,9 @@ export default defineNuxtPlugin(() => {
             logout: '/',
             login: '/',
           },
-        }, $toast),
+        },
+        $toast,
+      ),
     },
   }
 })

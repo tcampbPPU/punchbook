@@ -1,4 +1,4 @@
-import { IncomingMessage, ServerResponse } from 'http'
+import type { IncomingMessage, ServerResponse } from 'http'
 
 export default (req: IncomingMessage, res: ServerResponse) => {
   const token = useCookie(req, 'token')

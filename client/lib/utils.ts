@@ -1,11 +1,10 @@
 export default class Utils {
-
   /**
    * Perform a sleep as a Promise
    * ex: await this.$sleep(200)
    * @param milliseconds
    */
-  sleep (milliseconds: number) {
+  sleep(milliseconds: number) {
     return new Promise(resolve => setTimeout(resolve, milliseconds))
   }
 
@@ -15,11 +14,11 @@ export default class Utils {
    * @param min - The lowest value to return
    * @param max - The highest value to return
    */
-  rand (min: number, max: number): number {
+  rand(min: number, max: number): number {
     return Math.floor(Math.random() * (max - min + 1)) + min
   }
 
-  ucFirst (string: string) {
+  ucFirst(string: string) {
     return string.charAt(0).toUpperCase() + string.slice(1)
   }
 
@@ -29,19 +28,21 @@ export default class Utils {
    * N milliseconds. If `immediate` is passed, trigger the function on the
    * leading edge, instead of the trailing.
    */
-  debounce (func: () => never, wait: number, immediate?: boolean) {
-    let timeout: number | undefined = undefined
+  debounce(func: () => never, wait: number, immediate?: boolean) {
+    let timeout: number | undefined
     return function () {
       // eslint-disable-next-line prefer-rest-params
       const args = arguments
       const later = () => {
         timeout = undefined
-        if (!immediate) func.apply(this, args)
+        if (!immediate)
+          func.apply(this, args)
       }
       const callNow = immediate && !timeout
       clearTimeout(timeout)
       timeout = setTimeout(later, wait) as unknown as number
-      if (callNow) func.apply(this, args)
+      if (callNow)
+        func.apply(this, args)
     }
   }
 
@@ -50,11 +51,12 @@ export default class Utils {
    * @param {String} id
    * @returns void
    */
-  properScroll (id: string): void {
+  properScroll(id: string): void {
     const el = document.getElementById(id)
-    if (!el) return
+    if (!el)
+      return
     const { top, left } = el.getBoundingClientRect()
-    window.scrollTo({top, left, behavior: 'smooth'})
+    window.scrollTo({ top, left, behavior: 'smooth' })
   }
 
   /**
@@ -62,14 +64,14 @@ export default class Utils {
    * @param {String} color
    * @returns boolean
    */
-  textContrast (color: string): boolean {
-    color = (color.charAt(0) === '#') ? color.substring(1, 7) : color
+  textContrast(color: string): boolean {
+    color = color.charAt(0) === '#' ? color.substring(1, 7) : color
 
     const r = parseInt(color.substring(0, 2), 16)
     const g = parseInt(color.substring(2, 4), 16)
     const b = parseInt(color.substring(4, 6), 16)
 
-    return (((r * 0.299) + (g * 0.587) + (b * 0.114)) > 186)
+    return r * 0.299 + g * 0.587 + b * 0.114 > 186
   }
 
   /**
@@ -79,14 +81,15 @@ export default class Utils {
    * @param {Boolean} regex - Optional for replacing content of string
    * @returns string
    */
-  shortStr (str: string, len: number, regex = true): string {
+  shortStr(str: string, len: number, regex = true): string {
     const currentStr = str
-    if (!str) return ''
+    if (!str)
+      return ''
     str = regex ? currentStr.replace(/<[^>]+>/g, '') : currentStr
     str = str.replace(/&nbsp;/gi, ' ')
-    if (str.length > len) str = str.substring(0, len) + '...'
+    if (str.length > len)
+      str = `${str.substring(0, len)}...`
 
     return str
   }
-
 }

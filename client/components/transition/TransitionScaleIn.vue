@@ -1,3 +1,9 @@
+<script lang="ts" setup>
+defineProps({
+  appear: Boolean,
+})
+</script>
+
 <template>
   <transition
     :appear="appear"
@@ -9,12 +15,6 @@
     leave-from-class="transform scale-100 opacity-100"
     leave-to-class="transform scale-95 opacity-0"
   >
-    <slot />
+    <slot></slot>
   </transition>
 </template>
-
-<script lang="ts" setup>
-defineProps({
-  appear: Boolean,
-})
-</script>

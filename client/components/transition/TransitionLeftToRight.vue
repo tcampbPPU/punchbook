@@ -8,6 +8,6 @@
     leave-to-class="transform -translate-x-2 opacity-0"
     mode="out-in"
   >
-    <slot />
+    <slot></slot>
   </transition>
 </template>

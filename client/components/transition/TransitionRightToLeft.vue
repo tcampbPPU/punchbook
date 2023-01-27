@@ -1,3 +1,15 @@
+<script lang="ts" setup>
+import type { PropType } from '@vue/runtime-core'
+
+const props = defineProps({
+  mode: {
+    type: String as PropType<'default' | 'out-in' | 'in-out'>,
+    required: false,
+    default: 'out-in',
+  },
+})
+</script>
+
 <template>
   <transition
     :mode="props.mode"
@@ -8,16 +20,6 @@
     leave-class="transform translate-x-0 opacity-100"
     leave-to-class="transform -translate-x-2 opacity-0"
   >
-    <slot />
+    <slot></slot>
   </transition>
 </template>
-<script lang="ts" setup>
-import { PropType } from '@vue/runtime-core'
-const props = defineProps({
-  mode: {
-    type: String as PropType<"default"|"out-in"|"in-out">,
-    required: false,
-    default: 'out-in',
-  },
-})
-</script>

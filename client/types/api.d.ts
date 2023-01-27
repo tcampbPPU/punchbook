@@ -28,6 +28,5 @@ declare global {
       per_page: number
       total: number
     }
-
   }
 }

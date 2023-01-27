@@ -1,7 +1,6 @@
 export {}
 declare global {
   export namespace models {
-
     export interface Contact {
       // columns
       id: number
