@@ -1,23 +1,24 @@
 <script lang="ts" setup>
+import type { PropType } from 'vue'
 import { Icon } from '@iconify/vue'
 
 const props = defineProps({
   text: {
-    type: String,
+    type: String as PropType<string>,
     required: true,
   },
   color: {
-    type: String,
+    type: String as PropType<string>,
     required: false,
     default: '#1b05e6',
   },
   disabled: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     required: false,
     default: false,
   },
   remove: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     required: false,
     default: false,
   },
