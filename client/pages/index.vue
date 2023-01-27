@@ -13,7 +13,7 @@ const currPage = ref(1)
 const modal = ref(false)
 const edit = ref(false)
 const editContact = ref<models.Contact | undefined>(undefined)
-const contacts = ref<api.HarmonyResults & { data: models.Contacts }>()
+const contacts = ref<api.HarmonyResults & { data: models.Contacts } | undefined>(undefined)
 
 const on = () => (modal.value = true)
 const off = () => {
