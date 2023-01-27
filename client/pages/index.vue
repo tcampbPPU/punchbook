@@ -13,9 +13,7 @@ const currPage = ref(1)
 const modal = ref(false)
 const edit = ref(false)
 const editContact = ref<models.Contact | undefined>(undefined)
-const contacts = ref<api.HarmonyResults & { data: models.Contacts[] }>(
-  undefined,
-)
+const contacts = ref<api.HarmonyResults & { data: models.Contacts }>()
 
 const on = () => (modal.value = true)
 const off = () => {
@@ -32,7 +30,7 @@ const get = async () =>
   }))
 
 const hydrate = ({ page }: { page: number }) => {
-  const values = { ...contacts.value.paginate.pages }
+  const values = { ...contacts.value?.paginate?.pages }
   const pages = Object.values(values)
   currPage.value = page
   if (pages.includes(page))
@@ -86,8 +84,8 @@ watch(
         class="grid w-full grid-cols-1 gap-6 rounded bg-gray-100 p-8 dark:bg-gray-900 sm:grid-cols-2 lg:grid-cols-3"
       >
         <ContactCard
-          v-for="(contact, index) in contacts.data"
-          :key="index"
+          v-for="contact in contacts.data"
+          :key="contact.id"
           :contact="contact"
           @edit="onEdit"
         />
