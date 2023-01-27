@@ -15,8 +15,7 @@
     "pest": "composer test",
     "api": "./artisan serve",
     "seed": "./artisan migrate:fresh --seed",
-    "db": "./artisan db",
-    "format": "prettier --write \"./client/**/*.{js,ts,vue}\""
+    "db": "./artisan db"
   },
   "dependencies": {},
   "devDependencies": {
