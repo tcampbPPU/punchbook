@@ -1,6 +1,5 @@
 {
   "extends": "@antfu",
-  // "plugins": ["prettier"],
   "rules": {
     "vue/html-self-closing": [
       "error",
