@@ -46,9 +46,6 @@ class Contact extends Model
      * Local Filter Scope
      *
      * @param  Builder<Contact>  $query
-     * @param  array  $filters
-     * @param  string  $comparison
-     * @return void
      */
     public function scopeFilter(Builder $query, array $filters, string $comparison = 'like'): void
     {

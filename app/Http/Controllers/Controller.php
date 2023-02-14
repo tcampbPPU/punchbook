@@ -24,8 +24,6 @@ class Controller extends BaseController
 
     /**
      * Display application routes
-     *
-     * @return string
      */
     public function routes(): string
     {
@@ -42,8 +40,6 @@ class Controller extends BaseController
 
     /**
      * Redirect Login Route
-     *
-     * @return Redirector|Application|RedirectResponse
      */
     public function auth(): Redirector|Application|RedirectResponse
     {
