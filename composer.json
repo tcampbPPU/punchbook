@@ -60,7 +60,7 @@
       "Tests\\": "tests/php/"
     }
   },
-  "minimum-stability": "dev",
+  "minimum-stability": "stable",
   "prefer-stable": true,
   "scripts": {
     "test": [
