@@ -9,6 +9,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Laravel\Socialite\Facades\Socialite;
+use Symfony\Component\HttpFoundation\Cookie;
 
 class AuthController extends Controller
 {
@@ -79,6 +80,9 @@ class AuthController extends Controller
         return $user;
     }
 
+    /**
+     * Return the response to the client
+     */
     private function response(string $provider): Response
     {
         return response(
@@ -102,6 +106,7 @@ class AuthController extends Controller
             'email' => $email,
             'avatar' => $avatar,
         ]);
+
         Provider::create([
             'user_id' => $user->id,
             'name' => $provider,
@@ -151,11 +156,13 @@ class AuthController extends Controller
             return $this->error('auth.failed');
         }
 
+        $cookie = Cookie::create('token', auth()->token(), 60 * 24 * 30, '/', '', true, false);
+
         return $this->render([
             'token' => auth()->token(),
             'user' => auth()->user(),
             'action' => $login->action, // @phpstan-ignore-line
-        ])->cookie('token', auth()->token(), 60 * 24 * 30, '/', '', true, false);
+        ])->cookie($cookie);
     }
 
     /**
@@ -166,9 +173,11 @@ class AuthController extends Controller
         $this
             ->option('providers', 'boolean')
             ->verify();
+
         if ($request->providers) {
             return $this->render(User::whereId(auth()->user()?->id)->with(['providers'])->first());
         }
+
         auth()->user()?->session->touch();
 
         return $this->render(auth()->user());
@@ -203,6 +212,8 @@ class AuthController extends Controller
     {
         auth()->logout();
 
-        return $this->success('auth.logout')->cookie('token', false, 0, '/', '', true, false);
+        $cookie = Cookie::create('token', '', 60 * 24 * 30, '/', '', true, false);
+
+        return $this->success('auth.logout')->cookie($cookie);
     }
 }
