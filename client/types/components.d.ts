@@ -111,6 +111,7 @@ declare global {
 
     interface SmartTableRow {
       id: number
+      checked: boolean
       [key: string]: any
     }
   }

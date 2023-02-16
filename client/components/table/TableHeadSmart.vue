@@ -32,7 +32,7 @@ const props = defineProps({
   },
 })
 
-defineEmits(['filter', 'sort'])
+const emit = defineEmits(['filter', 'sort', 'selectAll'])
 
 const component = getCurrentInstance()
 
@@ -40,6 +40,11 @@ const isFiltered = (column: components.SmartTableColumn): boolean => {
   return (
     props.filters.find(f => f.column.field === column.field) !== undefined
   )
+}
+
+const selectAll = (event: Event) => {
+  const target = event.target as HTMLInputElement
+  emit('selectAll', target.checked)
 }
 </script>
 
@@ -63,7 +68,7 @@ const isFiltered = (column: components.SmartTableColumn): boolean => {
             <span v-if="checkable && column.type === 'checkbox'">
               <div class="relative flex items-start">
                 <div class="flex items-center h-5">
-                  <BasicCheckbox :identifier="component?.uid ?? 'base'" />
+                  <BasicCheckbox :identifier="component?.uid ?? 'base'" @click="selectAll" />
                 </div>
               </div>
             </span>

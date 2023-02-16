@@ -31,6 +31,7 @@ const propIdentifier = String(props.identifier)
     <input
       :id="propIdentifier"
       type="checkbox"
+      :checked="entry?.checked || false"
       class="focus:ring-blue-500 focus:shadow-inner h-4 w-4 text-blue-300 rounded border-2 hover:bg-blue-500 hover:border-blue-300 cursor-pointer"
       @change="emit('change', entry, $event)"
     />

@@ -65,6 +65,14 @@ const filter = (filter: components.SmartTableFilter) => {
   get({ page: 1 })
 }
 
+const handleSelectAll = (checked: boolean) => {
+  if (results.value?.data) {
+    (results.value.data as components.SmartTableRow[]).forEach((entry: components.SmartTableRow) => {
+      entry.checked = checked
+    })
+  }
+}
+
 onMounted(() => get({ page: 1 }))
 
 defineExpose({
@@ -74,7 +82,6 @@ defineExpose({
 
 <template>
   <div class="relative rounded-lg">
-    {{ selectedRows }}
     <TableBase class="relative">
       <!-- Table Loading Skeleton Screen -->
       <TableSkeleton v-if="!results" :columns="3" :rows="10" />
@@ -88,6 +95,7 @@ defineExpose({
         :selected-ids="selectedRows"
         @sort="sort"
         @filter="filter"
+        @select-all="handleSelectAll"
       />
       <tbody
         v-if="results && results.paginate && results.paginate.total > 0"
