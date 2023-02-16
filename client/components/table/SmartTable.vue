@@ -1,9 +1,5 @@
 <script lang="ts" setup>
 import type { PropType } from '@vue/runtime-core'
-import { onMounted } from '@vue/runtime-core'
-import { ref } from 'vue'
-import TableBase from '~/components/table/TableBase.vue'
-import TableSkeleton from '~/components/table/TableSkeleton.vue'
 
 const props = defineProps({
   params: {

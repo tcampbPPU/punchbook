@@ -32,7 +32,7 @@ const propIdentifier = String(props.identifier)
       :id="propIdentifier"
       type="checkbox"
       class="focus:ring-blue-500 focus:shadow-inner h-4 w-4 text-blue-300 rounded border-2 hover:bg-blue-500 hover:border-blue-300 cursor-pointer"
-      @change="emit('change', props.entry, $event)"
+      @change="emit('change', entry, $event)"
     />
   </label>
 </template>
