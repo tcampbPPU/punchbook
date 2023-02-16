@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import type { PropType } from '@vue/runtime-core'
+import BasicCheckbox from '~/components/shared/BasicCheckbox.vue'
 
 const props = defineProps({
   index: {
@@ -7,7 +8,7 @@ const props = defineProps({
     required: true,
   },
   entry: {
-    type: Object as PropType<Record<string, string>>,
+    type: Object as PropType<components.SmartTableRow>,
     required: true,
   },
   columns: {
@@ -19,12 +20,33 @@ const props = defineProps({
     required: false,
     default: false,
   },
+  checkable: {
+    type: Object as PropType<components.Checkable>,
+    required: false,
+    default: undefined,
+  },
+  selectedIds: {
+    type: Array as PropType<number[]>,
+    required: false,
+    default: undefined,
+  },
 })
+
+const emit = defineEmits<{
+  (event: 'checkboxChanged', ...args: any[]): void
+}>()
 
 const { $dayjs } = useNuxtApp()
 
-const mapColumnEntry = (entry: Record<string, string>, key: string): string =>
+const mapColumnEntry = (entry: components.SmartTableRow, key: string): string =>
   entry[key]
+
+const onCheckBoxChange = (entry: components.SmartTableRow | undefined, event: Event): void => {
+  if (!entry)
+    return
+  const target = event.target as HTMLInputElement
+  emit('checkboxChanged', entry, target.checked)
+}
 </script>
 
 <template>
@@ -34,6 +56,15 @@ const mapColumnEntry = (entry: Record<string, string>, key: string): string =>
       :key="i"
       class="dark:text-white dark:bg-gray-800"
     >
+      <!-- Checkable -->
+      <span v-if="checkable && column.type === 'checkbox'">
+        <div class="relative flex items-start">
+          <div class="flex items-center h-5">
+            <slot v-if="checkable.slot" name="checkbox" :entry="entry"></slot>
+            <BasicCheckbox v-else :entry="entry" :identifier="`checkbox-${entry.id}`" @change="onCheckBoxChange" />
+          </div>
+        </div>
+      </span>
       <!-- Text -->
       <span
         v-if="column.type === 'text'"

@@ -13,10 +13,11 @@ const props = defineProps({
 })
 
 const { $api } = useNuxtApp()
-const results = ref<api.HarmonyResults>(undefined)
+const results = ref<api.HarmonyResults | undefined>(undefined)
 const order = ref(props.params.defaults.order)
 const direction = ref(props.params.defaults.direction)
 const filters = ref<components.SmartTableFilters>([])
+const selectedRows = ref<number[]>([])
 
 const get = async (args: components.SmartTableFetchParams): Promise<void> => {
   const defaults: components.SmartTableFetchParams = {
@@ -69,20 +70,26 @@ const filter = (filter: components.SmartTableFilter) => {
 }
 
 onMounted(() => get({ page: 1 }))
+
+defineExpose({
+  get,
+})
 </script>
 
 <template>
   <div class="relative rounded-lg">
+    {{ selectedRows }}
     <TableBase class="relative">
       <!-- Table Loading Skeleton Screen -->
       <TableSkeleton v-if="!results" :columns="3" :rows="10" />
       <table-head-smart
-        :columns="props.params.columns"
-        :order="props.params.defaults.order"
-        :direction="props.params.defaults.direction"
-        :checkable="props.params.checkable"
-        :actions="props.params.actions"
+        :columns="params.columns"
+        :order="params.defaults.order"
+        :direction="params.defaults.direction"
+        :checkable="params.checkable"
+        :actions="params.actions"
         :filters="filters"
+        :selected-ids="selectedRows"
         @sort="sort"
         @filter="filter"
       />
@@ -94,8 +101,9 @@ onMounted(() => get({ page: 1 }))
           <table-row-smart
             :index="index"
             :entry="entry"
-            :columns="props.params.columns"
-            :actions="props.params.actions"
+            :columns="params.columns"
+            :actions="params.actions"
+            :checkable="params.checkable"
           >
             <template
               v-for="(_, scopedSlotName) in $slots"

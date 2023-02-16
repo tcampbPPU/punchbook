@@ -108,5 +108,10 @@ declare global {
       input: string
     }
     type SmartTableFilters = Array<SmartTableFilter>
+
+    interface SmartTableRow {
+      id: number
+      [key: string]: any
+    }
   }
 }

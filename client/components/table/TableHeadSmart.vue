@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import type { PropType } from '@vue/runtime-core'
 import { getCurrentInstance } from '@vue/runtime-core'
+import BasicCheckbox from '~/components/shared/BasicCheckbox.vue'
 
 const props = defineProps({
   columns: {
@@ -62,14 +63,7 @@ const isFiltered = (column: components.SmartTableColumn): boolean => {
             <span v-if="checkable && column.type === 'checkbox'">
               <div class="relative flex items-start">
                 <div class="flex items-center h-5">
-                  <label :for="`checkbox-${component?.uid}`">
-                    <span class="sr-only">Checkbox For Table</span>
-                    <input
-                      :id="`checkbox-${component?.uid}`"
-                      type="checkbox"
-                      class="focus:ring-indigo-500 focus:shadow-inner cursor-pointer h-4 w-4 text-indigo-300 rounded border-2 hover:bg-indigo-50 hover:border-indigo-300"
-                    />
-                  </label>
+                  <BasicCheckbox :identifier="component?.uid ?? 'base'" />
                 </div>
               </div>
             </span>
