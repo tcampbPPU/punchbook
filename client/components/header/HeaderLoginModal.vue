@@ -86,11 +86,9 @@ onBeforeUnmount(() => {
 
 <template>
   <div class="px-4 py-4 bg-white dark:bg-gray-800 sm:px-10">
-    <img
-      class="w-auto h-12 pb-4 mx-auto"
-      src="/punchlist-logo-dark-1.svg"
-      alt="PunchBook"
-    />
+    <h1 class="text-2xl font-bold leading-9 text-center text-gray-900 dark:text-gray-100 mb-4">
+      PunchBook
+    </h1>
     <div class="grid grid-cols-2 gap-3">
       <div>
         <PushButton class="justify-center w-full" @click="login('google')">
