@@ -1041,10 +1041,10 @@
     estree-walker "^2.0.2"
     picomatch "^2.3.1"
 
-"@tailvue/nuxt@^0.1.64":
-  version "0.1.64"
-  resolved "https://registry.yarnpkg.com/@tailvue/nuxt/-/nuxt-0.1.64.tgz#68e2aa4409b0b2562aa09fc330f3b9f36f11b4ba"
-  integrity sha512-SKpKaDQvhmFYhPwlR8lDYG8oE4sj5H3ApWam3lRJqD+B4YRSe93NC0XQ+KGQDfBzaD9NJwTZF4oqK3ukqy6R/Q==
+"@tailvue/nuxt@^0.1.68":
+  version "0.1.68"
+  resolved "https://registry.yarnpkg.com/@tailvue/nuxt/-/nuxt-0.1.68.tgz#ae042c0f82933141ea9d81080f3e3bb75c6472fb"
+  integrity sha512-AFLn6skqX/UbAZZv4IsiGX9WMi1ET9jSt0xOFYu0GgfDyjLq2iVx491sKcntfyZ6IGzxdN+8hz1miPQwms4ScA==
   dependencies:
     "@nuxt/kit" "npm:@nuxt/kit-edge@latest"
     pathe "^0.2.0"
