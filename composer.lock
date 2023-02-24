@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1b4ab2c44d0cf6874f28676acd09764a",
+    "content-hash": "b4e0c3820f336f87335419fe3fb37716",
     "packages": [
         {
             "name": "acidjazz/humble",
@@ -8758,16 +8758,16 @@
         },
         {
             "name": "fumeapp/modeltyper",
-            "version": "v1.2.0",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fumeapp/modeltyper.git",
-                "reference": "a27f737f048619346c16f6e2d0cf5b36d0b7c6fd"
+                "reference": "4724926a540fa7c679613ce5b1c9e54f74cb010f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fumeapp/modeltyper/zipball/a27f737f048619346c16f6e2d0cf5b36d0b7c6fd",
-                "reference": "a27f737f048619346c16f6e2d0cf5b36d0b7c6fd",
+                "url": "https://api.github.com/repos/fumeapp/modeltyper/zipball/4724926a540fa7c679613ce5b1c9e54f74cb010f",
+                "reference": "4724926a540fa7c679613ce5b1c9e54f74cb010f",
                 "shasum": ""
             },
             "require": {
@@ -8809,9 +8809,9 @@
             "description": "Generate TypeScript interfaces from Laravel Models",
             "support": {
                 "issues": "https://github.com/fumeapp/modeltyper/issues",
-                "source": "https://github.com/fumeapp/modeltyper/tree/v1.2.0"
+                "source": "https://github.com/fumeapp/modeltyper/tree/v2.0.0"
             },
-            "time": "2023-02-14T18:39:57+00:00"
+            "time": "2023-02-21T22:31:47+00:00"
         },
         {
             "name": "hamcrest/hamcrest-php",
