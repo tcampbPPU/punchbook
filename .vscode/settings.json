@@ -1,51 +1,60 @@
 {
-    "git.mergeEditor": false,
-    "editor.formatOnSave": true,
-    "prettier.semi": false,
-    "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true
-    },
-    "[vue]": {
-        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-    },
-    "[javascript]": {
-        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-    },
-    "[typescript]": {
-        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-    },
-    "[php]": {
-        "editor.defaultFormatter": "open-southeners.laravel-pint",
-        "editor.formatOnSave": true
-    },
-    "[blade]": {
-        "editor.defaultFormatter": "valeryanm.vscode-phpsab",
-        "editor.formatOnSave": true
-    },
-    "[dockerfile]": {
-        "editor.defaultFormatter": "ms-azuretools.vscode-docker"
-    },
-    "[json]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
-    },
-    "[html]": {
-        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-    },
-    "[yaml]": {
-        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-    },
-    "phpsab.snifferEnable": true,
-    "phpsab.executablePathCBF": "./vendor/bin/phpcbf",
-    "phpsab.executablePathCS": "./vendor/bin/phpcs",
-    "phpsab.snifferShowSources": true,
-    "phpsab.snifferMode": "onType",
-    "typescript.tsdk": "node_modules/typescript/lib",
-    "eslint.validate": [
-      "javascript",
-      "typescript",
-      "vue"
+  "git.mergeEditor": false,
+  "editor.formatOnSave": true,
+  "prettier.semi": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[php]": {
+    "editor.defaultFormatter": "open-southeners.laravel-pint",
+    "editor.formatOnSave": true
+  },
+  "[blade]": {
+    "editor.defaultFormatter": "valeryanm.vscode-phpsab",
+    "editor.formatOnSave": true
+  },
+  "[dockerfile]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "phpsab.snifferEnable": true,
+  "phpsab.executablePathCBF": "./vendor/bin/phpcbf",
+  "phpsab.executablePathCS": "./vendor/bin/phpcs",
+  "phpsab.snifferShowSources": true,
+  "phpsab.snifferMode": "onType",
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "eslint.validate": [
+    "javascript",
+    "typescript",
+    "vue"
   ],
+  "emeraldwalk.runonsave": {
+    "commands": [
+      {
+        "match": "\\.php$",
+        "isAsync": true,
+        "cmd": "./vendor/bin/pint ${file}"
+      },
+    ]
+  },
   "cSpell.words": [
     "nuxt"
-  ]
+  ],
 }
