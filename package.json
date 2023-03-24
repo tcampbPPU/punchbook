@@ -21,7 +21,7 @@
   "devDependencies": {
     "@antfu/eslint-config": "^0.37.0",
     "@iconify/vue": "^4.1.0",
-    "@jamesacarr/eslint-formatter-github-actions": "^0.1.0",
+    "@jamesacarr/eslint-formatter-github-actions": "^0.2.0",
     "@tailvue/nuxt": "^0.1.68",
     "@vue/test-utils": "^2.3.1",
     "@vueuse/nuxt": "^9.12.0",
