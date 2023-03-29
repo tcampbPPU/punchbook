@@ -126,16 +126,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.262.3",
+            "version": "3.262.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "f5c8142d43846194bbb3bb40b18e7f6df2788409"
+                "reference": "2673d06dd47793c87e8d1616720066030676fa1f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/f5c8142d43846194bbb3bb40b18e7f6df2788409",
-                "reference": "f5c8142d43846194bbb3bb40b18e7f6df2788409",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/2673d06dd47793c87e8d1616720066030676fa1f",
+                "reference": "2673d06dd47793c87e8d1616720066030676fa1f",
                 "shasum": ""
             },
             "require": {
@@ -214,9 +214,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.262.3"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.262.4"
             },
-            "time": "2023-03-28T18:18:50+00:00"
+            "time": "2023-03-29T18:20:24+00:00"
         },
         {
             "name": "brick/math",
@@ -2179,16 +2179,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v10.5.0",
+            "version": "v10.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "56dd3b190ec1b8ad5ae8efd6fea65bc272f2dd52"
+                "reference": "485f22333e8c1dff5bae0fe0421c1e2e139713de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/56dd3b190ec1b8ad5ae8efd6fea65bc272f2dd52",
-                "reference": "56dd3b190ec1b8ad5ae8efd6fea65bc272f2dd52",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/485f22333e8c1dff5bae0fe0421c1e2e139713de",
+                "reference": "485f22333e8c1dff5bae0fe0421c1e2e139713de",
                 "shasum": ""
             },
             "require": {
@@ -2375,7 +2375,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2023-03-28T14:40:18+00:00"
+            "time": "2023-03-29T15:09:16+00:00"
         },
         {
             "name": "laravel/serializable-closure",
@@ -8848,30 +8848,32 @@
         },
         {
             "name": "fumeapp/modeltyper",
-            "version": "v2.1.2",
+            "version": "v2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fumeapp/modeltyper.git",
-                "reference": "199719602977c79ccdfd7f3d853aa1ab077ec1fb"
+                "reference": "b667b011e46732b3e103bbe1878191921a673757"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fumeapp/modeltyper/zipball/199719602977c79ccdfd7f3d853aa1ab077ec1fb",
-                "reference": "199719602977c79ccdfd7f3d853aa1ab077ec1fb",
+                "url": "https://api.github.com/repos/fumeapp/modeltyper/zipball/b667b011e46732b3e103bbe1878191921a673757",
+                "reference": "b667b011e46732b3e103bbe1878191921a673757",
                 "shasum": ""
             },
             "require": {
+                "illuminate/console": "^10.0.0",
                 "illuminate/database": "^10.0.0",
                 "illuminate/support": "9.*|10.*",
                 "php": "^8.1"
             },
             "require-dev": {
-                "laravel/pint": "^1.3",
-                "mockery/mockery": "^1.4.4",
+                "consolidation/robo": "^4.0",
+                "doctrine/dbal": "^3.6",
+                "laravel/pint": "^1.7",
                 "nunomaduro/larastan": "^2.2",
-                "orchestra/testbench": "^7.0|^8.0",
-                "phpunit/phpunit": "^9.5|^10.0",
-                "spatie/laravel-ray": "^1.17"
+                "orchestra/testbench": "^8.0",
+                "phpunit/phpunit": "^10.0",
+                "totten/lurkerlite": "^1.3"
             },
             "type": "library",
             "extra": {
@@ -8899,9 +8901,9 @@
             "description": "Generate TypeScript interfaces from Laravel Models",
             "support": {
                 "issues": "https://github.com/fumeapp/modeltyper/issues",
-                "source": "https://github.com/fumeapp/modeltyper/tree/v2.1.2"
+                "source": "https://github.com/fumeapp/modeltyper/tree/v2.2.0"
             },
-            "time": "2023-03-17T07:52:28+00:00"
+            "time": "2023-03-29T16:31:53+00:00"
         },
         {
             "name": "hamcrest/hamcrest-php",
