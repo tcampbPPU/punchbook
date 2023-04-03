@@ -126,16 +126,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.263.1",
+            "version": "3.263.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "1f1ca8866e54aabdcde2aba177196ec2f12ee8a2"
+                "reference": "5516a7edae70fff66223b2fd320c20b3b17ced56"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/1f1ca8866e54aabdcde2aba177196ec2f12ee8a2",
-                "reference": "1f1ca8866e54aabdcde2aba177196ec2f12ee8a2",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/5516a7edae70fff66223b2fd320c20b3b17ced56",
+                "reference": "5516a7edae70fff66223b2fd320c20b3b17ced56",
                 "shasum": ""
             },
             "require": {
@@ -214,9 +214,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.263.1"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.263.2"
             },
-            "time": "2023-03-31T18:21:25+00:00"
+            "time": "2023-04-03T18:19:25+00:00"
         },
         {
             "name": "brick/math",
@@ -1480,7 +1480,7 @@
         },
         {
             "name": "google/apiclient-services",
-            "version": "v0.292.0",
+            "version": "v0.293.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-api-php-client-services.git",
@@ -1518,7 +1518,7 @@
             ],
             "support": {
                 "issues": "https://github.com/googleapis/google-api-php-client-services/issues",
-                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.292.0"
+                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.293.0"
             },
             "time": "2023-03-13T21:05:11+00:00"
         },
@@ -10179,16 +10179,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.10.9",
+            "version": "1.10.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "9b13dafe3d66693d20fe5729c3dde1d31bb64703"
+                "reference": "f1e22c9b17a879987f8743d81533250a5fff47f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/9b13dafe3d66693d20fe5729c3dde1d31bb64703",
-                "reference": "9b13dafe3d66693d20fe5729c3dde1d31bb64703",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/f1e22c9b17a879987f8743d81533250a5fff47f9",
+                "reference": "f1e22c9b17a879987f8743d81533250a5fff47f9",
                 "shasum": ""
             },
             "require": {
@@ -10237,7 +10237,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-03-30T08:58:01+00:00"
+            "time": "2023-04-01T17:06:15+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
