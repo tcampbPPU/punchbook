@@ -50,7 +50,7 @@ class Contact extends Model
     public function scopeFilter(Builder $query, array $filters, string $comparison = 'like'): void
     {
         $query->when($filters['search'] ?? null, fn ($query, $search) => $query->where('name', $comparison, "%{$search}%")
-                ->orWhere('phone', $comparison, "%{$search}%")
-                ->orWhere('email', $comparison, "%{$search}%"));
+            ->orWhere('phone', $comparison, "%{$search}%")
+            ->orWhere('email', $comparison, "%{$search}%"));
     }
 }

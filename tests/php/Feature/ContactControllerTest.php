@@ -56,20 +56,20 @@ class ContactControllerTest extends TestCase
             ->json('get', '/contact')
             ->assertOk()
             ->assertJson(fn (AssertableJson $json) => $json->where('status', 'success')
-                    ->has('paginate')
-                    ->has('benchmark')
-                    ->has('query')
-                    ->has('data')
-                    ->has('data.0', fn ($json) => $json->has('id')
-                            ->has('name')
-                            ->has('phone')
-                            ->has('email')
-                            ->has('first_name')
-                            ->has('avatar')
-                            ->has('created_at')
-                            ->has('updated_at')
-                            ->where('deleted_at', null)
-                            ->etc()));
+                ->has('paginate')
+                ->has('benchmark')
+                ->has('query')
+                ->has('data')
+                ->has('data.0', fn ($json) => $json->has('id')
+                    ->has('name')
+                    ->has('phone')
+                    ->has('email')
+                    ->has('first_name')
+                    ->has('avatar')
+                    ->has('created_at')
+                    ->has('updated_at')
+                    ->where('deleted_at', null)
+                    ->etc()));
     }
 
     /**
@@ -85,20 +85,20 @@ class ContactControllerTest extends TestCase
             ->json('get', $url)
             ->assertOk()
             ->assertJson(fn (AssertableJson $json) => $json->where('status', 'success')
-                    ->has('paginate')
-                    ->has('benchmark')
-                    ->has('query')
-                    ->has('data')
-                    ->has('data.0', fn ($json) => $json->has('id')
-                            ->where('name', $contact->name)
-                            ->has('phone')
-                            ->has('email')
-                            ->has('first_name')
-                            ->has('avatar')
-                            ->has('created_at')
-                            ->has('updated_at')
-                            ->where('deleted_at', null)
-                            ->etc()));
+                ->has('paginate')
+                ->has('benchmark')
+                ->has('query')
+                ->has('data')
+                ->has('data.0', fn ($json) => $json->has('id')
+                    ->where('name', $contact->name)
+                    ->has('phone')
+                    ->has('email')
+                    ->has('first_name')
+                    ->has('avatar')
+                    ->has('created_at')
+                    ->has('updated_at')
+                    ->where('deleted_at', null)
+                    ->etc()));
     }
 
     /**
@@ -114,20 +114,20 @@ class ContactControllerTest extends TestCase
             ->json('get', $url)
             ->assertOk()
             ->assertJson(fn (AssertableJson $json) => $json->where('status', 'success')
-                    ->has('paginate')
-                    ->has('benchmark')
-                    ->has('query')
-                    ->has('data')
-                    ->has('data.0', fn ($json) => $json->has('id')
-                            ->has('name')
-                            ->where('phone', $contact->phone)
-                            ->has('email')
-                            ->has('first_name')
-                            ->has('avatar')
-                            ->has('created_at')
-                            ->has('updated_at')
-                            ->where('deleted_at', null)
-                            ->etc()));
+                ->has('paginate')
+                ->has('benchmark')
+                ->has('query')
+                ->has('data')
+                ->has('data.0', fn ($json) => $json->has('id')
+                    ->has('name')
+                    ->where('phone', $contact->phone)
+                    ->has('email')
+                    ->has('first_name')
+                    ->has('avatar')
+                    ->has('created_at')
+                    ->has('updated_at')
+                    ->where('deleted_at', null)
+                    ->etc()));
     }
 
     /**
@@ -163,18 +163,18 @@ class ContactControllerTest extends TestCase
             ->json('get', "/contact/{$contact->id}")
             ->assertOk()
             ->assertJson(fn (AssertableJson $json) => $json->where('status', 'success')
-                    ->has('benchmark')
-                    ->has('query')
-                    ->has('data', fn ($json) => $json->where('id', $contact->id)
-                            ->where('name', $contact->name)
-                            ->where('phone', $contact->phone)
-                            ->where('email', $contact->email)
-                            ->where('first_name', $contact->first_name)
-                            ->where('avatar', $contact->avatar)
-                            ->has('created_at')
-                            ->has('updated_at')
-                            ->where('deleted_at', null)
-                            ->etc()));
+                ->has('benchmark')
+                ->has('query')
+                ->has('data', fn ($json) => $json->where('id', $contact->id)
+                    ->where('name', $contact->name)
+                    ->where('phone', $contact->phone)
+                    ->where('email', $contact->email)
+                    ->where('first_name', $contact->first_name)
+                    ->where('avatar', $contact->avatar)
+                    ->has('created_at')
+                    ->has('updated_at')
+                    ->where('deleted_at', null)
+                    ->etc()));
     }
 
     /**
@@ -281,10 +281,10 @@ class ContactControllerTest extends TestCase
             ])
             ->assertStatus(400)
             ->assertJson(fn (AssertableJson $json) => $json->where('status', 'error')
-                    ->has('errors')
-                    ->has('errors.0', fn ($json) => $json->where('status', 400)
-                            ->where('message', 'email')
-                            ->where('detail', 'The email has already been taken.')));
+                ->has('errors')
+                ->has('errors.0', fn ($json) => $json->where('status', 400)
+                    ->where('message', 'email')
+                    ->where('detail', 'The email has already been taken.')));
     }
 
     /**
@@ -302,9 +302,9 @@ class ContactControllerTest extends TestCase
             ])
             ->assertStatus(400)
             ->assertJson(fn (AssertableJson $json) => $json->where('status', 'error')
-                    ->has('errors')
-                    ->has('errors.0', fn ($json) => $json->where('status', 400)
-                            ->where('message', 'email')
-                            ->where('detail', 'The email has already been taken.')));
+                ->has('errors')
+                ->has('errors.0', fn ($json) => $json->where('status', 400)
+                    ->where('message', 'email')
+                    ->where('detail', 'The email has already been taken.')));
     }
 }
