@@ -19,7 +19,7 @@ jobs:
         run: |
           sudo service mysql restart
           mysql -u root -e "CREATE DATABASE IF NOT EXISTS \`test-punchbook\`"
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Get Composer Cache Directory
         id: composer-cache
         run: echo "::set-output name=dir::$(composer config cache-files-dir)"
