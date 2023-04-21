@@ -20,15 +20,17 @@ jobs:
           sudo service mysql restart
           mysql -u root -e "CREATE DATABASE IF NOT EXISTS \`test-punchbook\`"
       - uses: actions/checkout@v3
-      - name: Get Composer Cache Directory
-        id: composer-cache
+      - name: Get composer cache directory
+        id: composercache
         run: echo "::set-output name=dir::$(composer config cache-files-dir)"
-      - uses: actions/cache@v1
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
         with:
-          path: ${{ steps.composer-cache.outputs.dir }}
-          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-composer-
+            path: ${{ steps.composercache.outputs.dir }}
+            key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+            restore-keys: |
+                ${{ runner.os }}-composer-
       - name: 🔨 Install Dependencies
         run: composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
       - name: 🗃️ Migrate tables

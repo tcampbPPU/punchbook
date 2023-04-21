@@ -6,7 +6,7 @@ jobs:
   vapor:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Install Vapor
         run: composer global require laravel/vapor-cli
@@ -19,7 +19,7 @@ jobs:
   fume:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: fumeapp/action@master
         with:
           token: ${{ secrets.FUME_TOKEN }}
