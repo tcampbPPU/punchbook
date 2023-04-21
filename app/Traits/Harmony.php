@@ -228,7 +228,7 @@ trait Harmony
      */
     public function error(string $key, string|array|null $replace = null, int $status = Response::HTTP_BAD_REQUEST, bool $source = false): Response|JsonResponse
     {
-        $translation = __($key, is_array($replace) ? $replace : []) ?? '';
+        $translation = __($key, is_array($replace) ? $replace : []);
 
         $this->addError($key, $translation, $status, $source);
 
