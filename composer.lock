@@ -8843,16 +8843,16 @@
         },
         {
             "name": "fumeapp/modeltyper",
-            "version": "v2.2.2",
+            "version": "v2.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fumeapp/modeltyper.git",
-                "reference": "b71149cc928ece5401b907f30cda6cdb66164d0c"
+                "reference": "0b3b2fc9b4f4ca0e165f793a2fd8293f4b3930a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fumeapp/modeltyper/zipball/b71149cc928ece5401b907f30cda6cdb66164d0c",
-                "reference": "b71149cc928ece5401b907f30cda6cdb66164d0c",
+                "url": "https://api.github.com/repos/fumeapp/modeltyper/zipball/0b3b2fc9b4f4ca0e165f793a2fd8293f4b3930a5",
+                "reference": "0b3b2fc9b4f4ca0e165f793a2fd8293f4b3930a5",
                 "shasum": ""
             },
             "require": {
@@ -8896,9 +8896,9 @@
             "description": "Generate TypeScript interfaces from Laravel Models",
             "support": {
                 "issues": "https://github.com/fumeapp/modeltyper/issues",
-                "source": "https://github.com/fumeapp/modeltyper/tree/v2.2.2"
+                "source": "https://github.com/fumeapp/modeltyper/tree/v2.2.3"
             },
-            "time": "2023-04-20T02:58:40+00:00"
+            "time": "2023-04-21T23:05:38+00:00"
         },
         {
             "name": "hamcrest/hamcrest-php",
