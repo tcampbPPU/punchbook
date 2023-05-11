@@ -2573,16 +2573,16 @@
         },
         {
             "name": "laravel/vapor-core",
-            "version": "v2.30.0",
+            "version": "v2.31.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/vapor-core.git",
-                "reference": "83fe61ad0b0f93ed5fcc115a63eff667de718840"
+                "reference": "4f8b57db2ed99dc5f87584c9a641ef6542c8c882"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/vapor-core/zipball/83fe61ad0b0f93ed5fcc115a63eff667de718840",
-                "reference": "83fe61ad0b0f93ed5fcc115a63eff667de718840",
+                "url": "https://api.github.com/repos/laravel/vapor-core/zipball/4f8b57db2ed99dc5f87584c9a641ef6542c8c882",
+                "reference": "4f8b57db2ed99dc5f87584c9a641ef6542c8c882",
                 "shasum": ""
             },
             "require": {
@@ -2618,6 +2618,9 @@
                 }
             },
             "autoload": {
+                "files": [
+                    "src/debug.php"
+                ],
                 "psr-4": {
                     "Laravel\\Vapor\\": "src"
                 }
@@ -2639,9 +2642,9 @@
                 "vapor"
             ],
             "support": {
-                "source": "https://github.com/laravel/vapor-core/tree/v2.30.0"
+                "source": "https://github.com/laravel/vapor-core/tree/v2.31.0"
             },
-            "time": "2023-04-25T08:47:32+00:00"
+            "time": "2023-05-10T10:11:27+00:00"
         },
         {
             "name": "league/commonmark",
