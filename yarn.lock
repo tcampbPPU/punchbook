@@ -928,10 +928,10 @@
     estree-walker "^2.0.2"
     picomatch "^2.3.1"
 
-"@tailvue/nuxt@^0.1.68":
-  version "0.1.68"
-  resolved "https://registry.yarnpkg.com/@tailvue/nuxt/-/nuxt-0.1.68.tgz#ae042c0f82933141ea9d81080f3e3bb75c6472fb"
-  integrity sha512-AFLn6skqX/UbAZZv4IsiGX9WMi1ET9jSt0xOFYu0GgfDyjLq2iVx491sKcntfyZ6IGzxdN+8hz1miPQwms4ScA==
+"@tailvue/nuxt@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@tailvue/nuxt/-/nuxt-1.0.0.tgz#01cfce291a21be408104c547aef06b6c17c3efcb"
+  integrity sha512-39OV5pfDTF3d8i88Uhxm441lULwlKNm5BEvDDIobCmjOF0ydmC7OCUGCb1TeKNbw9lZ9y0B+UNUsiYKBIEv35w==
   dependencies:
     "@nuxt/kit" "npm:@nuxt/kit-edge@latest"
     pathe "^0.2.0"
