@@ -24,7 +24,7 @@
     "@jamesacarr/eslint-formatter-github-actions": "^0.2.0",
     "@tailvue/nuxt": "^1.0.0",
     "@vue/test-utils": "^2.4.0",
-    "@vueuse/nuxt": "^10.2.0",
+    "@vueuse/nuxt": "^10.2.1",
     "dayjs": "^1.11.7",
     "eslint": "^8.43.0",
     "husky": "^8.0.3",
