@@ -19,7 +19,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@antfu/eslint-config": "^0.39.5",
+    "@antfu/eslint-config": "^0.39.6",
     "@iconify/vue": "^4.1.1",
     "@jamesacarr/eslint-formatter-github-actions": "^0.2.0",
     "@tailvue/nuxt": "^1.0.0",
